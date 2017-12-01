@@ -3,6 +3,10 @@ module.exports = {
         title: 'Arden de Raaij - Front-end Developer',
     },
     plugins: [
+        'gatsby-plugin-react-helmet',
+        'gatsby-plugin-sharp',
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-emotion',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -10,9 +14,6 @@ module.exports = {
                 path: `${__dirname}/content/posts`,
             },
         },
-        'gatsby-plugin-react-helmet',
-        'gatsby-transformer-sharp',
-        'gatsby-plugin-emotion',
         {
             resolve: 'gatsby-transformer-remark',
             options: {
@@ -23,7 +24,7 @@ module.exports = {
                     {
                         resolve: 'gatsby-remark-images',
                         options: {
-                            maxWidth: 960,
+                            maxWidth: 1600,
                             linkImagesToOriginal: false,
                         },
                     },
