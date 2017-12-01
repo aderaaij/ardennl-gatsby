@@ -17,6 +17,15 @@ const ArticleContent = styled.div`
         & a {
             color: ${mc.blueGrey[700]};
         }
+
+        &:first-of-type {
+            &:first-letter {
+                font-size: 2.5em;
+                padding: 0 0.25em;
+                line-height: 1.2;
+                float: left;
+            }
+        }
     }
 
     & .gatsby-highlight {
