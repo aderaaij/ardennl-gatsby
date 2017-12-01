@@ -15,13 +15,24 @@ injectGlobal`
     }
 
     body {
-        font-family: 'ff-tisa-web-pro';
+        font-family: 'ff-tisa-web-pro', georgia, serif;
     }
 
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'proxima-nova';
+        font-family: 'proxima-nova', sans-serif;
         font-weight: 900;
         color: ${mc.blueGrey[800]}
+    }
+
+    .gatsby-resp-image-wrapper {
+        positiom: relative;
+        width: 100vw;
+        left: calc(-50vw + 50%);
+
+        @media(min-width: 1200px) {
+            width: 80vw;
+            left: calc(-40vw + 50%);
+        }
     }
 `;
 
@@ -32,7 +43,8 @@ const SiteHeader = styled.header`
     flex-direction: column;
     height: 60px;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+    margin: 0 auto;
 `;
 
 const Logo = styled.svg`
