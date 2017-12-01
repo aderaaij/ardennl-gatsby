@@ -7,7 +7,6 @@ tags:
     - gatsby
     - javascript
 ---
-# Quanto et ius coniunctis urbes
 
 ## Sedisti civiliter
 
