@@ -1,6 +1,6 @@
 ---
 title: "Taking Gatsby for a spin"
-# cover: https://unsplash.it/400/300/?random?BoldMage
+cover: ./great-gatsby.jpg
 date: "2017-11-30"
 category: "webdevelopment"
 tags:
@@ -25,6 +25,8 @@ love to use and improve on, so you'd naturally that was my go-to when I started
 thinking about making myself a new site. But as Gatsby is based on React and I saw
 all kinds of integrated goodness coming by like SVG trace image preloading, I 
 really felt that Gatsby deserved a fair chance.
+
+![alt text](./image-01.jpg "image")
 
 ## Vultusque subsequitur Pallas regis datis inde animaque
 
