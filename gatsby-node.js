@@ -1,5 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
+const webpackLodashPlugin = require('lodash-webpack-plugin');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const postNodes = [];
@@ -37,19 +38,39 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators;
     return new Promise((resolve, reject) => {
         graphql(`
-        {
-          allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  slug
+            {
+                allMarkdownRemark {
+                    edges {
+                        node {
+                            frontmatter {
+                                tags
+                                category
+                            }
+                            fields {
+                                slug
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
-        }
       `).then((result) => {
-            result.data.allMarkdownRemark.edges.map(({ node }) => {
+            if (result.errors) {
+                console.log(result.errors);
+                reject(result.errors);
+            }
+            const tagSet = new Set();
+            const categorySet = new Set();
+            result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+                if (node.frontmatter.tags) {
+                    node.frontmatter.tags.forEach((tag) => {
+                        tagSet.add(tag);
+                    });
+                }
+
+                if (node.frontmatter.category) {
+                    categorySet.add(node.frontmatter.category);
+                }
+
                 createPage({
                     path: node.fields.slug,
                     component: path.resolve('./src/templates/blog-post.js'),
@@ -58,6 +79,28 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                         slug: node.fields.slug,
                     },
                 });
+
+                const tagList = Array.from(tagSet);
+                tagList.forEach((tag) => {
+                    createPage({
+                        path: `/tags/${_.kebabCase(tag)}/`,
+                        component: path.resolve('./src/templates/tag.js'),
+                        context: {
+                            tag,
+                        },
+                    });
+                });
+
+                // const categoryList = Array.from(categorySet);
+                // categoryList.forEach((category) => {
+                //     createPage({
+                //         path: `/categories/${_.kebabCase(category)}/`,
+                //         component: path.resolve('./src/templates/blog-post.js'),
+                //         context: {
+                //             category,
+                //         },
+                //     });
+                // });
             });
             resolve();
         });
@@ -70,5 +113,11 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
             test: /intersection-observer/,
             loader: 'null-loader',
         });
+    }
+};
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+    if (stage === 'build-javascript') {
+        config.plugin('Lodash', webpackLodashPlugin, null);
     }
 };
