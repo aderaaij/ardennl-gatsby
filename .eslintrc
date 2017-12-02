@@ -1,0 +1,84 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "extends": "airbnb",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "globals": {
+        "graphql": true
+    },
+    "rules": {
+        "react/jsx-filename-extension": 0,
+        "react/jsx-indent": [
+            "error",
+            4
+        ],
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "to" ]
+        }],
+        "no-unused-expressions": [
+            "error",
+            {
+                "allowTaggedTemplates": true
+            }
+        ],
+        "no-use-before-define": [
+            1,
+            {
+                "functions": false,
+                "classes": false
+            }
+        ],
+        "func-names": 0,
+        "no-unused-vars": 1,
+        "no-underscore-dangle": 0,
+        "no-console": 0,
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-plusplus": [
+            "warn"
+        ],
+        "import/no-unresolved": [
+            "warn"
+        ],
+        "import/extensions": [
+            "warn"
+        ],
+        "import/no-extraneous-dependencies": [
+            "warn"
+        ],
+        "max-len": [
+            "warn"
+        ]
+    }
+}
