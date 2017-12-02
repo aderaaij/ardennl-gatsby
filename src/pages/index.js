@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
+import mc from 'material-colors';
 
 const BgImage = styled(Img)`    
     width: 100%;
@@ -11,7 +12,7 @@ const BgImage = styled(Img)`
     
     & > img {
         display: block;
-        font-family: 'object-fit: cover !important; object-position: 0% 0% !important;' // needed for IE9+ polyfill
+        font-family: 'object-fit: cover !important; object-position: 0% 0% !important;'
     }
 
     &::before {
@@ -20,19 +21,15 @@ const BgImage = styled(Img)`
         height: 100%;
         position: absolute;
         z-index: 1;
-        background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+        // background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
     }
 `;
-
 
 const Home = (props) => {
     const { data } = props;
     const { imageSharp } = data;
-    console.log(imageSharp);
     return (
-        <div>
-            <BgImage sizes={imageSharp.sizes} />
-        </div>
+        <BgImage sizes={imageSharp.sizes} />
     );
 };
 
@@ -45,7 +42,12 @@ export default Home;
 export const query = graphql`
     query IndexQuery {
         imageSharp(id: { regex: "/home/" }) {
-            sizes {
+            sizes( 
+                traceSVG: {
+                    color: "#CFD8DC",
+                    blackOnWhite: true,
+                }
+            ) {
                 # base64
                 tracedSVG
                 # aspectRatio
@@ -56,30 +58,6 @@ export const query = graphql`
                 sizes
                 originalImg
                 originalName
-            }
-        }
-        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-            edges {
-                node {
-                    id
-                    frontmatter {
-                        title
-                        cover {
-                            id
-                            relativePath
-                            childImageSharp {
-                                resolutions {
-                                    src
-                                }
-                            }
-                        }
-                        date(formatString: "DD MMMM, YYYY")
-                    }         
-                    fields {
-                        slug
-                    }
-                    excerpt
-                }
             }
         }
     }
