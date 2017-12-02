@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 import Img from 'gatsby-image';
@@ -77,28 +78,31 @@ const imgStyle = css`
     }
 `;
 
-const BlogList = (props, context) => {
+const BlogList = (props) => {
     const { edges } = props.data.allMarkdownRemark;
-    console.log(edges[0].node.frontmatter.cover.childImageSharp.sizes);
     return (
-      <BlogSection>
+        <BlogSection>
             {edges.map(({ node }) => (
-          <BlogArticle key={node.id}>
-                <Link
+                <BlogArticle key={node.id}>
+                    <Link
                         className={BlogLink}
                         to={node.fields.slug}
                     >
-                      <Img className={imgStyle} alt="Picture of X" sizes={node.frontmatter.cover.childImageSharp.sizes} />
-                      <BlogContent>
-                          <span>{node.frontmatter.date}</span>
-                          <h2>{node.frontmatter.title}</h2>
-                          <p>{node.excerpt}</p>
+                        <Img className={imgStyle} alt="Picture of X" sizes={node.frontmatter.cover.childImageSharp.sizes} />
+                        <BlogContent>
+                            <span>{node.frontmatter.date}</span>
+                            <h2>{node.frontmatter.title}</h2>
+                            <p>{node.excerpt}</p>
                         </BlogContent>
                     </Link>
-              </BlogArticle>
+                </BlogArticle>
             ))}
         </BlogSection>
     );
+};
+
+BlogList.propTypes = {
+    data: PropTypes.object.isRequired,
 };
 
 export default BlogList;
