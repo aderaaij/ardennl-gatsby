@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
@@ -33,6 +34,10 @@ const Home = (props) => {
             <BgImage sizes={imageSharp.sizes} />
         </div>
     );
+};
+
+Home.propTypes = {
+    data: PropTypes.object.isRequired,
 };
 
 export default Home;
