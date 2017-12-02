@@ -24,18 +24,16 @@ const BgImage = styled(Img)`
 `;
 
 
-class Home extends React.Component {
-    render() {
-        const { data } = this.props;
-        const { imageSharp } = data;
-        console.log(imageSharp);
-        return (
-            <div>
-                <BgImage sizes={imageSharp.sizes} />
-          </div>
-        );
-    }
-}
+const Home = (props) => {
+    const { data } = props;
+    const { imageSharp } = data;
+    console.log(imageSharp);
+    return (
+        <div>
+            <BgImage sizes={imageSharp.sizes} />
+        </div>
+    );
+};
 
 export default Home;
 
