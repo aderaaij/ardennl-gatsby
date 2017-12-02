@@ -7,7 +7,6 @@ import styled, { css } from 'react-emotion';
 
 import mc from 'material-colors';
 
-console.log(mc);
 const BlogSection = styled.section`
     width: 100%;
 `;
@@ -78,30 +77,29 @@ const imgStyle = css`
     }
 `;
 
-class BlogList extends React.Component {
-    render() {
-        const { edges } = this.props.data.allMarkdownRemark;
-        console.log(edges[0].node.frontmatter.cover.childImageSharp.sizes);
-        return (
-            <BlogSection>
-                {edges.map(({ node }) => (
-                    <BlogArticle key={node.id}>
-                        <Link className={BlogLink}
-                            to={node.fields.slug}
-                        >
-                            <Img className={imgStyle} alt="Picture of X" sizes={node.frontmatter.cover.childImageSharp.sizes}/>
-                            <BlogContent>
-                                <span>{node.frontmatter.date}</span>
-                                <h2>{node.frontmatter.title}</h2>
-                                <p>{node.excerpt}</p>
-                            </BlogContent>
-                        </Link>
-                    </BlogArticle>
-                ))}
-            </BlogSection>
-        );
-    }
-}
+const BlogList = (props, context) => {
+    const { edges } = props.data.allMarkdownRemark;
+    console.log(edges[0].node.frontmatter.cover.childImageSharp.sizes);
+    return (
+      <BlogSection>
+            {edges.map(({ node }) => (
+          <BlogArticle key={node.id}>
+                <Link
+                        className={BlogLink}
+                        to={node.fields.slug}
+                    >
+                      <Img className={imgStyle} alt="Picture of X" sizes={node.frontmatter.cover.childImageSharp.sizes} />
+                      <BlogContent>
+                          <span>{node.frontmatter.date}</span>
+                          <h2>{node.frontmatter.title}</h2>
+                          <p>{node.excerpt}</p>
+                        </BlogContent>
+                    </Link>
+              </BlogArticle>
+            ))}
+        </BlogSection>
+    );
+};
 
 export default BlogList;
 
