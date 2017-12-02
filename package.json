@@ -22,6 +22,7 @@
     "gatsby-transformer-sharp": "^1.6.15",
     "intersection-observer": "^0.4.3",
     "lodash": "^4.17.4",
+    "lodash-webpack-plugin": "^0.11.4",
     "material-colors": "^1.2.5",
     "normalize.css": "^7.0.0",
     "react-emotion": "^8.0.12"
