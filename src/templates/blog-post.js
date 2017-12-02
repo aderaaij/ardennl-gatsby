@@ -115,8 +115,6 @@ const ArticleContent = styled.div`
 `;
 
 function preventWidow(string) {
-    // Adds the unicode character for a non breaking space
-    // Between the last two words
     return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
 }
 
