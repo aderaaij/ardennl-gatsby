@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { fontFace, injectGlobal } from 'emotion';
 import styled, { css } from 'react-emotion';
@@ -118,7 +119,7 @@ function preventWidow(string) {
     return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
 }
 
-export default ({ data }) => {
+const BlogPost = ({ data }) => {
     const { frontmatter, html } = data.markdownRemark;
     const { childImageSharp } = frontmatter.cover;
     return (
@@ -136,6 +137,12 @@ export default ({ data }) => {
         </article>
     );
 };
+
+BlogPost.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default BlogPost;
 
 export const query = graphql`
     query BlogPostQuery($slug: String!) {
