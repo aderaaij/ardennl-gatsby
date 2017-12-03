@@ -29,11 +29,23 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         tags
+                        category
                         date(formatString: "DD MMMM, YYYY")
                         cover {
                             id
                             relativePath
                             childImageSharp {
+                                resize(
+                                    width: 400, 
+                                    height: 300
+                                ) {
+                                    src
+                                    tracedSVG
+                                    width
+                                    height
+                                    aspectRatio
+                                    originalName
+                                }
                                 sizes(
                                     maxWidth: 400,
                                     traceSVG: {
