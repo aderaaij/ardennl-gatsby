@@ -5,6 +5,7 @@ date: "2017-08-29"
 category: "webdevelopment"
 tags:
     - career
+published: true
 ---
 
 Hi, I'm Arden and I've been a geek for technology as long as I can remember. I became a front-end developer somewhere in the last decade and now I'm wondering what the next decade will bring me. 

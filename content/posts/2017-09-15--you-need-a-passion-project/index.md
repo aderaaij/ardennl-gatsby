@@ -5,6 +5,7 @@ date: "2017-09-15"
 category: "webdevelopment"
 tags:
     - career
+published: true
 ---
 
 Okay NEED is a big word, but isn't it awesome to combine two things you love and make something out of it on your own terms? I assume you already love coding, add something else you love and *voila*: Passion project.
