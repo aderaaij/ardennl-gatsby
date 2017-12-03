@@ -171,7 +171,7 @@ const BlogPost = ({ data }) => {
             <ArticleHeader>
                 <span>{frontmatter.date}</span>
                 <h1>{preventWidow(frontmatter.title)}</h1>
-                <TagList>
+                {/* <TagList>
                     <span>Tags:</span>
                     <ul>
                         {frontmatter.tags.map(tag => (
@@ -180,7 +180,7 @@ const BlogPost = ({ data }) => {
                             </li>
                         ))}
                     </ul>
-                </TagList>
+                </TagList> */}
             </ArticleHeader>
             <ArticleHero>
                 <Img
