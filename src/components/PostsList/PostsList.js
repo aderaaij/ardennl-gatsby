@@ -7,6 +7,7 @@ import PostExcerpt from '../PostExcerpt/PostExcerpt';
 
 const BlogSection = styled.section`
     width: 100%;
+    padding-top: 60px;
 `;
 
 class PostsList extends React.Component {
