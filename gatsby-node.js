@@ -1,7 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
 const webpackLodashPlugin = require('lodash-webpack-plugin');
-const { createFilePath } = require('gatsby-source-filesystem');
 
 const postNodes = [];
 
@@ -95,7 +94,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 categoryList.forEach((category) => {
                     createPage({
                         path: `/categories/${_.kebabCase(category)}/`,
-                        component: path.resolve('./src/templates/tag.js'),
+                        component: path.resolve('./src/templates/category.js'),
                         context: {
                             category,
                         },
