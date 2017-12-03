@@ -28,7 +28,9 @@ const BlogContent = styled.div`
     padding: 1em 0;
 
     @media (min-width: 768px) {
-        padding: 2em;
+        padding: 0 2em;
+        display: flex;
+        align-items: center;
     }
 
     & > span {
@@ -64,26 +66,26 @@ const BlogContent = styled.div`
 const ExcerptMeta = styled.ul`
     color: ${mc.blueGrey[300]};
     font-style: italic;
-    display: flex;  
     font-size: 1rem;
     list-style: none;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
     text-transform: lowercase;
 
-    & ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+    @media (min-width: 768px) {
         display: flex;
-    }    
+        line-height: 1;
+    }
 
     & > li {
         font-size: 1rem; 
 
-        &::after {
-            content: '|';
-            margin: 0 0.5em;
+        @media (min-width: 768px) {
+            &::after {
+                content: '|';
+                margin: 0 0.5em;
+            }
         }
 
         &:last-child {
@@ -117,6 +119,7 @@ const TagList = styled.div`
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
     }   
 
     a {
@@ -185,32 +188,34 @@ const PostExcerpt = (props) => {
     console.log(postInfo);
     return (
         <BlogArticle onClick={e => goToPage(e, postInfo.path)}>
-            <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resize} />
+            <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resolutions} />
             <BlogContent>
-                <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
-                <h2>
-                    <Link to={postInfo.path}>{postInfo.title}</Link>
-                </h2>
-                <p>{postInfo.excerpt}</p>
-                <ExcerptMeta>
-                    <li>
-                        <span>{postInfo.date}</span>
-                    </li>
-                    <li>
-                        <TagList>
-                            <span>Tagged:</span>
-                            <ul>
-                                {postInfo.tags.map(tag => (
-                                    <li key={tag}>
-                                        <Link to={`/tags/${tag}`}>
-                                            {tag}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </TagList>
-                    </li>
-                </ExcerptMeta>
+                <div>
+                    <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
+                    <h2>
+                        <Link to={postInfo.path}>{postInfo.title}</Link>
+                    </h2>
+                    <p>{postInfo.excerpt}</p>
+                    <ExcerptMeta>
+                        <li>
+                            <span>{postInfo.date}</span>
+                        </li>
+                        <li>
+                            <TagList>
+                                <span>Tagged:</span>
+                                <ul>
+                                    {postInfo.tags.map(tag => (
+                                        <li key={tag}>
+                                            <Link to={`/tags/${tag}`}>
+                                                {tag}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </TagList>
+                        </li>
+                    </ExcerptMeta>
+                </div>
             </BlogContent>
         </BlogArticle>
     );
