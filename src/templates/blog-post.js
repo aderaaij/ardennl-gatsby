@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
-
+import Link from 'gatsby-link';
 import mc from 'material-colors';
 import 'prismjs/themes/prism-twilight.css';
 
@@ -30,17 +30,8 @@ const ArticleHeader = styled.header`
         padding-bottom: 4em;
     }
 
-    & span {
-        display: block;
-        font-size: 1.125em;
-        margin: 0 0 1em;
-        color: ${mc.blueGrey[300]}
-        text-transform: lowercase;
-        font-style: italic;
-    }
-
     & h1 {
-        margin: 0;
+        margin: 0 0 0.25em;
         font-size: 2em;
         letter-spacing: -0.5px;
         color: ${mc.cyan[700]};
@@ -62,12 +53,6 @@ const ArticleHero = styled.figure`
     @media(min-width: 768px) {  
         height: 70vh;
         margin: 0 auto 4em;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
     }
 `;
 
@@ -142,22 +127,95 @@ const ArticleContent = styled.div`
     }
 `;
 
-const TagList = styled.div`
-    display: flex;
-    
+const ExcerptMeta = styled.ul`
+    color: ${mc.blueGrey[300]};
+    font-style: italic;
+    display: flex;  
+    font-size: 1.125em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-transform: lowercase;
+
     & ul {
         list-style: none;
         margin: 0;
         padding: 0;
         display: flex;
-        color: ${mc.blueGrey[300]};
-        font-style: italic;
     }    
 
-    li {
-        margin: 0 0.5em 0 0;
+    & > li {
+
+        &::after {
+            content: '|';
+            margin: 0 0.5em;
+        }
+
+        &:last-child {
+            display: flex;
+
+            &::after {
+                content: '';
+                margin: 0;
+            }
+        }
+    }
+
+    & a {
+        text-decoration: none;
+        color: ${mc.blueGrey[300]};
     }
 `;
+
+const TagList = styled.div`
+    display: flex;
+
+    span {
+        margin-right: 1ch;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }   
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    li {
+        &::after {
+            content: ',';
+            margin-right: 1ch;
+        }
+
+        &:last-child {
+            &::after {
+                content: '';
+                margin: 0;
+            }
+        }
+    }
+`;
+
+const CatLink = styled(Link)`
+    margin: 0 0 1em;
+    font-size: 1.125em;
+    font-style: italic;
+    display: block;
+    text-decoration: none;
+    color: ${mc.blueGrey[300]};
+
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
 
 function preventWidow(string) {
     return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
@@ -166,21 +224,31 @@ function preventWidow(string) {
 const BlogPost = ({ data }) => {
     const { frontmatter, html } = data.markdownRemark;
     const { childImageSharp } = frontmatter.cover;
+    console.log(data);
     return (
         <article>
             <ArticleHeader>
-                <span>{frontmatter.date}</span>
+                <CatLink to={`/categories/${frontmatter.category}`}>{frontmatter.category}</CatLink>
                 <h1>{preventWidow(frontmatter.title)}</h1>
-                {/* <TagList>
-                    <span>Tags:</span>
-                    <ul>
-                        {frontmatter.tags.map(tag => (
-                            <li key={tag}>
-                                {tag}
-                            </li>
-                        ))}
-                    </ul>
-                </TagList> */}
+                <ExcerptMeta>
+                    <li>
+                        <span>{frontmatter.date}</span>
+                    </li>
+                    <li>
+                        <TagList>
+                            <span>Tagged:</span>
+                            <ul>
+                                {frontmatter.tags.map(tag => (
+                                    <li key={tag}>
+                                        <Link to={`/tags/${tag}`}>
+                                            {tag}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </TagList>
+                    </li>
+                </ExcerptMeta>
             </ArticleHeader>
             <ArticleHero>
                 <Img
@@ -207,6 +275,9 @@ export const query = graphql`
     query BlogPostQuery($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
+            fields {
+                slug
+            }
             frontmatter {
                 title
                 date(formatString: "DD MMMM, YYYY")
@@ -222,16 +293,12 @@ export const query = graphql`
                                 blackOnWhite: true,
                             }
                         ) {
-                            # base64
                             tracedSVG
                             aspectRatio
-                            # width
-                            # height
                             src
                             srcSet
                             srcWebp
                             srcSetWebp
-                            # originalName
                         }
                     }
                 }
