@@ -44,6 +44,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                             frontmatter {
                                 tags
                                 category
+                                published
                             }
                             fields {
                                 slug
@@ -70,6 +71,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     categorySet.add(node.frontmatter.category);
                 }
 
+
                 createPage({
                     path: node.fields.slug,
                     component: path.resolve('./src/templates/blog-post.js'),
@@ -78,6 +80,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                         slug: node.fields.slug,
                     },
                 });
+
 
                 const tagList = Array.from(tagSet);
                 tagList.forEach((tag) => {
