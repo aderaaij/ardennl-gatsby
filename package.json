@@ -26,7 +26,8 @@
     "material-colors": "^1.2.5",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
-    "react-emotion": "^8.0.12"
+    "react-emotion": "^8.0.12",
+    "react-headroom": "^2.2.2"
   },
   "keywords": [
     "gatsby"
