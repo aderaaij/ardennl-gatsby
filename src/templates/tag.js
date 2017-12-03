@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import PostsList from '../components/PostsList/PostsList';
 
 const TagTemplate = ({ data }) => {
@@ -45,20 +44,6 @@ export const pageQuery = graphql`
                                     height
                                     aspectRatio
                                     originalName
-                                }
-                                sizes(
-                                    maxWidth: 400,
-                                    traceSVG: {
-                                        color: "#CFD8DC",
-                                        blackOnWhite: true,
-                                    }
-                                ) {
-                                    tracedSVG
-                                    aspectRatio
-                                    src                                    
-                                    srcSet                                    
-                                    srcWebp
-                                    srcSetWebp
                                 }
                             }
                         }
