@@ -4,7 +4,7 @@ import Link, { navigateTo } from 'gatsby-link';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import mc from 'material-colors';
-
+import Tag from '../TagLabel/TagLabel';
 
 const BlogArticle = styled.article`
     display: block;
@@ -175,6 +175,11 @@ const CatLink = styled(Link)`
     }
 `;
 
+const TagPos = css`
+    float: right;
+    background: ${mc.deepOrange[700]};
+`;
+
 function goToPage(e, slug) {
     if (e.target.tagName === 'A') {
         e.preventDefault();
@@ -185,12 +190,14 @@ function goToPage(e, slug) {
 
 const PostExcerpt = (props) => {
     const { postInfo } = props;
-    console.log(postInfo);
     return (
         <BlogArticle onClick={e => goToPage(e, postInfo.path)}>
             <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resolutions} />
             <BlogContent>
                 <div>
+                    {!postInfo.published &&
+                    <Tag style={TagPos} tagText="unpublished" />
+                    }
                     <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
                     <h2>
                         <Link to={postInfo.path}>{postInfo.title}</Link>
