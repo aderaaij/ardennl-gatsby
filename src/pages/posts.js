@@ -43,20 +43,6 @@ export const query = graphql`
                                     aspectRatio
                                     originalName
                                 }
-                                sizes(
-                                    maxWidth: 400,
-                                    traceSVG: {
-                                        color: "#CFD8DC",
-                                        blackOnWhite: true,
-                                    }
-                                ) {
-                                    tracedSVG
-                                    aspectRatio
-                                    src                                    
-                                    srcSet                                    
-                                    srcWebp
-                                    srcSetWebp
-                                }
                             }
                         }
                     }         
