@@ -17,6 +17,7 @@ class PostsList extends React.Component {
             postList.push({
                 path: postEdge.node.fields.slug,
                 tags: postEdge.node.frontmatter.tags,
+                category: postEdge.node.frontmatter.category,
                 cover: postEdge.node.frontmatter.cover,
                 title: postEdge.node.frontmatter.title,
                 date: postEdge.node.frontmatter.date,
