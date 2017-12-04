@@ -5,6 +5,8 @@ import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import mc from 'material-colors';
 
+import SEO from '../components/SEO/SEO';
+
 const BgImage = styled(Img)`    
     width: 100%;
     z-index: -1;
@@ -72,6 +74,7 @@ const Home = (props) => {
     const { imageSharp } = data;
     return (
         <div>
+            <SEO />
             <BgImage sizes={imageSharp.sizes} />
             <HomeContent>
                 <div>
@@ -102,9 +105,7 @@ export const query = graphql`
                     blackOnWhite: true,
                 }
             ) {
-                # base64
                 tracedSVG
-                # aspectRatio
                 src
                 srcSet
                 srcWebp
