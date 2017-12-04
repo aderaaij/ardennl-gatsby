@@ -1,9 +1,9 @@
 module.exports = {
-    blogPostDir: 'posts',
     siteName: 'Arden.nl',
-    siteLogo: '/logos/logo-1024.png',
+    siteLogo: '/logo/logo_space.png',
     siteUrl: 'https://arden.nl',
-    siteDescription: 'Arden de Raaij, Front-end / Web Developer based in Lisbon, Portugal', // Website description used for RSS feeds/meta description tag.
+    siteTitle: 'Arden de Raaij, Front-end Web Developer',
+    siteDescription: 'Front-end Web Developer based in Lisbon, Portugal. I create awesome websites/web-apps which are enjoyable and fun to use.', // Website description used for RSS feeds/meta description tag.
     siteLanguage: 'en_US',
     siteLinks: {
         Github: {
@@ -16,19 +16,4 @@ module.exports = {
             handle: 'ardennl',
         },
     },
-    userSocial: [
-        {
-            name: 'GitHub',
-            handle: 'aderaaij',
-        },
-        {
-            name: 'Twitter',
-            handle: 'ardennl',
-        },
-        {
-            name: 'Email',
-            address: 'a.de.raaij@gmail.com',
-        },
-    ],
-    copyright: 'Copyright © 2017. Material User', // Copyright string for the footer of the website and RSS feed.
 };
