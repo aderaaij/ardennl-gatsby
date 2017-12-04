@@ -17,13 +17,10 @@ const Tag = styled.div`
     font-weight: 700;
 `;
 
-const TagLabel = (props) => {
-    console.log(props);
-    return (
-        <Tag className={props.style}>
-            {props.tagText}
-        </Tag>
-    );
-};
+const TagLabel = props => (
+    <Tag className={props.style}>
+        {props.tagText}
+    </Tag>
+);
 
 export default TagLabel;
