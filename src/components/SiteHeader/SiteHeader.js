@@ -11,43 +11,48 @@ import mc from 'material-colors';
 
 
 const Header = styled.header`
-align-items: center;
-background: ${mc.blueGrey[900]};
-display: flex;
-align-items: center;
-height: 60px;
-width: 100%;
-margin: 0 auto;
-padding: 0 2em;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 501;
+    align-items: center;
+    background: ${mc.blueGrey[900]};
+    
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2em;
 `;
 
 const SiteNav = styled.nav`
-font-family: 'proxima-nova', sans-serif;
-font-weight: 700;
-letter-spacing: -0.5px;
-text-transform: uppercase;
-font-size: 1.125em;
+    font-family: 'proxima-nova', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    font-size: 1.125em;
 
-& ul {
-    list-style: none;
-}
+    & ul {
+        list-style: none;
+    }
 
-a {
-    color: #fff;
-    text-decoration: none;
-}
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 `;
 
 const Logo = styled(Link)`
-width: 130px;
-display: block;
-height: auto;
-fill: #fff;
-
-& svg {
+    width: 130px;
     display: block;
-    width: 100%;
-}
+    height: auto;
+    fill: #fff;
+
+    & svg {
+        display: block;
+        width: 100%;
+    }
 `;
 
 const SiteHeader = () => (
