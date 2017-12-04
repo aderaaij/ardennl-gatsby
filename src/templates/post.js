@@ -123,22 +123,27 @@ const ArticleContent = styled.div`
 const ExcerptMeta = styled.ul`
     color: ${mc.blueGrey[300]};
     font-style: italic;
-    display: flex;  
     font-size: 1.125em;
     list-style: none;
     margin: 0;
     padding: 0;
     text-transform: lowercase;
-    & ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+
+    @media (min-width: 768px) {
         display: flex;
     }
+
     & > li {
+        line-height: 1.5;
+
+        @media (min-width: 768px) {
+            line-height: 1;
+        }
         &::after {
-            content: '|';
-            margin: 0 0.5em;
+            @media (min-width: 768px) {
+                content: '|';
+                margin: 0 0.5em;
+            }
         }
         &:last-child {
             display: flex;
@@ -163,6 +168,7 @@ const TagList = styled.div`
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
     }
     a {
         text-decoration: none;
