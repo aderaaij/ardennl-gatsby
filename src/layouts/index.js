@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectGlobal } from 'emotion';
-import config from '../../data/site-config';
 import 'normalize.css';
 import mc from 'material-colors';
-
+import config from '../../data/site-config';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import Piwik from '../components/Piwik/Piwik';
+
 
 injectGlobal`
     * {
@@ -54,14 +54,15 @@ const PiwikScript = () => (
         `}
     </script>
 );
+
 const TemplateWrapper = ({ children }) => (
     <div>
         <Helmet
             title={config.siteDescription}
         >
             <link rel="stylesheet" href="https://use.typekit.net/qru3ayc.css" />
-            {PiwikScript()}
         </Helmet>
+        <Piwik />
         <SiteHeader />
         {children()}
     </div>
