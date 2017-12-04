@@ -29,12 +29,13 @@ export const pageQuery = graphql`
                         title
                         tags
                         category
+                        published
                         date(formatString: "DD MMMM, YYYY")
                         cover {
                             id
                             relativePath
                             childImageSharp {
-                                resize(
+                                resolutions(
                                     width: 400, 
                                     height: 300
                                 ) {
