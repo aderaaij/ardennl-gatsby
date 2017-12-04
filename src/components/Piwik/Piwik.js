@@ -1,6 +1,8 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
-const Piwik = () => (
+
+const PiwikScript = () => (
     <script type="text/javascript">{`
         var _paq = _paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -16,6 +18,12 @@ const Piwik = () => (
         // End Piwik Code                
     `}
     </script>
+);
+
+const Piwik = () => (
+    <Helmet>
+        {PiwikScript()}
+    </Helmet>
 );
 
 export default Piwik;
