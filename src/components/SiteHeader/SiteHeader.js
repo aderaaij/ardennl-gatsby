@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { fontFace, injectGlobal } from 'emotion';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 
 import 'normalize.css';
 import mc from 'material-colors';
@@ -38,7 +38,6 @@ const SiteNav = styled.nav`
     }
 
     a {
-        color: #fff;
         text-decoration: none;
     }
 `;
@@ -55,6 +54,15 @@ const Logo = styled(Link)`
     }
 `;
 
+const navItem = css`
+    text-decoration: none;
+    color: #ffffff;
+`;
+
+const activeNavItem = css`
+    color: ${mc.cyan[700]};
+`;
+
 const SiteHeader = () => (
     <Header>
         <Logo to="/">
@@ -66,7 +74,7 @@ const SiteHeader = () => (
         <SiteNav>
             <ul>
                 <li>
-                    <Link to="/posts/">Blog</Link>
+                    <Link className={navItem} activeClassName={activeNavItem} to="/posts/">Blog</Link>
                 </li>
             </ul>
         </SiteNav>
