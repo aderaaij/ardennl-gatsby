@@ -16,6 +16,7 @@ class PostsList extends React.Component {
         const { edges } = this.props;
         edges.forEach((postEdge) => {
             postList.push({
+                published: postEdge.node.frontmatter.published,
                 path: postEdge.node.fields.slug,
                 tags: postEdge.node.frontmatter.tags,
                 category: postEdge.node.frontmatter.category,
@@ -28,12 +29,22 @@ class PostsList extends React.Component {
         });
         return postList;
     }
-    render() {
+
+    renderPostExcerpt() {
         const postList = this.getPostList();
+        return postList.map((post) => {
+            if (process.env.NODE_ENV === 'production' && post.published) {
+                return <PostExcerpt key={post.title} postInfo={post} />;
+            } else if (process.env.NODE_ENV === 'development') {
+                return <PostExcerpt key={post.title} postInfo={post} />;
+            }
+            return false;
+        });
+    }
+    render() {
         return (
             <BlogSection>
-                {postList.map(post =>
-                    <PostExcerpt key={post.title} postInfo={post} />)}
+                {this.renderPostExcerpt()}
             </BlogSection>
         );
     }
