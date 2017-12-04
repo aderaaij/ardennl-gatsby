@@ -1,11 +1,28 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
+import config from '../../data/site-config';
 
-const CategoryTemplate = ({ data }) => {
-    const { edges } = data.allMarkdownRemark;
+const CategoryTemplate = (props) => {
+    const { edges } = props.data.allMarkdownRemark;
+    const { category } = props.pathContext;
     return (
-        <PostsList edges={edges} />
+        <div>
+            <SEO />
+            <Helmet>
+                <title>{`Posts in category '${category}' | ${config.siteName}`}</title>
+                <link rel="canonical" href={`${config.siteUrl}/about/`} />
+            </Helmet>
+            <PostsList edges={edges} />
+        </div>
     );
+};
+
+CategoryTemplate.propTypes = {
+    data: PropTypes.object.isRequired,
+    pathContext: PropTypes.string.isRequired,
 };
 
 export default CategoryTemplate;
