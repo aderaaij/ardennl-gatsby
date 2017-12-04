@@ -23,7 +23,7 @@ const TagTemplate = (props) => {
 
 TagTemplate.propTypes = {
     data: PropTypes.object.isRequired,
-    pathContext: PropTypes.string.isRequired,
+    pathContext: PropTypes.object.isRequired,
 };
 
 export default TagTemplate;
