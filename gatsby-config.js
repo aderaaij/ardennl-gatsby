@@ -1,3 +1,5 @@
+const config = require('./data/site-config.js');
+
 module.exports = {
     siteMetadata: {
         title: 'Arden de Raaij - Front-end Developer',
@@ -41,6 +43,29 @@ module.exports = {
                             maxWidth: 1600,
                             linkImagesToOriginal: false,
                         },
+                    },
+                ],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                name: config.siteName,
+                short_name: config.siteName,
+                start_url: '/',
+                background_color: '#ffffff',
+                theme_color: '#ffffff',
+                display: 'minimal-ui',
+                icons: [
+                    {
+                        src: '/favicons/android-chrome-192x192.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                    {
+                        src: '/favicons/android-chrome-512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
                     },
                 ],
             },
