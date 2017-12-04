@@ -1,13 +1,22 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import PostsList from '../components/PostsList/PostsList';
+import SEO from '../components/SEO/SEO';
+import config from '../../data/site-config';
 
 const BlogList = (props) => {
     const { edges } = props.data.allMarkdownRemark;
-    console.log(edges);
     return (
-        <PostsList edges={edges} />
+        <div>
+            <SEO />
+            <Helmet>
+                <title>{`Blog | ${config.siteName}`}</title>
+                <link rel="canonical" href={`${config.siteUrl}/about/`} />
+            </Helmet>
+            <PostsList edges={edges} />
+        </div>
     );
 };
 
