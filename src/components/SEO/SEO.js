@@ -21,7 +21,7 @@ const SEO = (props) => {
         currentUrl = `${config.siteUrl}${post.fields.slug}`;
     } else {
         currentDescription = config.siteDescription;
-        currentTitle = config.siteName;
+        currentTitle = config.siteTitle;
         currentUrl = config.siteUrl;
         currentImage = config.siteLogo;
     }
