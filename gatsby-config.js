@@ -2,7 +2,8 @@ const config = require('./data/site-config.js');
 
 module.exports = {
     siteMetadata: {
-        title: 'Arden de Raaij - Front-end Developer',
+        title: 'Arden de Raaij - Front-end Web Developer',
+        siteUrl: config.siteUrl,
     },
     plugins: [
         'gatsby-plugin-react-helmet',
@@ -71,5 +72,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-offline',
+        'gatsby-plugin-sitemap',
     ],
 };

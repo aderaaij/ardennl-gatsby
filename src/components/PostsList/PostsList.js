@@ -1,13 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import mc from 'material-colors';
 
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
 
-const BlogSection = styled.section`
+const GridBase = css`
     width: 100%;
-    padding-top: 60px;
+    max-width: 1920px;
+
+    @supports(display: grid) {
+        @media(min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    }
+`;
+
+const BlogSectionWrap = styled.div`
+    width: 100%;
+    ${GridBase};
+`;
+
+const BlogSection = styled.section`
+    min-height: 100%;
+    padding: 25vh 0 0;
 `;
 
 class PostsList extends React.Component {

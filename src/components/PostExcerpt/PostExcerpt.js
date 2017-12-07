@@ -8,29 +8,23 @@ import Tag from '../TagLabel/TagLabel';
 
 const BlogArticle = styled.article`
     display: block;
-    width: 100%;
-    padding: 1em;
-    border-bottom: 1px solid ${mc.blueGrey[300]};
+    width: ${100 - ((100 / 12) * 4)}%;
+    margin: 2em auto 4em;
     cursor: pointer;
     transition: background 0.3s ease-out;
 
     @media (min-width: 768px) {
         display: flex;
-        padding: 2em;        
     }
 
     &:hover {
-        background: ${mc.blueGrey[50]};
+       
     }
 `;
 
 const BlogContent = styled.div`
-    padding: 1em 0;
-
     @media (min-width: 768px) {
-        padding: 0 2em;
-        display: flex;
-        align-items: center;
+        padding: 0;
     }
 
     & > span {
@@ -39,23 +33,23 @@ const BlogContent = styled.div`
 
     h2 {
         font-size: 1.5em;
-        color: ${mc.cyan[700]};
 
         a {
-            color: ${mc.cyan[700]};
+            color: ${mc.blueGrey[50]};
             text-decoration: none;
         }
 
         @media (min-width: 768px) {
-            font-size: 2em;
+            font-size: 3em;
+            margin: 0;
         }
     }
 
     & p {
         font-size: 1.125em;
-        max-width: 65ch;
+        max-width: 55ch;
         line-height: 1.5;
-        color: ${mc.blueGrey[800]}
+        color: ${mc.blueGrey[50]}
 
         @media (min-width: 768px) {
             font-size: 1.25em;
@@ -151,7 +145,7 @@ const imgStyle = css`
     margin-bottom: 1em;
 
     @media (min-width: 768px) {
-        width: 30vw;
+        width: ${(100 / 12) * 2}vw;
         margin: 0;
     }
 `;
@@ -159,7 +153,6 @@ const imgStyle = css`
 const CatLink = styled(Link)`
     color: ${mc.blueGrey[300]};
     text-decoration: none;
-
     display: block;
     margin: 0 0 1em;
     color: ${mc.blueGrey[300]}
@@ -192,7 +185,7 @@ const PostExcerpt = (props) => {
     const { postInfo } = props;
     return (
         <BlogArticle onClick={e => goToPage(e, postInfo.path)}>
-            <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resolutions} />
+            {/* <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resolutions} /> */}
             <BlogContent>
                 <div>
                     {!postInfo.published &&

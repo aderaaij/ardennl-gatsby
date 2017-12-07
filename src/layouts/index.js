@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectGlobal } from 'emotion';
+import styled, { css } from 'react-emotion';
 import 'normalize.css';
 import mc from 'material-colors';
 import config from '../../data/site-config';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import Piwik from '../components/Piwik/Piwik';
-
 
 injectGlobal`
     * {
@@ -16,8 +16,9 @@ injectGlobal`
 
     body {
         font-family: 'ff-tisa-web-pro', georgia, serif;
+        background: ${mc.blueGrey[900]};
     }
-
+    
     h1,h2,h3,h4,h5,h6 {
         font-family: 'proxima-nova', sans-serif;
         font-weight: 900;
@@ -37,23 +38,6 @@ injectGlobal`
     }
 `;
 
-const PiwikScript = () => (
-    <script type="text/javascript">{`
-        var _paq = _paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-        var u="//analytics.arden.nl/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-        })();
-        // End Piwik Code                
-        `}
-    </script>
-);
 
 const TemplateWrapper = ({ children }) => (
     <div>
@@ -65,6 +49,7 @@ const TemplateWrapper = ({ children }) => (
         <Piwik />
         <SiteHeader />
         {children()}
+
     </div>
 );
 

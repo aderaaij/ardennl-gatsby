@@ -5,8 +5,6 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { fontFace, injectGlobal } from 'emotion';
 import styled, { css } from 'react-emotion';
-
-import 'normalize.css';
 import mc from 'material-colors';
 
 
@@ -15,15 +13,17 @@ const Header = styled.header`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 501;
-    align-items: center;
-    background: ${mc.blueGrey[900]};
-    
+    z-index: 901;
+    background: transparent;    
     align-items: center;
     height: 60px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 2em;
+    padding: 0 1em;
+
+    @media (min-width: 768px) {
+        padding: 0 2em;
+    }
 `;
 
 const SiteNav = styled.nav`
@@ -32,6 +32,7 @@ const SiteNav = styled.nav`
     letter-spacing: -0.5px;
     text-transform: uppercase;
     font-size: 1.125em;
+    margin-left: auto;
 
     & ul {
         list-style: none;

@@ -40,7 +40,7 @@ const ArticleHeader = styled.header`
         margin: 0 0 0.25em;
         font-size: 2em;
         letter-spacing: -0.5px;
-        color: ${mc.cyan[700]};
+        color: ${mc.cyan.a400};
         @media (min-width: 768px) {
             font-size: 3em;
         }
@@ -54,7 +54,9 @@ const ArticleHero = styled.figure`
     height: 40vh;
     margin: 0 auto 2em;
     overflow: hidden;
-    @media(min-width: 768px) {  
+    
+    @media(min-width: 768px) {
+        width: calc(100% - 4em); 
         height: 70vh;
         margin: 0 auto 4em;
     }
@@ -65,14 +67,14 @@ const ArticleContent = styled.div`
     & p {
         font-size: 1.25em;
         line-height: 1.55;
-        color: ${mc.grey[800]};
+        color: ${mc.grey[50]};
         margin: 0 0 2em;
 
         @media(min-width: 768px) {  
             font-size: 1.375em;
         }
         & a {
-            color: ${mc.cyan[700]};
+            color: ${mc.cyan.a400};
         }
         &:first-of-type {
             &:first-letter {
@@ -82,7 +84,7 @@ const ArticleContent = styled.div`
                 font-style: normal;
                 font-size: 3.2em;
                 line-height: 0.7;
-                color: ${mc.cyan[700]}
+                color: ${mc.cyan.a400};
             }
         }
     }
@@ -107,9 +109,9 @@ const ArticleContent = styled.div`
     }
     & h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
-        color: ${mc.cyan[700]};
+        color: ${mc.cyan.a400};
         line-height: 1.55;
-        border-bottom: 1px solid ${mc.blueGrey[100]};
+        border-bottom: 1px solid ${mc.cyan.a400};
     }
     h2 {
         font-size: 1.625em;
@@ -121,7 +123,7 @@ const ArticleContent = styled.div`
 `;
 
 const ExcerptMeta = styled.ul`
-    color: ${mc.blueGrey[300]};
+    color: ${mc.blueGrey[100]};
     font-style: italic;
     font-size: 1.125em;
     list-style: none;
@@ -155,7 +157,7 @@ const ExcerptMeta = styled.ul`
     }
     & a {
         text-decoration: none;
-        color: ${mc.blueGrey[300]};
+        color: ${mc.blueGrey[100]};
     }
 `;
 
@@ -196,7 +198,7 @@ const CatLink = styled(Link)`
     font-style: italic;
     display: block;
     text-decoration: none;
-    color: ${mc.blueGrey[300]};
+    color: ${mc.blueGrey[100]};
     &:hover {
         text-decoration: underline;
     }

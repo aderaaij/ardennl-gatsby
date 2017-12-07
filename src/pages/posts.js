@@ -44,7 +44,7 @@ export const query = graphql`
                             childImageSharp {
                                 resolutions(
                                     width: 400, 
-                                    height: 300
+                                    height: 400
                                 ) {
                                     src
                                     tracedSVG
