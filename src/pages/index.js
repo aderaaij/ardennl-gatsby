@@ -20,7 +20,7 @@ const GridBase = css`
 
 const HomeWrap = styled.div`
     ${GridBase};
-    height: 100vh;
+    padding-top: 60px;
 `;
 
 const HomeContent = styled.div`
@@ -31,6 +31,7 @@ const HomeContent = styled.div`
     flex-direction: column;
     justify-content: center;   
     padding: 0 1em; 
+    min-height: calc(100vh - 60px);
 
     @media(min-width: 768px) {
         @supports(display: grid) {        
@@ -51,7 +52,7 @@ const HomeContent = styled.div`
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.75em;
         margin-bottom: 0;
         color: ${mc.blueGrey[50]};
 
@@ -61,8 +62,9 @@ const HomeContent = styled.div`
     }
 
     h2 {
-        font-size: 1.75em;
+        font-size: 1.5em;
         color: ${mc.blueGrey[400]};
+        
         @media(min-width: 768px) {
             font-size: 3em;
         }
@@ -72,7 +74,11 @@ const HomeContent = styled.div`
     p {
         color: ${mc.blueGrey[50]};
         line-height: 1.55;
-        font-size: 1.25em;
+        font-size: 1.125em;
+
+        @media(min-width: 768px) {
+            font-size: 1.25em;
+        }
         
         a {
             color: ${mc.cyan.a400};
@@ -89,6 +95,11 @@ const HomeBackground = styled.img`
     background-size: cover;
     object-fit: cover;
     z-index: 1;
+    display: none;
+
+    @media(min-width: 768px) {
+        display: block;
+    }
 `;
 
 const BgImageOuter = css`
