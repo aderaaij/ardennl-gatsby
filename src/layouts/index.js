@@ -23,7 +23,11 @@ injectGlobal`
         font-family: 'proxima-nova', sans-serif;
         font-weight: 900;
         letter-spacing: -0.5px;
-        color: ${mc.cyan[700]};
+        color: ${mc.blueGrey[50]};
+    }
+
+    p {
+        line-height: 1.55;
     }
 
     .gatsby-resp-image-wrapper {

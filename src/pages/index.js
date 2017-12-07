@@ -75,12 +75,12 @@ const HomeContent = styled.div`
         line-height: 1.55;
         font-size: 1.125em;
 
-        @media(min-width: 768px) {
-            font-size: 1.25em;
-        }
-        
         a {
             color: ${mc.cyan.a400};
+        }
+
+        @media(min-width: 768px) {
+            font-size: 1.25em;
         }
     }
 `;
