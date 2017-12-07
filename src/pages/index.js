@@ -34,6 +34,13 @@ const HomeContent = styled.div`
     min-height: calc(100vh - 60px);
     color: ${mc.blueGrey[50]};
 
+    @supports(display: grid) {
+        @media(min-width: 768px) {
+            padding: 0;
+            grid-column: 3 / 11;
+        }
+    }
+
     > div {
         max-width: 70ch;
     }
@@ -70,13 +77,6 @@ const HomeContent = styled.div`
 
     a {
         color: ${mc.cyan.a400};
-    }
-
-    @supports(display: grid) { 
-        @media(min-width: 768px) {              
-            padding: 0;
-            grid-column: 3 / 11;
-        }
     }
 `;
 
