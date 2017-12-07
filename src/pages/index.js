@@ -32,6 +32,7 @@ const HomeContent = styled.div`
     justify-content: center;   
     padding: 0 1em; 
     min-height: calc(100vh - 60px);
+    color: ${mc.blueGrey[50]};
 
     @media(min-width: 768px) {
         @supports(display: grid) {        
@@ -46,7 +47,6 @@ const HomeContent = styled.div`
 
     h1,
     h2 {
-        color: #fff;
         margin: 0;
         font-weight: 900;
     }
@@ -72,7 +72,6 @@ const HomeContent = styled.div`
     }
 
     p {
-        color: ${mc.blueGrey[50]};
         line-height: 1.55;
         font-size: 1.125em;
 
