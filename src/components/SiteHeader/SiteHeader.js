@@ -58,10 +58,14 @@ const Logo = styled(Link)`
 const navItem = css`
     text-decoration: none;
     color: #ffffff;
+
+    &:hover {
+        color: ${mc.cyan.a400};
+    }
 `;
 
 const activeNavItem = css`
-    color: ${mc.cyan[700]};
+    color: ${mc.cyan.a400};
 `;
 
 const SiteHeader = () => (
