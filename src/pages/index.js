@@ -50,7 +50,7 @@ const HomeContent = styled.div`
 
     h2 {
         font-size: 1.5em;
-        color: ${mc.blueGrey[400]};
+        color: ${mc.blueGrey[50]};
         margin: 0;
         
         @media(min-width: 768px) {
