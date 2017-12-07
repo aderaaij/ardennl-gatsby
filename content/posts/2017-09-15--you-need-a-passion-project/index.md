@@ -70,7 +70,7 @@ Some projects that never made it out of my `localhost`.
 
 And the list goes on. Even though these projects aren't going anywhere, I've learned from them and enjoyed working on them. Not a single one makes me feel I've wasted my time. 
 
-###Share your ideas / projects###
+##Share your ideas / projects##
 To conclude, I couldn't imagine NOT having a project on the side where I can put my heart and mind into and in my opinion, everyone can gain from working on something they love without external pressure. 
 
 I'd love to hear your opinion on passion/side projects, if you have/had one and what you gained from working on it.
