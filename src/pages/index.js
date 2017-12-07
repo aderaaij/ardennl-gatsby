@@ -34,36 +34,24 @@ const HomeContent = styled.div`
     min-height: calc(100vh - 60px);
     color: ${mc.blueGrey[50]};
 
-    @media(min-width: 768px) {
-        @supports(display: grid) {        
-            padding: 0;
-            grid-column: 3 / 11;
-        }
-    } 
-
     > div {
         max-width: 70ch;
     }
 
-    h1,
-    h2 {
-        margin: 0;
-        font-weight: 900;
-    }
-
     h1 {
+        color: ${mc.cyan.a400};
         font-size: 1.75em;
-        margin-bottom: 0;
-        color: ${mc.blueGrey[50]};
-
-        @media(min-width: 768px) {
-            font-size: 4em;
+        font-weight: 900;
+        margin: 0;
+        @media(min-width: 768px) {        
+            font-size: 4em;        
         }
-    }
+    }  
 
     h2 {
         font-size: 1.5em;
         color: ${mc.blueGrey[400]};
+        margin: 0;
         
         @media(min-width: 768px) {
             font-size: 3em;
@@ -75,12 +63,19 @@ const HomeContent = styled.div`
         line-height: 1.55;
         font-size: 1.125em;
 
-        a {
-            color: ${mc.cyan.a400};
-        }
-
         @media(min-width: 768px) {
             font-size: 1.25em;
+        }
+    }
+
+    a {
+        color: ${mc.cyan.a400};
+    }
+
+    @supports(display: grid) { 
+        @media(min-width: 768px) {              
+            padding: 0;
+            grid-column: 3 / 11;
         }
     }
 `;
