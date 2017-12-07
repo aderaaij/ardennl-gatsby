@@ -64,10 +64,11 @@ const ArticleHero = styled.figure`
 
 const ArticleContent = styled.div`
     ${contentWrap};
+    color: ${mc.grey[50]};
+
     & p {
         font-size: 1.25em;
         line-height: 1.55;
-        color: ${mc.grey[50]};
         margin: 0 0 2em;
 
         @media(min-width: 768px) {  
@@ -91,7 +92,6 @@ const ArticleContent = styled.div`
     ul, ol {
         font-size: 1.25em;
         line-height: 1.55;
-        color: ${mc.grey[800]};
         margin: 0 0 2em;
         @media(min-width: 768px) {  
             font-size: 1.375em;
@@ -107,17 +107,16 @@ const ArticleContent = styled.div`
             left: calc(-30vw + 50%);
         }
     }
-    & h1, h2, h3, h4, h5, h6 {
-        font-weight: 400;
+    & h1,h2,h3,h4,h5,h6 {
+        font-weight: 700;
         color: ${mc.cyan.a400};
         line-height: 1.55;
-        border-bottom: 1px solid ${mc.cyan.a400};
     }
     h2 {
         font-size: 1.625em;
-        font-weight: 700;       
+        border-bottom: 1px solid ${mc.cyan.a400};
     }
-    h3 {
+    h3,h4,h5,h6  {
         font-size: 1.5em;
     }
 `;
