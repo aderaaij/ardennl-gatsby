@@ -7,28 +7,22 @@ import mc from 'material-colors';
 import Tag from '../TagLabel/TagLabel';
 
 const BlogArticle = styled.article`
-    display: block;
-    width: ${100 - ((100 / 12) * 4)}%;
+    display: block;    
     margin: 2em auto 4em;
+    padding: 0 1em;
     cursor: pointer;
     transition: background 0.3s ease-out;
 
     @media (min-width: 768px) {
         display: flex;
-    }
-
-    &:hover {
-       
+        padding: 0;
+        width: ${100 - ((100 / 12) * 4)}%;
     }
 `;
 
 const BlogContent = styled.div`
     @media (min-width: 768px) {
         padding: 0;
-    }
-
-    & > span {
-        
     }
 
     h2 {

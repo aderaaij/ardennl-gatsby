@@ -54,11 +54,14 @@ const ArticleHero = styled.figure`
     height: 40vh;
     margin: 0 auto 2em;
     overflow: hidden;
-    
+
     @media(min-width: 768px) {
+        margin: 0 auto 4em;
+    }
+    
+    @media(min-width: 1024px) {
         width: calc(100% - 4em); 
         height: 70vh;
-        margin: 0 auto 4em;
     }
 `;
 
