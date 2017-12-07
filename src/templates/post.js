@@ -253,7 +253,6 @@ const BlogPost = (props) => {
                 <Img
                     outerWrapperClassName={imgStyle}
                     className={imgStyle}
-                    alt="Picture of X"
                     resolutions={childImageSharp.resolutions}
                 />
             </ArticleHero>
