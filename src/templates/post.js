@@ -291,7 +291,7 @@ export const query = graphql`
                         resolutions(
                             width: 1200,
                             traceSVG: {
-                                color: "#CFD8DC",
+                                color: "#37474F",
                                 blackOnWhite: true,
                             }
                         ) {
