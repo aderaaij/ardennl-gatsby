@@ -109,10 +109,16 @@ const Home = (props) => {
     const { data } = props;
     const { allImageSharp } = data;
     const avatar = allImageSharp.edges[0].node;
-    const background = allImageSharp.edges[1].node;
+    // const background = allImageSharp.edges[1].node;
+    const background = allImageSharp.edges.find((edge) => {
+        if (edge.node.id.includes('bg')) {
+            return edge;
+        }
+        return false;
+    });
     return (
         <HomeWrap>
-            <HomeBackground src={background.sizes.tracedSVG} />
+            <HomeBackground src={background.node.sizes.tracedSVG} />
             {/* <Img position="absolute" outerWrapperClassName={BgImageOuter} sizes={background.sizes} /> */}
             <HomeContent>
                 {/* <Img alt="[woot]" src="/img/arden.jpg" /> */}
