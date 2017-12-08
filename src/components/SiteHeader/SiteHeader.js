@@ -1,25 +1,20 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
-import { fontFace, injectGlobal } from 'emotion';
 import styled, { css } from 'react-emotion';
-import mc from 'material-colors';
-
+import { colorScheme, fontScheme } from '../../helpers/styleSettings';
 
 const Header = styled.header`
-    display: flex;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 901;
-    background: transparent;    
-    align-items: center;
-    height: 60px;
     width: 100%;
+    height: 60px;
+    z-index: 901;
+    display: flex;
+    align-items: center;    
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0 1em; 
 
     @media (min-width: 768px) {
         padding: 0 2em;
@@ -27,7 +22,7 @@ const Header = styled.header`
 `;
 
 const SiteNav = styled.nav`
-    font-family: 'proxima-nova', sans-serif;
+    font-family: ${fontScheme.headings};
     font-weight: 700;
     letter-spacing: -0.5px;
     text-transform: uppercase;
@@ -47,7 +42,7 @@ const Logo = styled(Link)`
     width: 130px;
     display: block;
     height: auto;
-    fill: #fff;
+    fill: ${colorScheme.logo};
 
     & svg {
         display: block;
@@ -57,15 +52,16 @@ const Logo = styled(Link)`
 
 const navItem = css`
     text-decoration: none;
-    color: #ffffff;
+    color: ${colorScheme.text};
+    transition: color 0.3s ease-out;
 
     &:hover {
-        color: ${mc.cyan.a400};
+        color: ${colorScheme.support};
     }
 `;
 
 const activeNavItem = css`
-    color: ${mc.cyan.a400};
+    color: ${colorScheme.support};
 `;
 
 const SiteHeader = () => (
