@@ -23,12 +23,6 @@ const imgStyle = css`
     position: absolute !important;
 `;
 
-const contentWrap = css`
-    max-width: 65ch;
-    margin: 0 auto;
-    padding: 0 1em;
-`;
-
 const ArticleHeader = styled.header`
     margin: auto 0 2em;
     padding: 0 1em;
@@ -75,10 +69,6 @@ const ArticleHero = styled.figure`
         width: 100%;
         height: 100%;
         background: linear-gradient(to bottom,rgba(0,0,0,0.3) 0,rgba(0,0,0,0.9) 100%);
-
-        @media(min-width: 1024px) {
-            background: linear-gradient(to bottom,transparent 0,rgba(0,0,0,0.9) 100%);
-        }
     }
 
     @media(min-width: 768px) {
