@@ -43,8 +43,11 @@ export const query = graphql`
                             relativePath
                             childImageSharp {
                                 resolutions(
-                                    width: 400, 
-                                    height: 400
+                                    width: 1200,
+                                    traceSVG: {
+                                        color: "#37474F",
+                                        blackOnWhite: false,
+                                    }
                                 ) {
                                     src
                                     tracedSVG
