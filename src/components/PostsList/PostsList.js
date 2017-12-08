@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
 import { GridBase, ContentLimit } from '../../helpers/grid';
 
 const BlogSection = styled.section`
     min-height: 100%;
-    padding: 25vh 0 0;
+    padding: 25vh 0;
     ${GridBase};
 `;
 
