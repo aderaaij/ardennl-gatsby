@@ -104,7 +104,7 @@ const ArticleContent = styled.div`
 const ArticleEntryContent = styled.div`
     color: ${colorScheme.text};
     ${ContentLimit};
-    max-width: 70ch;
+    max-width: 65ch;
 
     & p {
         font-size: 1.25em;
@@ -181,10 +181,13 @@ const ArticleEntryContent = styled.div`
         }
 
         @media(min-width: 1200px) {
-            padding: 0;
-            width: calc(${100 - ((100 / 12) * 3)}vw - 2rem);
+            width: calc(${100 - ((100 / 12) * 2)}vw - 2rem);
             left: auto;
-            /* left: calc(-35vw + 50%); */
+            padding: 0;
+        }
+
+        @media(min-width: 1280px) {
+            width: calc(${100 - ((100 / 12) * 3)}vw - 2rem);
         }
     }
 
