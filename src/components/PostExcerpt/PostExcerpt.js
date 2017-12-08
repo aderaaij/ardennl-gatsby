@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Transition from 'react-transition-group/Transition';
 import Link, { navigateTo } from 'gatsby-link';
-import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
-import mc from 'material-colors';
 import Tag from '../TagLabel/TagLabel';
+import { colorScheme } from '../../helpers/styleSettings';
+
 
 const BlogArticle = styled.article`
+    z-index: 201;
+    position: relative;
     display: block;    
-    margin: 2em auto 4em;
-    padding: 0 1em;
+    margin: 0 auto;
+    padding: 2em 1em;
     cursor: pointer;
     transition: background 0.3s ease-out;
+    border-bottom: 1px solid ${colorScheme.meta};
 
     @media (min-width: 768px) {
         display: flex;
-        padding: 0;
-        width: ${100 - ((100 / 12) * 4)}%;
+        padding: 4em 0;
+        width: 100%;
     }
 `;
 
 const BlogContent = styled.div`
-    @media (min-width: 768px) {
-        padding: 0;
-    }
+    width: 100%;
 
     h2 {
         font-size: 1.5em;
 
         a {
-            color: ${mc.blueGrey[50]};
+            color: ${colorScheme.support};
             text-decoration: none;
         }
 
@@ -43,7 +45,7 @@ const BlogContent = styled.div`
         font-size: 1.125em;
         max-width: 55ch;
         line-height: 1.5;
-        color: ${mc.blueGrey[50]}
+        color: ${colorScheme.text};
 
         @media (min-width: 768px) {
             font-size: 1.25em;
@@ -52,14 +54,14 @@ const BlogContent = styled.div`
 `;
 
 const ExcerptMeta = styled.ul`
-    color: ${mc.blueGrey[300]};
-    font-style: italic;
-    font-size: 1rem;
-    list-style: none;
-    line-height: 1.5;
     margin: 0;
     padding: 0;
-    text-transform: lowercase;
+    list-style: none;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-style: italic;   
+    text-transform: lowercase; 
+    color: ${colorScheme.meta};
 
     @media (min-width: 768px) {
         display: flex;
@@ -84,15 +86,11 @@ const ExcerptMeta = styled.ul`
                 margin: 0;
             }
         }
-
-        &:nth-child(2) {
-            
-        }
     }
 
     & a {
         text-decoration: none;
-        color: ${mc.blueGrey[300]};
+        color: ${colorScheme.text};
     }
 `;
 
@@ -133,25 +131,13 @@ const TagList = styled.div`
     }
 `;
 
-const imgStyle = css`
-    width: 100%;
-    display: block;
-    margin-bottom: 1em;
-
-    @media (min-width: 768px) {
-        width: ${(100 / 12) * 2}vw;
-        margin: 0;
-    }
-`;
-
 const CatLink = styled(Link)`
-    color: ${mc.blueGrey[300]};
     text-decoration: none;
     display: block;
-    margin: 0 0 1em;
-    color: ${mc.blueGrey[300]}
+    margin: 0 0 1em;    
     text-transform: lowercase;
     font-style: italic;
+    color: ${colorScheme.meta};
 
     @media (min-width: 768px) {
         font-size: 1.125em;
@@ -164,8 +150,33 @@ const CatLink = styled(Link)`
 
 const TagPos = css`
     float: right;
-    background: ${mc.deepOrange[700]};
+    background: ${colorScheme.support};
 `;
+
+const duration = 400;
+
+const BGImage = css`
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    pointer-events: none;
+    transition: ${duration}ms ease-out;
+    opacity: 0;
+
+    @media(min-width: 1024px) {
+        height: 100vh;
+    }
+`;
+
+
+const transitionStyles = {
+    entered: { opacity: 0 },
+    entering: { opacity: 1 },
+};
 
 function goToPage(e, slug) {
     if (e.target.tagName === 'A') {
@@ -175,48 +186,98 @@ function goToPage(e, slug) {
     }
 }
 
-const PostExcerpt = (props) => {
-    const { postInfo } = props;
-    return (
-        <BlogArticle onClick={e => goToPage(e, postInfo.path)}>
-            {/* <Img className={imgStyle} alt="Picture of X" sizes={postInfo.cover.childImageSharp.resolutions} /> */}
-            <BlogContent>
-                <div>
-                    {!postInfo.published &&
-                    <Tag style={TagPos} tagText="unpublished" />
-                    }
-                    <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
-                    <h2>
-                        <Link to={postInfo.path}>{postInfo.title}</Link>
-                    </h2>
-                    <p>{postInfo.excerpt}</p>
-                    <ExcerptMeta>
-                        <li>
-                            <span>{postInfo.date}</span>
-                        </li>
-                        <li>
-                            <TagList>
-                                <span>Tagged:</span>
-                                <ul>
-                                    {postInfo.tags.map(tag => (
-                                        <li key={tag}>
-                                            <Link to={`/tags/${tag}`}>
-                                                {tag}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </TagList>
-                        </li>
-                    </ExcerptMeta>
-                </div>
-            </BlogContent>
-        </BlogArticle>
-    );
-};
+const Fade = ({ in: isHovering, image }) => (
+    <Transition in={isHovering} timeout={duration}>
+        {status => (
+            <img
+                className={BGImage}
+                alt=""
+                src={image}
+                style={{
+                    ...transitionStyles[status],
+                }}
+            />
+
+        )}
+    </Transition>
+);
+
+export default class PostExcerpt extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isHovering: false,
+        };
+    }
+
+    handleMouseEnter() {
+        this.setState(() => ({
+            isHovering: true,
+        }));
+    }
+
+    handleMouseLeave() {
+        this.setState(() => ({
+            isHovering: false,
+        }));
+    }
+
+    toggleHoverState() {
+        return {
+            isHovering: !this.state.isHovering,
+        };
+    }
+
+    render() {
+        const { postInfo } = this.props;
+        const { isHovering } = this.state;
+        return (
+            <div>
+                <Fade in={!!isHovering} image={postInfo.cover.childImageSharp.resolutions.tracedSVG} />
+                <BlogArticle
+                    onMouseEnter={() => this.handleMouseEnter()}
+                    onMouseLeave={() => this.handleMouseLeave()}
+                    onClick={e => goToPage(e, postInfo.path)}
+                >
+                    <BlogContent>
+                        <div>
+                            {!postInfo.published &&
+                            <Tag style={TagPos} tagText="unpublished" />
+                            }
+                            <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
+                            <h2>
+                                <Link to={postInfo.path}>{postInfo.title}</Link>
+                            </h2>
+                            <p>{postInfo.excerpt}</p>
+                            <ExcerptMeta>
+                                <li>
+                                    <span>{postInfo.date}</span>
+                                </li>
+                                <li>
+                                    <TagList>
+                                        <span>Tagged:</span>
+                                        <ul>
+                                            {postInfo.tags.map(tag => (
+                                                <li key={tag}>
+                                                    <Link to={`/tags/${tag}`}>
+                                                        {tag}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </TagList>
+                                </li>
+                            </ExcerptMeta>
+                        </div>
+                    </BlogContent>
+                </BlogArticle>
+            </div>
+        );
+    }
+}
 
 PostExcerpt.propTypes = {
     postInfo: PropTypes.object.isRequired,
 };
 
-export default PostExcerpt;
+// export default PostExcerpt;
