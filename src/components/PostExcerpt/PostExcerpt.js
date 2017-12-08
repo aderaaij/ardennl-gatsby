@@ -6,7 +6,6 @@ import styled, { css } from 'react-emotion';
 import Tag from '../TagLabel/TagLabel';
 import { colorScheme } from '../../helpers/styleSettings';
 
-
 const BlogArticle = styled.article`
     z-index: 201;
     position: relative;
