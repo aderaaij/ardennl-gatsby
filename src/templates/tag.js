@@ -54,8 +54,11 @@ export const pageQuery = graphql`
                             relativePath
                             childImageSharp {
                                 resolutions(
-                                    width: 504, 
-                                    height: 378
+                                    width: 1200,
+                                    traceSVG: {
+                                        color: "#37474F",
+                                        blackOnWhite: false,
+                                    }
                                 ) {
                                     src
                                     tracedSVG
