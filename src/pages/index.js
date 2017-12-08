@@ -1,22 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
-import mc from 'material-colors';
 import SEO from '../components/SEO/SEO';
-
-const GridBase = css`
-    width: 100%;
-    max-width: 1920px;
-    
-    @supports(display: grid) {
-        @media(min-width: 768px) {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-        }
-    }
-`;
+import { colorScheme } from '../helpers/styleSettings';
+import { GridBase, ContentLimit } from '../helpers/grid';
 
 const HomeWrap = styled.div`
     ${GridBase};
@@ -24,29 +11,23 @@ const HomeWrap = styled.div`
 `;
 
 const HomeContent = styled.div`
-    height: 100%;
-    display: flex;
     z-index: 501;
     position: relative;
+    height: 100%;
+    min-height: calc(100vh - 60px);
+    padding: 0 1em; 
+    display: flex;
     flex-direction: column;
     justify-content: center;   
-    padding: 0 1em; 
-    min-height: calc(100vh - 60px);
-    color: ${mc.blueGrey[50]};
-
-    @supports(display: grid) {
-        @media(min-width: 768px) {
-            padding: 0;
-            grid-column: 3 / 11;
-        }
-    }
+    color: ${colorScheme.text};
+    ${ContentLimit};
 
     > div {
         max-width: 70ch;
     }
 
     h1 {
-        color: ${mc.cyan.a400};
+        color: ${colorScheme.support};
         font-size: 1.75em;
         font-weight: 900;
         margin: 0;
@@ -57,7 +38,6 @@ const HomeContent = styled.div`
 
     h2 {
         font-size: 1.5em;
-        color: ${mc.blueGrey[50]};
         margin: 0;
         
         @media(min-width: 768px) {
@@ -76,7 +56,11 @@ const HomeContent = styled.div`
     }
 
     a {
-        color: ${mc.cyan.a400};
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
 
@@ -86,7 +70,6 @@ const HomeBackground = styled.img`
     position: absolute;
     top: 0;
     left: 0;
-    background-size: cover;
     object-fit: cover;
     z-index: 1;
     display: none;
@@ -96,33 +79,13 @@ const HomeBackground = styled.img`
     }
 `;
 
-const BgImageOuter = css`
-    width: 100%;
-    height: 100%;
-    position: absolute!important;
-    top: 0;
-    left: 0;
-    z-index: 1;
-
-    & div {
-        width: 100%;
-        height: 100%;
-    }
-`;
-
 const Home = (props) => {
     const { data } = props;
-    const { allImageSharp } = data;
-    const background = allImageSharp.edges.find((edge) => {
-        if (edge.node.id.includes('bg')) {
-            return edge;
-        }
-        return false;
-    });
+    const { edges } = data.allImageSharp;
+    const background = edges.find(edge => edge.node.id.includes('bg'));
     return (
         <HomeWrap>
             <HomeBackground src={background.node.sizes.tracedSVG} />
-            {/* <Img position="absolute" outerWrapperClassName={BgImageOuter} sizes={background.sizes} /> */}
             <HomeContent>
                 <div>
                     <h1>Arden de Raaij</h1>
