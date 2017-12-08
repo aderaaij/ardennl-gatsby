@@ -1,30 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import mc from 'material-colors';
-
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
-
-const GridBase = css`
-    width: 100%;
-    max-width: 1920px;
-
-    @supports(display: grid) {
-        @media(min-width: 768px) {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-        }
-    }
-`;
-
-const BlogSectionWrap = styled.div`
-    width: 100%;
-    ${GridBase};
-`;
+import { GridBase, ContentLimit } from '../../helpers/grid';
 
 const BlogSection = styled.section`
     min-height: 100%;
     padding: 25vh 0 0;
+    ${GridBase};
+`;
+
+const BlogWrap = styled.div`
+    ${ContentLimit};
 `;
 
 class PostsList extends React.Component {
@@ -47,6 +34,9 @@ class PostsList extends React.Component {
         return postList;
     }
 
+    /**
+     * When in production mode, don't render unpublished posts in the postlist
+     * */
     renderPostExcerpt() {
         const postList = this.getPostList();
         return postList.map((post) => {
@@ -61,7 +51,9 @@ class PostsList extends React.Component {
     render() {
         return (
             <BlogSection>
-                {this.renderPostExcerpt()}
+                <BlogWrap>
+                    {this.renderPostExcerpt()}
+                </BlogWrap>
             </BlogSection>
         );
     }
