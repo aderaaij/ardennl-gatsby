@@ -8,6 +8,7 @@ import mc from 'material-colors';
 import config from '../../data/site-config';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import Piwik from '../components/Piwik/Piwik';
+import { colorScheme, fontScheme } from '../helpers/styleSettings';
 
 injectGlobal`
     * {
@@ -15,30 +16,23 @@ injectGlobal`
     }
 
     body {
-        font-family: 'ff-tisa-web-pro', georgia, serif;
-        background: ${mc.blueGrey[900]};
+        font-family: ${fontScheme.text};
+        background: ${colorScheme.dark};
     }
     
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'proxima-nova', sans-serif;
+        font-family: ${fontScheme.headings};
         font-weight: 900;
         letter-spacing: -0.5px;
-        color: ${mc.blueGrey[50]};
+        color: ${colorScheme.text};
+    }
+
+    a {
+        color: ${colorScheme.support};
     }
 
     p {
         line-height: 1.55;
-    }
-
-    .gatsby-resp-image-wrapper {
-        positiom: relative;
-        width: 100vw;
-        left: calc(-50vw + 50%);
-
-        @media(min-width: 1200px) {
-            width: 80vw;
-            left: calc(-40vw + 50%);
-        }
     }
 `;
 
