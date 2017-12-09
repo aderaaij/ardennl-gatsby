@@ -173,8 +173,8 @@ const BGImage = css`
 
 
 const transitionStyles = {
-    entered: { opacity: 0 },
-    entering: { opacity: 1 },
+    entering: { opacity: 0 },
+    entered: { opacity: 1 },
 };
 
 function goToPage(e, slug) {
@@ -186,7 +186,7 @@ function goToPage(e, slug) {
 }
 
 const Fade = ({ in: isHovering, image }) => (
-    <Transition in={isHovering} timeout={duration}>
+    <Transition in={isHovering} timeout={10}>
         {status => (
             <img
                 className={BGImage}
@@ -230,6 +230,7 @@ export default class PostExcerpt extends Component {
     render() {
         const { postInfo } = this.props;
         const { isHovering } = this.state;
+        console.log(this.state);
         return (
             <div>
                 <Fade in={!!isHovering} image={postInfo.cover.childImageSharp.resolutions.tracedSVG} />
