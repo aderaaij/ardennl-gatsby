@@ -209,7 +209,6 @@ function preventWidow(string) {
     return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
 }
 
-
 const duration = 300;
 
 const defaultStyle = {
@@ -261,7 +260,11 @@ class BlogPost extends Component {
         return (
             <Article>
                 <SEO type="post" post={this.props.data.markdownRemark} />
-
+                {!published &&
+                <Helmet>
+                    <meta name="robots" content="noindex" />
+                </Helmet>
+                }
                 <ArticleHero>
                     <Img
                         outerWrapperClassName={imgStyle}
@@ -283,7 +286,6 @@ class BlogPost extends Component {
                         </Fade>
                     </ArticleHeader>
                 </ArticleHero>
-
 
                 <ArticleContent>
                     <ArticleEntryContent>
