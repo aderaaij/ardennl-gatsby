@@ -9,6 +9,30 @@ tags:
 published: false
 ---
 
+## Summary
+
+GatsbyJS is a static site generator based on React. At the moment of writing, it's the *nouveau riche* on the estate, and if the name is anything to go by, we can expect some exciting new decadence from this development tool. 
+
+## Introduction
+Ever since I started following the Gatsby Twitter account I've been wanting in on the action. The daily retweets of developers stating that Gatsby is the most exciting thing since they discovered the `marquee` tag totally convinced me, even though I had no idea if generating a static site based on React is something that makes sense.
+
+It turns out that it does make sense when it's done right. Leveraging React for 
+
+It turns out that a React based static site generator does make sense, if you do it right. If you think about it, it doesn't really matter if you generate your site with 
+
+
+## Features
+
+### Graphql
+
+### IMage Sharp
+
+## Some thoughts on gatsbys position in front-end 
+
+### Beware of unreadable HTML
+
+
+## The future
 
 Gatsby totally played on my FOMO. Since following their twitter account and seeing 
 their retweets of happy developers praising Gatsby as the most fun front-end experience
