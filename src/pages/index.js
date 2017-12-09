@@ -38,26 +38,22 @@ const HomeContent = styled.div`
 
     h2 {
         font-size: 1.5em;
-        margin: 0;
-        
+        margin: 0;        
         @media(min-width: 768px) {
             font-size: 3em;
-        }
-        
+        }        
     }
 
     p {
         line-height: 1.55;
         font-size: 1.125em;
-
         @media(min-width: 768px) {
             font-size: 1.25em;
         }
     }
 
     a {
-        text-decoration: none;
-        
+        text-decoration: none;        
         &:hover {
             text-decoration: underline;
         }
@@ -73,7 +69,6 @@ const HomeBackground = styled.img`
     object-fit: cover;
     z-index: 1;
     display: none;
-
     @media(min-width: 768px) {
         display: block;
     }
