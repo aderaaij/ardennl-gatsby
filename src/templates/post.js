@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
+import Transition from 'react-transition-group/Transition';
+import { CSSTransition } from 'react-transition-group';
 import SEO from '../components/SEO/SEO';
 import Tag from '../components/TagLabel/TagLabel';
 import ExcerptMeta from '../components/ExcerptMeta/ExcerptMeta';
@@ -207,38 +209,91 @@ function preventWidow(string) {
     return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
 }
 
-const BlogPost = (props) => {
-    const { frontmatter, html } = props.data.markdownRemark;
-    const { childImageSharp } = frontmatter.cover;
-    return (
-        <Article>
-            <SEO type="post" post={props.data.markdownRemark} />
-            <ArticleHero>
-                <Img
-                    outerWrapperClassName={imgStyle}
-                    position="absolute"
-                    className={imgStyle}
-                    resolutions={childImageSharp.resolutions}
-                />
-                <ArticleHeader>
-                    {!frontmatter.published &&
-                    <Tag style={TagPos} tagText="unpublished" />
-                    }
-                    <CatLink to={`/categories/${frontmatter.category}`}>{frontmatter.category}</CatLink>
-                    <h1>{preventWidow(frontmatter.title)}</h1>
-                    {(frontmatter.tags || frontmatter.date) &&
-                    <ExcerptMeta className={ExcerptMetaStyle} tags={frontmatter.tags} date={frontmatter.date} />
-                    }
-                </ArticleHeader>
-            </ArticleHero>
-            <ArticleContent>
-                <ArticleEntryContent>
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                </ArticleEntryContent>
-            </ArticleContent>
-        </Article>
-    );
+
+const duration = 300;
+
+const defaultStyle = {
+    transition: `all ${duration}ms ease-in-out`,
+    opacity: 0,
 };
+
+const transitionStyles = {
+    entering: { opacity: 0, transform: 'translateY(50%)' },
+    entered: { opacity: 1, transform: 'translateY(0%)' },
+};
+
+const Fade = ({ children, in: inProp }) => (
+    <Transition in={inProp} timeout={duration}>
+        {state => (
+            <div style={{
+                ...defaultStyle,
+                ...transitionStyles[state],
+            }}
+            >
+                {children}
+            </div>
+        )}
+    </Transition>
+);
+
+class BlogPost extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fadeIn: false,
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            fadeIn: true,
+        });
+    }
+
+    render() {
+        const { frontmatter, html } = this.props.data.markdownRemark;
+        const { childImageSharp } = frontmatter.cover;
+        const {
+            title, category, tags, date, published,
+        } = frontmatter;
+
+        return (
+            <Article>
+                <SEO type="post" post={this.props.data.markdownRemark} />
+
+                <ArticleHero>
+                    <Img
+                        outerWrapperClassName={imgStyle}
+                        position="absolute"
+                        className={imgStyle}
+                        resolutions={childImageSharp.resolutions}
+                    />
+                    <ArticleHeader>
+                        <Fade in={this.state.fadeIn} >
+                            {!published &&
+                            <Tag style={TagPos} tagText="unpublished" />
+                            }
+                            <CatLink to={`/categories/${category}`}>{category}</CatLink>
+
+                            <h1>{preventWidow(title)}</h1>
+                            {(tags || date) &&
+                            <ExcerptMeta className={ExcerptMetaStyle} tags={tags} date={date} />
+                            }
+                        </Fade>
+                    </ArticleHeader>
+                </ArticleHero>
+
+
+                <ArticleContent>
+                    <ArticleEntryContent>
+                        <div dangerouslySetInnerHTML={{ __html: html }} />
+                    </ArticleEntryContent>
+                </ArticleContent>
+            </Article>
+        );
+    }
+}
 
 BlogPost.propTypes = {
     data: PropTypes.object.isRequired,
