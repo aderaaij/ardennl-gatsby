@@ -132,7 +132,7 @@ const TagList = styled.div`
 
 const CatLink = styled(Link)`
     text-decoration: none;
-    display: block;
+    display: inline-block;
     margin: 0 0 1em;    
     text-transform: lowercase;
     font-style: italic;
