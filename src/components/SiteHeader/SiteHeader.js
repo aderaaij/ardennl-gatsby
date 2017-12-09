@@ -24,6 +24,7 @@ const headroomStyles = css`
     width: 100%;
     
     .headroom {
+        transition: all 0.3s ease;
         &::before {
             content: '';
             position: absolute;
@@ -36,9 +37,11 @@ const headroomStyles = css`
             transition: all 0.3s ease;
             opacity: 0;
         }
+        background: transparent;
 
         &--unpinned {
             transform: translateY(-100%);
+            background: transparent;
             &::before {
                 opacity: 0;
             }
@@ -46,9 +49,14 @@ const headroomStyles = css`
 
         &--scrolled {
             &.headroom--pinned {
+                background: ${colorScheme.support};
                 &::before {
-                    opacity: 1;
+                    opacity: 0;
                 }
+            }
+
+            a {
+                color: ${colorScheme.text};
             }
         }
     }
@@ -114,7 +122,7 @@ export default class SiteHeader extends Component {
 
     render() {
         return (
-            <Headroom pinStart={0} wrapperStyle={{ position: 'absolute', zIndex: 501 }} className={headroomStyles}>
+            <Headroom pinStart={0} wrapperStyle={{ position: 'fixed', zIndex: 501 }} className={headroomStyles}>
                 <Header>
                     <Logo to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360.1 91.3" width="200">
