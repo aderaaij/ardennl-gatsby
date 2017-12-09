@@ -4,29 +4,42 @@ const webpackLodashPlugin = require('lodash-webpack-plugin');
 
 const postNodes = [];
 
+function makeid() {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < 20; i++) { text += possible.charAt(Math.floor(Math.random() * possible.length)); }
+
+    return text;
+}
+
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     const { createNodeField } = boundActionCreators;
     let slug;
     if (node.internal.type === 'MarkdownRemark') {
         const fileNode = getNode(node.parent);
         const parsedFilePath = path.parse(fileNode.relativePath);
-        if (
-            Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-            Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
-        ) {
-            slug = `/${_.kebabCase(node.frontmatter.title)}`;
-        } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
-            slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
-        } else if (parsedFilePath.dir === '') {
-            slug = `/${parsedFilePath.name}/`;
+        if (node.frontmatter.published) {
+            if (
+                Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
+                Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
+            ) {
+                slug = `/${_.kebabCase(node.frontmatter.title)}`;
+            } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+                slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+            } else if (parsedFilePath.dir === '') {
+                slug = `/${parsedFilePath.name}/`;
+            } else {
+                slug = `/${parsedFilePath.dir}/`;
+            }
+            if (
+                Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
+                Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
+            ) {
+                slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+            }
         } else {
-            slug = `/${parsedFilePath.dir}/`;
-        }
-        if (
-            Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-            Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
-        ) {
-            slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+            slug = makeid();
         }
         createNodeField({ node, name: 'slug', value: slug });
         postNodes.push(node);
