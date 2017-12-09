@@ -4,7 +4,6 @@ import Transition from 'react-transition-group/Transition';
 import Link, { navigateTo } from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 import Tag from '../TagLabel/TagLabel';
-import TagList from '../TagList/TagList';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
 
@@ -150,35 +149,38 @@ export default class PostExcerpt extends Component {
     render() {
         const { postInfo } = this.props;
         const { isHovering } = this.state;
+        const {
+            tags, date, path, title, category, excerpt, published, cover,
+        } = postInfo;
         return (
             <div>
                 <Fade
                     in={!!isHovering}
-                    image={postInfo.cover.childImageSharp.resolutions.tracedSVG}
+                    image={cover.childImageSharp.resolutions.tracedSVG}
                 />
                 <BlogArticle
                     onMouseEnter={() => this.handleMouseEnter()}
                     onMouseLeave={() => this.handleMouseLeave()}
-                    onClick={e => goToPage(e, postInfo.path)}
+                    onClick={e => goToPage(e, path)}
                 >
                     <BlogContent>
                         <div>
-                            {!postInfo.published &&
+                            {!published &&
                             <Tag
                                 style={TagPos}
                                 tagText="unpublished"
                             />
                             }
-                            <CatLink to={`/categories/${postInfo.category}`}>{postInfo.category}</CatLink>
+                            <CatLink to={`/categories/${category}`}>{category}</CatLink>
                             <h2>
-                                <Link to={postInfo.path}>{postInfo.title}</Link>
+                                <Link to={path}>{title}</Link>
                             </h2>
-                            <p>{postInfo.excerpt}</p>
-                            {(postInfo.tags || postInfo.date) &&
+                            <p>{excerpt}</p>
+                            {(tags || date) &&
                             <ExcerptMeta
                                 className={ExcerptMetaStyle}
-                                tags={postInfo.tags}
-                                date={postInfo.date}
+                                tags={tags}
+                                date={date}
                             />
                             }
                         </div>
