@@ -6,13 +6,12 @@ import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 import SEO from '../components/SEO/SEO';
 import Tag from '../components/TagLabel/TagLabel';
+import ExcerptMeta from '../components/ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
 import './b16-tomorrow-dark.css';
 
 // import 'intersection-observer';
-
-
 const Article = styled.article`
     // padding-top: 60px;
 `;
@@ -91,6 +90,32 @@ const ArticleContent = styled.div`
     }
 `;
 
+const fullMedia = css`
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    margin: 2rem 0;
+
+    @media(min-width: 768px) {
+        padding: 0 2rem;
+        margin: 4rem 0;
+    }
+
+    @media(min-width: 1024px) {
+        left: -${((100 / 12) * 2)}vw;
+    }
+
+    @media(min-width: 1200px) {
+        width: calc(${100 - ((100 / 12) * 2)}vw - 2rem);
+        left: auto;
+        padding: 0;
+    }
+
+    @media(min-width: 1280px) {
+        width: calc(${100 - ((100 / 12) * 3)}vw - 2rem);
+    }
+`;
+
 const ArticleEntryContent = styled.div`
     color: ${colorScheme.text};
     ${ContentLimit};
@@ -125,30 +150,9 @@ const ArticleEntryContent = styled.div`
             font-size: 1.375em;
         }
     }
+
     & .gatsby-highlight {
-        width: 100vw;
-        position: relative;
-        left: calc(-50vw + 50%);
-        margin: 2rem 0;
-
-        @media(min-width: 768px) {
-            margin: 4rem 0;
-            padding: 0 2rem;
-        }
-
-        @media(min-width: 1024px) {
-            left: -${((100 / 12) * 2)}vw;
-        }
-
-        @media(min-width: 1200px) {
-            width: calc(${100 - ((100 / 12) * 2)}vw - 2rem);
-            left: auto;
-            padding: 0;
-        }
-
-        @media(min-width: 1280px) {
-            width: calc(${100 - ((100 / 12) * 3)}vw - 2rem);
-        }
+        ${fullMedia};
 
         code, kbd, samp {
             font-size: 1.25em;
@@ -156,29 +160,7 @@ const ArticleEntryContent = styled.div`
     }
 
     .gatsby-resp-image-wrapper {
-        position: relative;
-        width: 100vw;
-        left: calc(-50vw + 50%);
-        margin: 2rem 0;
-
-        @media(min-width: 768px) {
-           padding: 0 2rem;
-           margin: 4rem 0;
-        }
-
-        @media(min-width: 1024px) {
-            left: -${((100 / 12) * 2)}vw;
-        }
-
-        @media(min-width: 1200px) {
-            width: calc(${100 - ((100 / 12) * 2)}vw - 2rem);
-            left: auto;
-            padding: 0;
-        }
-
-        @media(min-width: 1280px) {
-            width: calc(${100 - ((100 / 12) * 3)}vw - 2rem);
-        }
+        ${fullMedia};
     }
 
     & h1,h2,h3,h4,h5,h6 {
@@ -195,76 +177,6 @@ const ArticleEntryContent = styled.div`
     }
 `;
 
-const ExcerptMeta = styled.ul`
-    color: ${colorScheme.text};
-    font-style: italic;
-    font-size: 1.125em;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-transform: lowercase;
-
-    @media (min-width: 768px) {
-        display: flex;
-    }
-
-    & > li {
-        line-height: 1.5;
-
-        @media (min-width: 768px) {
-            line-height: 1;
-        }
-        &::after {
-            @media (min-width: 768px) {
-                content: '|';
-                margin: 0 0.5em;
-            }
-        }
-        &:last-child {
-            display: flex;
-            &::after {
-                content: '';
-                margin: 0;
-            }
-        }
-    }
-    & a {
-        text-decoration: none;
-        color: ${colorScheme.text};
-    }
-`;
-
-const TagList = styled.div`
-    display: flex;
-    span {
-        margin-right: 1ch;
-    }
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-    a {
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-    li {
-        &::after {
-            content: ',';
-            margin-right: 1ch;
-        }
-        &:last-child {
-            &::after {
-                content: '';
-                margin: 0;
-            }
-        }
-    }
-`;
-
 const CatLink = styled(Link)`
     margin: 0 0 1em;
     font-size: 1.125em;
@@ -275,6 +187,14 @@ const CatLink = styled(Link)`
 
     &:hover {
         text-decoration: underline;
+    }
+`;
+
+const ExcerptMetaStyle = css`
+    color: ${colorScheme.text};
+
+    a {
+        color: ${colorScheme.text};
     }
 `;
 
@@ -305,28 +225,10 @@ const BlogPost = (props) => {
                     <Tag style={TagPos} tagText="unpublished" />
                     }
                     <CatLink to={`/categories/${frontmatter.category}`}>{frontmatter.category}</CatLink>
-                    <h1>
-                        {preventWidow(frontmatter.title)}
-                    </h1>
-                    <ExcerptMeta>
-                        <li>
-                            <span>{frontmatter.date}</span>
-                        </li>
-                        <li>
-                            <TagList>
-                                <span>Tagged:</span>
-                                <ul>
-                                    {frontmatter.tags.map(tag => (
-                                        <li key={tag}>
-                                            <Link to={`/tags/${tag}`}>
-                                                {tag}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </TagList>
-                        </li>
-                    </ExcerptMeta>
+                    <h1>{preventWidow(frontmatter.title)}</h1>
+                    {(frontmatter.tags || frontmatter.date) &&
+                    <ExcerptMeta className={ExcerptMetaStyle} tags={frontmatter.tags} date={frontmatter.date} />
+                    }
                 </ArticleHeader>
             </ArticleHero>
             <ArticleContent>
