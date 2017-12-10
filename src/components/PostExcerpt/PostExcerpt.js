@@ -9,8 +9,6 @@ import { colorScheme } from '../../helpers/styleSettings';
 
 /**
  * Funtion to prevent default behaviour when click an A tag.
- * @param {*} e
- * @param {*} slug
  */
 function goToPage(e, slug) {
     if (e.target.tagName === 'A') {
