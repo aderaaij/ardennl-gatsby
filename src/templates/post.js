@@ -51,7 +51,7 @@ const ArticleHeader = styled.header`
 
 const ArticleHero = styled.figure`
     width: 100%; 
-    height: 50vh;
+    height: 60vh;
     margin: 0 0 2em;
     overflow: hidden;
     position: relative;
