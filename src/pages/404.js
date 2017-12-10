@@ -63,10 +63,11 @@ query errorQuery {
         sizes(
             maxWidth: 1600,
             traceSVG: {
+                optTolerance: 0.1,
+                turdSize: 0.1,
                 alphaMax: 0.01,
                 color: "#37474F",
                 threshold: 170,
-                turdSize: 1,
                 blackOnWhite: false,
           }
         ) {
