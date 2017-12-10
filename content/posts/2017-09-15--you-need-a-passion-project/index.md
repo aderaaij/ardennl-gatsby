@@ -42,11 +42,11 @@ Why thank you for asking! I'll list a few, together with some that never made it
 In my previous blogpost I already shared my cfye.com project which is in hibernation at the moment as my partner is in India working on a community bicycle / transportation project, and I just relocated to Lisbon after 7+ months of extensive chilling in exotic locations (they call it traveling and apparently it's a 'skill' you can put on your resume nowadays). But a quick and incomplete summary of what I learned and gained from that project: 
 
 * Community creation and management
-* Development (HTML/css/JS/WordPress)
+* Development (HTML / css / JS / WordPress)
 * Writing and interviewing
 * Curating
 * Organising art exhibitions
-* Collecting/Framing/Showcasing/Selling artwork
+* Collecting / Framing / Showcasing / Selling artwork
 * Some ethics about working on the web
 * A SOTD Awwward
 * Artist management (It's like herding cats, still fun though)
