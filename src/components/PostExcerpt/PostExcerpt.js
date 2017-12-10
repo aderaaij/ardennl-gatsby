@@ -198,5 +198,3 @@ export default class PostExcerpt extends Component {
 PostExcerpt.propTypes = {
     postInfo: PropTypes.object.isRequired,
 };
-
-// export default PostExcerpt;
