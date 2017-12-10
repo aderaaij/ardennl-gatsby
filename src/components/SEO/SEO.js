@@ -25,7 +25,6 @@ const SEO = (props) => {
         currentUrl = config.siteUrl;
         currentImage = config.siteUrl + config.siteLogo;
     }
-    console.log(post.frontmatter.cover.childImageSharp.resolutions);
     return (
         <Helmet>
             <title>{currentTitle}</title>
