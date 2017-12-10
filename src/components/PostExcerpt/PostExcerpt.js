@@ -93,7 +93,7 @@ const BGImage = css`
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     object-fit: cover;
     pointer-events: none;
     transition: ${duration}ms ease-out;
