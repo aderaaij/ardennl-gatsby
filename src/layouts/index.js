@@ -6,6 +6,7 @@ import 'normalize.css';
 import config from '../../data/site-config';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import Piwik from '../components/Piwik/Piwik';
+import Typekit from '../components/Typekit/Typekit';
 import { colorScheme, fontScheme } from '../helpers/styleSettings';
 
 injectGlobal`
@@ -37,12 +38,9 @@ injectGlobal`
 
 const TemplateWrapper = ({ children }) => (
     <div>
-        <Helmet
-            title={config.siteDescription}
-        >
-            <link rel="stylesheet" href="https://use.typekit.net/qru3ayc.css" />
-        </Helmet>
+        <Helmet title={config.siteDescription} />
         <Piwik />
+        <Typekit />
         <SiteHeader />
         {children()}
 
