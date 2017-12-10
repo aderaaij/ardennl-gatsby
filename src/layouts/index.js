@@ -38,7 +38,10 @@ injectGlobal`
 
 const TemplateWrapper = ({ children }) => (
     <div>
-        <Helmet title={config.siteDescription} />
+        <Helmet
+            title={config.siteDescription}
+            htmlAttributes={{ lang: 'EN' }}
+        />
         <Piwik />
         <Typekit />
         <SiteHeader />
