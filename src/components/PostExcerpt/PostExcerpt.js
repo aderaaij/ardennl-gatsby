@@ -6,9 +6,11 @@ import styled, { css } from 'react-emotion';
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
+import { preventWidow } from '../../helpers/helpers';
 
 /**
  * Funtion to prevent default behaviour when click an A tag.
+ * Takes in an event (e) and a string (slug)
  */
 function goToPage(e, slug) {
     if (e.target.tagName === 'A') {
@@ -34,7 +36,7 @@ const BlogArticle = styled.article`
 const BlogContent = styled.div`
     width: 100%;
     h2 {
-        font-size: 1.5em;
+        font-size: 2em;
         a {
             color: ${colorScheme.support};
             text-decoration: none;
@@ -175,7 +177,7 @@ export default class PostExcerpt extends Component {
                             }
                             <CatLink to={`/categories/${category}`}>{category}</CatLink>
                             <h2>
-                                <Link to={path}>{title}</Link>
+                                <Link to={path}>{preventWidow(title)}</Link>
                             </h2>
                             <p>{excerpt}</p>
                             {(tags || date) &&

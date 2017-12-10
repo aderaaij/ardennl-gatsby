@@ -10,6 +10,7 @@ import Tag from '../components/TagLabel/TagLabel';
 import ExcerptMeta from '../components/ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
+import { preventWidow } from '../helpers/helpers';
 import './b16-tomorrow-dark.css';
 
 // import 'intersection-observer';
@@ -182,10 +183,6 @@ const TagPos = css`
     float: right;
     background: ${colorScheme.support};
 `;
-
-function preventWidow(string) {
-    return string.replace(/\s(?=[^\s]*$)/g, '\u00a0');
-}
 
 const duration = 300;
 
