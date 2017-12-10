@@ -28,7 +28,7 @@ const HomeContent = styled.div`
 
     h1 {
         color: ${colorScheme.support};
-        font-size: 1.75em;
+        font-size: 2em;
         font-weight: 900;
         margin: 0;
         @media(min-width: 768px) {        
@@ -37,7 +37,7 @@ const HomeContent = styled.div`
     }  
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.75em;
         margin: 0;        
         @media(min-width: 768px) {
             font-size: 3em;
@@ -53,7 +53,8 @@ const HomeContent = styled.div`
     }
 
     a {
-        text-decoration: none;        
+        text-decoration: none;
+        color: ${colorScheme.supportLight};
         &:hover {
             text-decoration: underline;
         }

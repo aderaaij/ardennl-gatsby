@@ -5,6 +5,7 @@ export const colorScheme = {
     darkLight: mc.blueGrey[800],
     support: mc.pink.a400,
     supportDark: mc.pink[700],
+    supportLight: mc.pink.a200,
     text: '#ffffff',
     logo: '#ffffff',
     meta: mc.blueGrey[200],
