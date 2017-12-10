@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
@@ -42,17 +43,18 @@ const NotFoundContent = styled.div`
     ${ContentLimit};
 `;
 
-const NotFoundPage = ({ data }) => {
-    console.log(data);
-    return (
-        <NotFoundWrap>
-            <NotFoundimage src={data.imageSharp.sizes.tracedSVG} />
-            <NotFoundContent>
-                <h1>NOT FOUND</h1>
-                <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-            </NotFoundContent>
-        </NotFoundWrap>
-    );
+const NotFoundPage = ({ data }) => (
+    <NotFoundWrap>
+        <NotFoundimage src={data.imageSharp.sizes.tracedSVG} />
+        <NotFoundContent>
+            <h1>NOT FOUND</h1>
+            <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        </NotFoundContent>
+    </NotFoundWrap>
+);
+
+NotFoundPage.propTypes = {
+    data: PropTypes.object.isRequired,
 };
 
 export default NotFoundPage;
