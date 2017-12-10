@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-
+import { colorScheme } from '../../helpers/styleSettings';
 import config from '../../../data/site-config';
 
 const SEO = (props) => {
@@ -23,8 +23,9 @@ const SEO = (props) => {
         currentDescription = config.siteDescription;
         currentTitle = config.siteTitle;
         currentUrl = config.siteUrl;
-        currentImage = config.siteLogo;
+        currentImage = config.siteUrl + config.siteLogo;
     }
+    console.log(post.frontmatter.cover.childImageSharp.resolutions);
     return (
         <Helmet>
             <title>{currentTitle}</title>
@@ -49,16 +50,16 @@ const SEO = (props) => {
             <meta name="twitter:description" content={currentDescription} />
             <meta name="twitter:title" content={currentTitle} />
             <meta name="twitter:site" content={`@${siteLinks.Twitter.handle}`} />
-            <meta name="twitter:image" content="https://arden.nl/assets/img/favicons/android-chrome-512x512-4e04be8708.png" />
+            <meta name="twitter:image" content={currentImage} />
 
             {/* Icon Stuff */}
-            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-            <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-            <link rel="shortcut icon" href="/favicons/favicon.ico" />
-            <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
-            <meta name="theme-color" content="#ffffff" />
+            <link rel="apple-touch-icon" sizes="180x180" href={`${config.siteUrl}/favicons/apple-touch-icon.png`} />
+            <link rel="icon" type="image/png" sizes="32x32" href={`${config.siteUrl}/favicons/favicon-32x32.png`} />
+            <link rel="icon" type="image/png" sizes="16x16" href={`${config.siteUrl}/favicons/favicon-16x16.png`} />
+            <link rel="mask-icon" href={`${config.siteUrl}/favicons/safari-pinned-tab.svg" color="#5bbad5`} />
+            <link rel="shortcut icon" href={`${config.siteUrl}/favicons/favicon.ico`} />
+            <meta name="msapplication-config" content={`${config.siteUrl}/favicons/browserconfig.xml`} />
+            <meta name="theme-color" content={colorScheme.support} />
         </Helmet>
     );
 };

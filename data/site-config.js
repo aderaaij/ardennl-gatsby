@@ -15,5 +15,8 @@ module.exports = {
         instagram: {
             handle: 'ardennl',
         },
+        email: {
+            email: 'a.de.raaij@gmail.com',
+        },
     },
 };
