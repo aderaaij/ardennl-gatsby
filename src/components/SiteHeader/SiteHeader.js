@@ -6,7 +6,7 @@ import { colorScheme, fontScheme } from '../../helpers/styleSettings';
 
 const Header = styled.header`
     width: 100%;
-    height: 60px;
+    height: 44px;
     z-index: 901;
     display: flex;
     align-items: center;    
@@ -17,14 +17,16 @@ const Header = styled.header`
 
     @media (min-width: 768px) {
         padding: 0 2em;
+        height: 60px;
     }
 `;
 
 const headroomStyles = css`
-    width: 100%;
+    width: 100vw;
     
     .headroom {
         transition: all 0.3s ease;
+        background: transparent;
         &::before {
             content: '';
             position: absolute;
@@ -37,8 +39,6 @@ const headroomStyles = css`
             transition: all 0.3s ease;
             opacity: 0;
         }
-        background: transparent;
-
         &--unpinned {
             transform: translateY(-100%);
             background: transparent;
@@ -80,10 +80,14 @@ const SiteNav = styled.nav`
 `;
 
 const Logo = styled(Link)`
-    width: 130px;
+    width: 80px;
     display: block;
     height: auto;
     fill: ${colorScheme.logo};
+
+    @media (min-width: 768px) {
+        width: 120px;
+    }
 
     & svg {
         display: block;
