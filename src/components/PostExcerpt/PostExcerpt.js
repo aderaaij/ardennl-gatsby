@@ -7,6 +7,19 @@ import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
 
+/**
+ * Funtion to prevent default behaviour when click an A tag.
+ * @param {*} e
+ * @param {*} slug
+ */
+function goToPage(e, slug) {
+    if (e.target.tagName === 'A') {
+        e.preventDefault();
+    } else {
+        navigateTo(slug);
+    }
+}
+
 const BlogArticle = styled.article`
     position: relative;
     z-index: 201;
@@ -22,15 +35,12 @@ const BlogArticle = styled.article`
 
 const BlogContent = styled.div`
     width: 100%;
-
     h2 {
         font-size: 1.5em;
-
         a {
             color: ${colorScheme.support};
             text-decoration: none;
         }
-
         @media (min-width: 768px) {
             font-size: 3em;
             margin: 0;
@@ -42,7 +52,6 @@ const BlogContent = styled.div`
         max-width: 55ch;
         line-height: 1.5;
         color: ${colorScheme.text};
-
         @media (min-width: 768px) {
             font-size: 1.25em;
         }
@@ -56,11 +65,9 @@ const CatLink = styled(Link)`
     text-transform: lowercase;
     font-style: italic;
     color: ${colorScheme.meta};
-
     @media (min-width: 768px) {
         font-size: 1.125em;
     }
-
     &:hover {
         text-decoration: underline;
     }
@@ -69,6 +76,13 @@ const CatLink = styled(Link)`
 const TagPos = css`
     float: right;
     background: ${colorScheme.support};
+`;
+
+const ExcerptMetaStyle = css`
+    color: ${colorScheme.meta};
+    a {
+        color: ${colorScheme.meta};
+    }
 `;
 
 const duration = 400;
@@ -95,22 +109,6 @@ const transitionStyles = {
     entered: { opacity: 1 },
 };
 
-function goToPage(e, slug) {
-    if (e.target.tagName === 'A') {
-        e.preventDefault();
-    } else {
-        navigateTo(slug);
-    }
-}
-
-const ExcerptMetaStyle = css`
-    color: ${colorScheme.meta};
-
-    a {
-        color: ${colorScheme.meta};
-    }
-`;
-
 const Fade = ({ in: isHovering, image }) => (
     <Transition in={isHovering} timeout={10}>
         {status => (
@@ -127,6 +125,11 @@ const Fade = ({ in: isHovering, image }) => (
     </Transition>
 );
 
+Fade.propTypes = {
+    image: PropTypes.string.isRequired,
+    in: PropTypes.bool.isRequired,
+};
+
 export default class PostExcerpt extends Component {
     constructor(props) {
         super(props);
@@ -140,6 +143,7 @@ export default class PostExcerpt extends Component {
             isHovering: true,
         });
     }
+
     handleMouseLeave() {
         this.setState({
             isHovering: false,
