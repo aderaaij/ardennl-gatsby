@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 import styled, { css } from 'react-emotion';
 import SEO from '../components/SEO/SEO';
 import { colorScheme } from '../helpers/styleSettings';
@@ -75,13 +76,32 @@ const HomeBackground = styled.img`
     }
 `;
 
+const HomeImg = css`
+    width: 100%;
+    height: 100%;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+
+    img:nth-child(2) {
+        opacity: 1 !important;
+    }
+
+    img:last-child {
+        opacity: 0!important;
+    }
+`;
+
 const Home = (props) => {
     const { data } = props;
     const { edges } = data.allImageSharp;
     const background = edges.find(edge => edge.node.id.includes('bg'));
     return (
         <HomeWrap>
-            <HomeBackground src={background.node.sizes.tracedSVG} />
+            {/* <HomeBackground src={background.node.sizes.tracedSVG} /> */}
+            <Img className={HomeImg} outerWrapperClassName={HomeImg} sizes={background.node.sizes} />
             <HomeContent>
                 <div>
                     <h1>Arden de Raaij</h1>
