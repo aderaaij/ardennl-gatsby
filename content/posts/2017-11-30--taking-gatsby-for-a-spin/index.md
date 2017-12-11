@@ -9,23 +9,92 @@ tags:
 published: false
 ---
 
-## Summary
-
-GatsbyJS is a static site generator based on React. At the moment of writing, it's the *nouveau riche* on the estate, and if the name is anything to go by, we can expect some exciting new decadence from this development tool. 
+A static site generator based on React, does that even make sense? GatsbyJS is the fancy *nouveau riche* on the estate of established static site generators and if the name is anything to go by we can expect some front-end decadence.  (I'm assuming the name is based on the F.Fitzgerald story, otherwise these analogies are even worse than they already are). For this post I'll dive into the how and why of GatsbyJS bit, and share with you my personal experience. 
 
 ## Introduction
-Ever since I started following the Gatsby Twitter account I've been wanting in on the action. The daily retweets of developers stating that Gatsby is the most exciting thing since they discovered the `marquee` tag totally convinced me, even though I had no idea if generating a static site based on React is something that makes sense.
+I've been a fan of the 'static site generator' concept for a while now. In the most minimal configuraton a site generator will take care of tedious tasks like creating reoccuring elements on every page (think headers, footers, menus and meta-deta), but more than often they'll also allow you to build a website with all your favourite tools. I've built my own static site generator, TotallyStatical, which uses webpack and gulp to quickly build templates or prototypes based on all the preprocessors and languages I like. It makes creating templates and prototyping such an incredibly fun experience, until whatever I've made needs to be implemented in some CMS system (Most of the time, WordPress). I've been developing for WordPress for years, but I never really enjoyed the experience of muddying down my 'flawless' html templates with PHP tags and functions all over the place. 
 
-It turns out that it does make sense when it's done right. Leveraging React for 
+Enter GatsbyJS, the static site generator based on React. One of the things that the Gatsby development environment provides is a data layer and plugins which lets you pull in and distribute data from API's, files / directories, markdown files, databases and basically whatever. This allows you to use the editing capabilities of a Wordpress installation and pull in the data to a blazing fast static site which doesn't even have to reside on the same server. I don't know about you, but seperation of content management systems and client-side stuff is like my holy grail. 
 
-It turns out that a React based static site generator does make sense, if you do it right. If you think about it, it doesn't really matter if you generate your site with 
+## Features
+
+### Modern development environment with React
+One of the most striking features of Gatsby is that it's based on React. You create your site by writing react components and JSX and it outputs static files and assets. Personally I greatly enjoy working in React but the idea of using it to create static sites required a bit of a mental switch. Now I've been using it, I really do think it makes sense, but more on that later. 
+
+Other good stuff in the development environment are: 
+
+* **Preconfigured Webpack**<br/>
+Gatsby comes with an extensive Webpack configuration which you can override or add to in a gatsby-config file or through gatsby plugins. There's already an impressive amount of plugins available on the Gatsby site, and they highly encourage the community to create and share plugins as well. 
+* **Modern Javascript and CSS**<br/>
+It almost goes without saying, but Gatsby allows you to write your ES6 and up, including all the import goodness. And regarding CSS you can do anything you want; plain old CSS, SCSS, CSS-in-JS, Styled Components. You name it and you can use it.
+
+### Data with Graphql
+Graphql is a query language for API's. It's not tied into any specific storage or database system so you can pull in all kinds of data and query it in a way that fits your existing data and code. You can feed it data from the WordPress API and query it into your development environment in an *sql* kind of way. Only SQL queries and I never really got along, but Graphql queries seem super clean and readable to me. To make it even easier, the Gatsby's development environment also comes with Graph*i*QL, a browser based IDE to easily create and debug queries with. 
+<div class='caption'>
+
+![Screenshot of GraphiQl](./grahiql_screenshot.png "GraphiQL")
+<p class='caption__text'>
+    An example of a graphql query as used in Gatsby.
+</p>
+</div>
+
+But wait, there's more: Gatsby already has a bunch of plugins available that will let you pull in data from various CMS's, json, yaml, filesystem or markdown files.
+
+<div class='caption'>
+
+```es6
+export const query = graphql`
+    query BlogPostQuery($slug: String!) {
+        markdownRemark(fields: { slug: { eq: $slug } }) {
+            html
+            fields {
+                slug
+            }
+            frontmatter {
+                title
+                date(formatString: "DD MMMM, YYYY")
+                cover {
+                    childImageSharp {
+                        resolutions(
+                            width: 1200,
+                        ) {
+                            src
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+```
+<p class='caption__text'>
+    An example of a graphql query as used in Gatsby.
+</p>
+</div>
+
+
+Gatsby was my introduction to Graphql, which also comes out of the Facebook corner. Graphql is a query language for yor API's. It's not tied into a specific storage or database system so you can write abstraction layers to pull in all kinds of data, and adapt it to fit your existing code and data. So basically you've got a 
+
+### 'Progressive Web App' including PRLP pattern
+### A good plugin interface
+
+
+
+I've long been convinced that Static Site Generators make sense, although I've mostly used them for templating and rapid prototyping. I built my own static site generator, TotallyStatical, specifically for that purpose and it has served me well. It doesn't handle a lot of data but I often use it for creating actual static sites or themes for Wordpress, so it's not that necessary either. It's also one of the reasons I've never tried out Hugo or Jekyll.
+
+
+
+To be honest, I wasn't really looking for a new soluti
+Ever since I started following the Gatsby Twitter account I've been wanting in on the action. The daily retweets of developers stating that Gatsby is the most exciting thing since they discovered the `marquee` tag totally convinced me, even though I had no idea if generating a static site based on React is something that makes sense. 
+
+
 
 
 ## Features
 
 ### Graphql
 
-### IMage Sharp
+### Image Sharp
 
 ## Some thoughts on gatsbys position in front-end 
 
@@ -52,56 +121,3 @@ all kinds of integrated goodness coming by like SVG trace image preloading, I
 really felt that Gatsby deserved a fair chance.
 
 ![alt text](./image-01.jpg "image")
-
-## Vultusque subsequitur Pallas regis datis inde animaque
-
-At securim cautum capitis, creatos sanguinis turbant iam concita videor, edere.
-Alis genas rudis felix quas **longum** suorum manu ante prima **usque**. Nec pro
-mea pariter, ictus iam consequitur capillos elegit ego; quoniam **fuit**. Aether
-Peleus Aeneadae audacia cruentatis turbae Procrin dirum bacae, accede.
-
-```javascript
-export default ({ data }) => {
-    const post = data.markdownRemark;
-    return (
-        <ArticleContent>
-            <h1>{post.frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </ArticleContent>
-    );
-};
-```
-
-## Fortis dextrae humo limina Tempus singultibus illa
-
-Nate muros orbe [patris](http://debebuntilla.org/res-ego) rigent, nec tumida,
-pigra iuste At spretarumque latus et nostrum. Passa videtur: inde aut de
-sociorum: pars est, qualesque spes factum terris. Custodia sum animumque; iubet
-in pulvere carus, relinquunt incitat. Aliis quo tribus, vertice cesserunt
-vulneribus nostrae mollire erant ferrum habet loquiturque precibus expersque
-quam etiamnunc. Puraque [repetitque](http://mihi-aiax.io/suaferunt.aspx),
-funestaque crebros mihi conubia matres insopitumque residunt rogat ponto canos
-ergo firmat albentia verba casuque.
-
-```perl
-    if (lion_vdu + vrml_upnp - redundancyAccessPharming) {
-        driveProcessor = floatingWord(commerceDockRestore(database));
-    } else {
-        partition_source_thunderbolt = -2 + tokenStateArchive /
-                teraflops_gigahertz;
-    }
-    exabytePhpMacintosh -= graphic_cycle(expression, memory(ideFatMatrix,
-            controlInboxMode), 50) + -3;
-    buffer_apple_hdmi += viralSync + internetDigital / tweak_perl_expansion(
-            masterNullFloating + vdu, software_play);
-```
-
-## Nati expugnacior nympha milia nascuntur amico
-
-Multis timidus hic si auctor hausit. Suos taedasque, malis est nitente sceleri
-sunt florem.
-
-Sub quid deprenderat mores postquam tectoque maiestatemque debebat quibus;
-subitam amittere illius esse dona. Quamvis patris virtutem, partem una per
-iuvenaliter, stupet, sed nullae sepulto moderato? Nec phaedimus aequoris dixit.
-Hic bis parenti: e petunt satis.
