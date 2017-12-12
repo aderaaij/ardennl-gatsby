@@ -6,39 +6,53 @@ category: "webdevelopment"
 tags:
     - gatsby
     - javascript
-published: false
+published: true
 ---
 
-A static site generator based on React, does that even make sense? GatsbyJS is the fancy *nouveau riche* on the estate of established static site generators and if the name is anything to go by we can expect some front-end decadence.  (I'm assuming the name is based on the F.Fitzgerald story, otherwise these analogies are even worse than they already are). For this post I'll dive into the how and why of GatsbyJS bit, and share with you my personal experience. 
+A static site generator based on React, does that even make sense? GatsbyJS tries to answer this question with a hyper modern, feature packed, *jamstacked* development tool that you can try out right now! In this post I'll give you a quick introduction and an overview of my own thoughts on Gatsby.
 
-## Introduction
-I've been a fan of the 'static site generator' concept for a while now. In the most minimal configuraton a site generator will take care of tedious tasks like creating reoccuring elements on every page (think headers, footers, menus and meta-deta), but more than often they'll also allow you to build a website with all your favourite tools. I've built my own static site generator, TotallyStatical, which uses webpack and gulp to quickly build templates or prototypes based on all the preprocessors and languages I like. It makes creating templates and prototyping such an incredibly fun experience, until whatever I've made needs to be implemented in some CMS system (Most of the time, WordPress). I've been developing for WordPress for years, but I never really enjoyed the experience of muddying down my 'flawless' html templates with PHP tags and functions all over the place. 
+## Introducing: Gatsby
+Ever since following the [Gatsby Twitter account](https://twitter.com/gatsbyjs) I've been wanting in on the action. It's not that I really *need* a new tool to create static sites with, it's just that every developer tweeting about Gatsby seems to think it's the most exciting thing on the web since they learned they could combine the `marquee` and `blink` tag. Call it FOMO. Also, the sites that these developers have been showcasing were all so fast and snappy, I had to see what the buzz was about. 
+Some of the important features of Gatsby:
 
-Enter GatsbyJS, the static site generator based on React. One of the things that the Gatsby development environment provides is a data layer and plugins which lets you pull in and distribute data from API's, files / directories, markdown files, databases and basically whatever. This allows you to use the editing capabilities of a Wordpress installation and pull in the data to a blazing fast static site which doesn't even have to reside on the same server. I don't know about you, but seperation of content management systems and client-side stuff is like my holy grail. 
+### React
 
-## Features
+GatsbyJS is based on React and means that you'll be writing almost everything in JavaScript / JSX to generate your HTML. That doesn't mean you need loads of React experience to start out with Gatsby, the [tutorials](https://www.gatsbyjs.org/tutorial/) are a great resource and will learn you some React along the way. If you already enjoy working with React, you'll most definitely enjoy creating static sites with Gatsby. As your final JavaScript bundle includes the React library as well, you can include React components as well. Of course those won't render with JavaScript disabled.
 
-### Modern development environment with React
-One of the most striking features of Gatsby is that it's based on React. You create your site by writing react components and JSX and it outputs static files and assets. Personally I greatly enjoy working in React but the idea of using it to create static sites required a bit of a mental switch. Now I've been using it, I really do think it makes sense, but more on that later. 
+### Graphql
 
-Other good stuff in the development environment are: 
+Gatsby has been my introduction to Graphql and I'm loving it already. Graphql is a query language which you can connect to all kinds of api's. With an abstraction layer you can pull in all the data you can think of and use it in your app while developing. Gatsby comes with plugins to pull in data from several API's, CMS systems and files. With Graphql you're able to query data from all these sources in a clear and readable way. The data is instantly available in your components and that's just super cool. Also, it comes with this browser based IDE called Graph*i*QL which starts along with your development environment. You can use it to test out the queries, see what data you have available and what everything returns exactly. 
 
-* **Preconfigured Webpack**<br/>
-Gatsby comes with an extensive Webpack configuration which you can override or add to in a gatsby-config file or through gatsby plugins. There's already an impressive amount of plugins available on the Gatsby site, and they highly encourage the community to create and share plugins as well. 
-* **Modern Javascript and CSS**<br/>
-It almost goes without saying, but Gatsby allows you to write your ES6 and up, including all the import goodness. And regarding CSS you can do anything you want; plain old CSS, SCSS, CSS-in-JS, Styled Components. You name it and you can use it.
-
-### Data with Graphql
-Graphql is a query language for API's. It's not tied into any specific storage or database system so you can pull in all kinds of data and query it in a way that fits your existing data and code. You can feed it data from the WordPress API and query it into your development environment in an *sql* kind of way. Only SQL queries and I never really got along, but Graphql queries seem super clean and readable to me. To make it even easier, the Gatsby's development environment also comes with Graph*i*QL, a browser based IDE to easily create and debug queries with. 
 <div class='caption'>
 
 ![Screenshot of GraphiQl](./grahiql_screenshot.png "GraphiQL")
 <p class='caption__text'>
-    An example of a graphql query as used in Gatsby.
+    GraphiQL in action. Here we're quering a specific markdown file and some of its data. 
 </p>
 </div>
 
-But wait, there's more: Gatsby already has a bunch of plugins available that will let you pull in data from various CMS's, json, yaml, filesystem or markdown files.
+### Progressive Web App and PRPL Pattern (Blazing fast)
+With an eye on the future, Gatsby already implements lots of Googles so called '**P**ush, **R**ender **P**re-Cache and **L**azy-load pattern (I'm not sure if that acronym will catch on). All of the pre-loading and code-splitting is basically already taken care of, which makes for an insanely fast experience when browsing around on Gatsby sites. PRPL + the gatsby offline plugin mean that your site will be considered a PWA, will load insanely fast on any device and scores great in Google lighthouse. 
+
+### Webpack and Plugins
+Can you say React without Webpack? I can hardly say `hello world` without webpack anymore, although I'm still not sure how it's configured. Gatsby comes with an extensive webpack configuration you don't really need to touch if you don't want to. If you do, you can modify and add to the default configuration with a plugin or in a `gatsby-node` file, which is also used to create nodes from your data points. There's already a great range of plugins available and there are some good examples on how to write your own plugin too. 
+
+### Community
+Even though Gatsby is young, the developers using it seem really involved. There are quite some articles on Gatsby, people seem to be happy to answer your Gatsby questions on Twitter and on Github you can ask anything without being shot down. Everyone is encouraged to contribute in form of plugins and pull requests, which gives me confidence that we'll see a lot of additions and improvements in the future. 
+
+
+## Some thoughts on Gatsby
+
+It's very telling that [most of the websites that are made with Gatsby](https://github.com/gatsbyjs/gatsby#showcase) are developer portfolios and documentation websites. That definitely isn't a bad thing, it just means it's very new and developers seem to test the water by using it on projects close to home. 
+
+In any case, I'm having a blast working with Gatsby, and a few things popped in my head while working on this personal site. 
+
+### It's fast
+Gatsby definitely delivers on the speed part. Even though it spits out quite the JavaScript bundle, the navigating around feels so incredibly snappy and all the page speed tests seem to love what is going on. Most Gatsby sites also feel fast on spotty 3g connections, it's not just the tests. 
+
+### GraphQL is amazing
+
+My very first creation with Gatsby is my own site, which is always a work in progress. Even though I built my own static site generator, [TotallyStatical], I wanted to try out Gatsby because of its promise: Data from everywhere, static output. Although the data I pull in this blog is based on markdown files, it won't be hard to switch to another content source because of Graphql. This completely separates the front-end of a site from its content source and that's a concept I hope to see more often. 
 
 <div class='caption'>
 
@@ -68,56 +82,31 @@ export const query = graphql`
 `;
 ```
 <p class='caption__text'>
-    An example of a graphql query as used in Gatsby.
+    Returning data from markdown files for the blogpost template
 </p>
 </div>
 
+### Deployment and content management can be so good! 
 
-Gatsby was my introduction to Graphql, which also comes out of the Facebook corner. Graphql is a query language for yor API's. It's not tied into a specific storage or database system so you can write abstraction layers to pull in all kinds of data, and adapt it to fit your existing code and data. So basically you've got a 
+After reading some articles on the Gatsby site, I decided to set up my Gatsby hosting on a free plan from [Netlify](https://www.netlify.com/) (which is ridiculously generous by the way, what's the catch?) and that has been a fun experience. Netlify already supports Gatsby out of the box, which means you can configure automatic deploys with `git` in a few clicks. Now everything I push to master, the site gets rebuild and uploaded by Netlify. Magic. There's also the possibility to configure staging servers based on your branches, so you can always test out your changes before merging to master and deploying.  
 
-### 'Progressive Web App' including PRLP pattern
-### A good plugin interface
+But wait, there's more. If you use [Contentful](https://www.contentful.com/) as Content Management System and Netlify as your host, you can easily create a Webhook to trigger a rebuild on every content update! I haven't tried this myself yet, but these posts by ** are great resources to get you going. At the moment of typing every triggered update requires a full rebuild of the site. A small site doesn't cost too long to be rebuild, but I can imagine it's quite much on a large site with many updates. Luckily, incremental builds will be part of Gatsby 'sooner than later', which will take care of that problem. 
 
+### Gatsby Image plugin is cool
+Did you see the SVG traced image before the image was loaded? If not, you're probably on Safari and I haven't implemented the `intersection observer` polyfill yet, but in any other cases images you add with the gatsby image component will have a blur or traced svg preloading effect by default. it also has srcet support and automatic WebP support. It can also use some work; Right now it will only show the preload image when JavaScript is disabled ([Pull request with a `noscript` tag is pending](https://github.com/gatsbyjs/gatsby/pull/3122_)). It also ads a few wrappers around your images that are hard to reconfigure without using `!important` and uses `object-fit` which is unsupported by IE11 and older by default. Of course, you don't have to use this plugin and every addition / change is discussable on Github. 
 
+### Keep an eye on the output
+I'll instantly admit that I haven't gone over my own site yet, but I'm sure it'll need some more work on the semantic HTML front. Unlike template languages like `pug` and `haml`, JSX makes it really easy to make a mess of your output. Combined with the use of plugins, I'd say it's extra important to keep an eye out on the output it generates, if it's accessible and actually progressive (meaning it still renders something good in older browsers and such). Because Gatsby seems very much about moving forward I think it's extra important to keep an eye out for enhancements that aren't progressive. 
 
-I've long been convinced that Static Site Generators make sense, although I've mostly used them for templating and rapid prototyping. I built my own static site generator, TotallyStatical, specifically for that purpose and it has served me well. It doesn't handle a lot of data but I often use it for creating actual static sites or themes for Wordpress, so it's not that necessary either. It's also one of the reasons I've never tried out Hugo or Jekyll.
+### When your favorite tool is a hammer... 
+Doing everything in React is a blessing and a curse. You can solve everything with JavaScript but that doesn't mean you HAVE to solve everything with JavaScript. At times I find myself in such a flow of writing just JavaScript that I tend to use it to solve problems that could've also been fixed with a `hover` selector in CSS. 
 
-
-
-To be honest, I wasn't really looking for a new soluti
-Ever since I started following the Gatsby Twitter account I've been wanting in on the action. The daily retweets of developers stating that Gatsby is the most exciting thing since they discovered the `marquee` tag totally convinced me, even though I had no idea if generating a static site based on React is something that makes sense. 
-
-
-
-
-## Features
-
-### Graphql
-
-### Image Sharp
-
-## Some thoughts on gatsbys position in front-end 
-
-### Beware of unreadable HTML
+### CSS in JavaScript, I can dig it.
+You can use anything to style your gatsby site with; CSS, SCSS, Styled Components, CSS-in-JS, you name it. I wanted to give the whole "Use CSS in your JavaScript" a spin this time so I chose for a library called `emotion-js` based on the fact that I dig the Bowie emoji a lot. I have to be honest with you, I don't hate it! Having a component and it's styling in one place is such a nice way to work. I don't even need all the clever tricks of using react state to toggle values, just the fact that everything is in the same place already makes thing sort of 'click'. Although there's still some work to do considering autocompletion and CSS syntax highlighting, I wouldn't mind working like this more often.
 
 
-## The future
+## In conclusion
+I like Gatsby and I like the ideas that it promotes. The sites it create are blazing fast, the development environment is one big party and the data source and structure of that source is separated from the front-end. I am greatly looking forward to develop more sites with Gatsby and I'm going to look for professional opportunities where I can replace a traditional CMS installation with template to a Gatsby static site and a separate CMS. The combination of Contentful and Netlify already offers this, but I'm curious to see if I can pull it off with WordPress for example. I can already think of some challenges ahead, but seeing Gatsby is such a joy to use, I'll gladly take those on.
 
-Gatsby totally played on my FOMO. Since following their twitter account and seeing 
-their retweets of happy developers praising Gatsby as the most fun front-end experience
-since they found out about the `blink` tag, I've been itching to try it out myself. 
-So what is Gatsby? Gatsby is a static site generator based on React. If you're in the camp 
-that feels that front-end development is over-complicated as it is, it's probably not for you. 
-But if you love tooling and experimenting with the latest technique, you'll have a blast with Gatsby! 
+If you have any questions based on this post, don't hesitate to contact me on (Twitter)[http://twitter.com/ardennl] or via [mail](mailto:a.de.raaij@gmail.com). Thanks for reading! 
 
-## Why I chose Gatsby
-
-Gatsby creates static HTML sites, which is not that special. I even have my own
-static site generator / rapid prototype tool: 
-[TotallyStatical](https://github.com/aderaaij/totallystatical) which I absolutely
-love to use and improve on, so you'd naturally that was my go-to when I started
-thinking about making myself a new site. But as Gatsby is based on React and I saw
-all kinds of integrated goodness coming by like SVG trace image preloading, I 
-really felt that Gatsby deserved a fair chance.
-
-![alt text](./image-01.jpg "image")
