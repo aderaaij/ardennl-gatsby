@@ -11,6 +11,7 @@ import ExcerptMeta from '../components/ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
 import { preventWidow } from '../helpers/helpers';
+import { postQuery } from '../graphql/post';
 import './b16-tomorrow-dark.css';
 
 // import 'intersection-observer';
@@ -358,38 +359,7 @@ export default BlogPost;
 export const query = graphql`
     query BlogPostQuery($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
-            timeToRead
-            excerpt
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-                published
-                date(formatString: "DD MMMM, YYYY")
-                category
-                tags
-                cover {
-                    id
-                    childImageSharp {
-                        resolutions(
-                            width: 1200,
-                            traceSVG: {
-                                color: "#37474F",
-                                blackOnWhite: false,
-                            }
-                        ) {
-                            tracedSVG
-                            aspectRatio
-                            src
-                            srcSet
-                            srcWebp
-                            srcSetWebp
-                        }
-                    }
-                }
-            }
+            ...postQuery
         }
     }
 `;
