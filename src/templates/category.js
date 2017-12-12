@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
 import config from '../../data/site-config';
+import { archiveQuery } from '../graphql/archive';
 
 const CategoryTemplate = (props) => {
     const { edges } = props.data.allMarkdownRemark;
@@ -27,51 +28,14 @@ CategoryTemplate.propTypes = {
 
 export default CategoryTemplate;
 
-
 export const pageQuery = graphql`
-    query CategoryPage($category: String) {
+    query ArchivePage($category: String) {
         allMarkdownRemark(
             limit: 1000
             sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { category: { eq: $category } } }
         ) {
-            totalCount
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                    excerpt
-                    timeToRead
-                    frontmatter {
-                        title
-                        tags
-                        category
-                        published
-                        date(formatString: "DD MMMM, YYYY")
-                        cover {
-                            id
-                            relativePath
-                            childImageSharp {
-                                resolutions(
-                                    width: 1200,
-                                    traceSVG: {
-                                        color: "#37474F",
-                                        blackOnWhite: false,
-                                    }
-                                ) {
-                                    src
-                                    tracedSVG
-                                    width
-                                    height
-                                    aspectRatio
-                                    originalName
-                                }
-                            }
-                        }
-                    }         
-                }
-            }
+            ...archiveQuery
         }
     }
 `;
