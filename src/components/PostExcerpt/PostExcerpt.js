@@ -158,10 +158,12 @@ export default class PostExcerpt extends Component {
         } = postInfo;
         return (
             <div>
+                {cover &&
                 <Fade
                     in={!!isHovering}
                     image={cover.childImageSharp.resolutions.tracedSVG}
                 />
+                }
                 <BlogArticle
                     onMouseEnter={() => this.handleMouseEnter()}
                     onMouseLeave={() => this.handleMouseLeave()}

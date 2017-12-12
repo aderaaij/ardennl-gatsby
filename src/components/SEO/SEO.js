@@ -17,7 +17,11 @@ const SEO = (props) => {
         pageTitle = post.frontmatter.title;
         currentTitle = `${pageTitle} | ${config.siteName}`;
         currentDescription = post.excerpt;
-        currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.resolutions.src}`;
+        if (post.frontmatter.cover) {
+            currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.resolutions.src}`;
+        } else {
+            currentImage = config.siteUrl + config.siteLogo;
+        }
         currentUrl = `${config.siteUrl}${post.fields.slug}`;
     } else {
         currentDescription = config.siteDescription;

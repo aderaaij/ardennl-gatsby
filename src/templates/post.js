@@ -76,6 +76,22 @@ const ArticleHero = styled.figure`
     }
 `;
 
+const articleHeroSmall = css`
+    height: auto;
+    padding-top: calc(2em + 44px);
+    margin-bottom: 0;
+    &::before {
+        display: none;
+    }
+    @media(min-width: 768px) {
+        padding-top: calc(4em + 60px);
+        margin-bottom: 0;
+    }
+    @media(min-width: 1024px) {
+        height: auto;
+    }
+`;
+
 const ArticleContent = styled.div`
     padding: 0 1em;
     ${GridBase}; 
@@ -218,6 +234,7 @@ const ArticleEntryContent = styled.div`
     }
 `;
 
+
 const CatLink = styled(Link)`
     margin: 0 0 1em;
     font-size: 1.125em;
@@ -286,7 +303,6 @@ class BlogPost extends Component {
 
     render() {
         const { frontmatter, html } = this.props.data.markdownRemark;
-        const { childImageSharp } = frontmatter.cover;
         const {
             title, category, tags, date, published,
         } = frontmatter;
@@ -299,13 +315,15 @@ class BlogPost extends Component {
                     <meta name="robots" content="noindex" />
                 </Helmet>
                 }
-                <ArticleHero>
+                <ArticleHero className={frontmatter.cover ? '' : articleHeroSmall}>
+                    {frontmatter.cover &&
                     <Img
                         outerWrapperClassName={imgStyle}
                         position="absolute"
                         className={imgStyle}
-                        resolutions={childImageSharp.resolutions}
+                        resolutions={frontmatter.cover.resolutions}
                     />
+                    }
                     <ArticleHeader>
                         <Fade in={this.state.fadeIn} >
                             {!published &&
