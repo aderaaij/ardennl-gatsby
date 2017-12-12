@@ -321,7 +321,7 @@ class BlogPost extends Component {
                         outerWrapperClassName={imgStyle}
                         position="absolute"
                         className={imgStyle}
-                        resolutions={frontmatter.cover.resolutions}
+                        resolutions={frontmatter.cover.childImageSharp.resolutions}
                     />
                     }
                     <ArticleHeader>
