@@ -33,6 +33,7 @@
             "components": [ "Link" ],
             "specialLink": [ "to" ]
         }],
+        "import/prefer-default-export": 0,
         "no-unused-expressions": [
             "error",
             {
