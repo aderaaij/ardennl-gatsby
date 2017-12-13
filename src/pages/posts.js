@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import PostsList from '../components/PostsList/PostsList';
 import SEO from '../components/SEO/SEO';
 import config from '../../data/site-config';
-import { archiveQuery } from '../graphql/archive';
+import '../graphql/archive';
+
+// console.log(archiveQuery);
 
 const BlogList = (props) => {
     const { edges } = props.data.allMarkdownRemark;
@@ -27,9 +29,14 @@ BlogList.propTypes = {
 export default BlogList;
 
 export const query = graphql`
-    query postsQuery {
+    query PostsArchive {
         allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-            ...archiveQuery
+            totalCount
+            edges {
+                node {
+                    ...defaultArchiveQuery
+                }
+            }
         }
     }
 `;
