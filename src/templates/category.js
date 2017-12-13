@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
 import config from '../../data/site-config';
-import { archiveQuery } from '../graphql/archive';
+import '../graphql/archive';
 
 const CategoryTemplate = (props) => {
     const { edges } = props.data.allMarkdownRemark;
@@ -28,14 +28,19 @@ CategoryTemplate.propTypes = {
 
 export default CategoryTemplate;
 
-export const pageQuery = graphql`
-    query ArchivePage($category: String) {
+export const query = graphql`
+    query CategoryArchive($category: String) {
         allMarkdownRemark(
             limit: 1000
             sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { category: { eq: $category } } }
         ) {
-            ...archiveQuery
+            totalCount
+            edges {
+                node {
+                   ...defaultArchiveQuery
+                }
+            }
         }
     }
 `;
