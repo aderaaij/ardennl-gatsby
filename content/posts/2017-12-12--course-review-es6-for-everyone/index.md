@@ -54,3 +54,5 @@ ES6 for everyone is slightly pricey compared to some courses you can pick up on 
 When I look at the amount of knowledge I gained from the course and all the time I’ve spent studying with it, my student debts seem ridiculous.
 
 ES6 for everyone is everything you need to get you up to date and confident in writing modern JavaScript. As it is now, the course will be a sound investment of your time and money for a while to come. 
+
+This article was edited by [Miquel Cano](https://www.linkedin.com/in/miquel1/).
