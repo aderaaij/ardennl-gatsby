@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "ardennl-gatsby-site",
+  "description": "Arden.nl wesbiste made in Gatsby",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Arden de Raaij <a.de.raaij@gmail.com>",
   "dependencies": {
     "emotion": "^8.0.12",
     "emotion-server": "^8.0.12",
