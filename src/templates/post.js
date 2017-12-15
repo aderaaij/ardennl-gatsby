@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import styled from 'react-emotion';
 import SEO from '../components/SEO/SEO';
 import ArticleHero from '../components/Article/ArticleHero';
 import ArticleContent from '../components/Article/ArticleContent';
+import ArticleFooter from '../components/Article/ArticleFooter';
 import '../graphql/post';
 import './b16-tomorrow-dark.css';
 
+const Article = styled.article`
+    padding-bottom: 4em;
+`;
 class BlogPost extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +30,7 @@ class BlogPost extends Component {
         const { frontmatter, html } = this.props.data.markdownRemark;
         const { published } = frontmatter;
         return (
-            <article>
+            <Article>
                 <SEO type="post" post={this.props.data.markdownRemark} />
                 {!published &&
                 <Helmet>
@@ -34,7 +39,8 @@ class BlogPost extends Component {
                 }
                 <ArticleHero frontmatter={frontmatter} fadeIn={this.state.fadeIn} />
                 <ArticleContent html={html} />
-            </article>
+                <ArticleFooter />
+            </Article>
         );
     }
 }

@@ -71,7 +71,6 @@ const ArticleEntryContent = styled.div`
         > code {
             background: ${colorScheme.darkLight}
         }
-        
     }
     ul, ol {
         font-size: 1.25em;
