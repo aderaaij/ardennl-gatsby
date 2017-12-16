@@ -6,19 +6,25 @@ import { GridBase, ContentLimit } from '../../helpers/grid';
 import { colorScheme } from '../../helpers/styleSettings';
 
 const FooterStyled = styled.div`
-    width: 100%;
-    ${GridBase};
+    padding: 0 1em;
+    ${GridBase}; 
+    @media(min-width: 768px) {
+        padding: 0;
+    }
 `;
 
 const FooterContent = styled.div`
     ${ContentLimit};
     border-top: 1px solid ${colorScheme.support};
     color: ${colorScheme.text};
-    padding-top: 1em;
+    padding: 1em 0;
 
     p {
-        font-size: 1.35em;
+        font-size: 1.25em;
         line-height: 1.55;
+        @include media(min-width: 768px) {
+            font-size: 1.375em;
+        }        
     }
 
     div {
