@@ -22,7 +22,7 @@ const FooterContent = styled.div`
     p {
         font-size: 1.25em;
         line-height: 1.55;
-        @include media(min-width: 768px) {
+        @media(min-width: 768px) {
             font-size: 1.375em;
         }        
     }
