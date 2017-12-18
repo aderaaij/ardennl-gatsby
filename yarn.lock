@@ -3762,6 +3762,16 @@ gatsby-remark-prismjs@^1.2.10:
     prismjs "^1.7.0"
     unist-util-visit "^1.1.1"
 
+gatsby-remark-responsive-iframe@^1.4.16:
+  version "1.4.16"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-1.4.16.tgz#38efb84a4b6f0f9704afb45970bf8b8a7668c446"
+  dependencies:
+    babel-runtime "^6.26.0"
+    bluebird "^3.5.0"
+    cheerio "^1.0.0-rc.2"
+    lodash "^4.17.4"
+    unist-util-visit "^1.1.1"
+
 gatsby-remark-smartypants@^1.4.9:
   version "1.4.9"
   resolved "https://registry.yarnpkg.com/gatsby-remark-smartypants/-/gatsby-remark-smartypants-1.4.9.tgz#ed48782849bc4fbac44e1365822b436f9766c2ae"
