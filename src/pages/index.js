@@ -128,7 +128,7 @@ export default Home;
 export const query = graphql`
     query IndexQuery {        
         allImageSharp(filter: 
-            {id: {regex: "/assets/img/"}}
+            { id: { regex: "/assets/img/" } }
         ) {
             edges {
                 node {
