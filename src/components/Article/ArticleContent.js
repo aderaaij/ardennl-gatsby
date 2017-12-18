@@ -89,6 +89,9 @@ const ArticleEntryContent = styled.div`
     .gatsby-resp-image-wrapper {
         ${fullMedia};
     }
+    .gatsby-resp-iframe-wrapper {
+        ${fullMedia};
+    }
 
     .caption {
         position: relative;
