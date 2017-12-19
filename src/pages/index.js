@@ -100,8 +100,8 @@ const Home = (props) => {
     const background = edges.find(edge => edge.node.id.includes('bg'));
     return (
         <HomeWrap>
-            {/* <HomeBackground src={background.node.sizes.tracedSVG} /> */}
-            <Img className={HomeImg} outerWrapperClassName={HomeImg} sizes={background.node.sizes} />
+            <HomeBackground src={background.node.sizes.tracedSVG} />
+            {/* <Img className={HomeImg} outerWrapperClassName={HomeImg} src={background.node.tracedSVG} /> */}
             <HomeContent>
                 <div>
                     <h1>Arden de Raaij</h1>
