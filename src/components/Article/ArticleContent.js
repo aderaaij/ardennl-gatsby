@@ -39,6 +39,12 @@ const ArticleEntryContent = styled.div`
     color: ${colorScheme.text};
     ${ContentLimit};
     max-width: 65ch;
+    margin: 0 auto;
+
+    @media(min-width: 768px) {
+        margin: 0;
+        width: 100%;
+    }
 
     a {
         color: ${colorScheme.supportLight};
@@ -92,6 +98,19 @@ const ArticleEntryContent = styled.div`
     }
     .gatsby-resp-iframe-wrapper {
         ${fullMedia};
+
+        iframe {
+
+            @media(min-width: 768px) {
+                width: calc(100% - 4rem)!important;
+                left: 2rem!important;
+            }
+
+            @media(min-width: 1200px) {
+                width: 100% !important;
+                left: 0!important;
+            }
+        }
     }
 
     .gatsby-iframe-wrapper {
