@@ -14,11 +14,10 @@ const ArticleContentStyled = styled.div`
 
 const fullMedia = css`
     position: relative;
-    width: 100vw;    
-    margin: 2rem 0 2rem -1rem!important;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    margin: 2rem 0;
     @media(min-width: 768px) {
-        width: 100vw;
-        left: -${((100 / 12) * 2)}vw;
         padding: 0 2rem;
         margin: 4rem 0;
     }
@@ -96,43 +95,29 @@ const ArticleEntryContent = styled.div`
     .gatsby-resp-image-wrapper {
         ${fullMedia};
     }
-    .gatsby-resp-iframe-wrapper {
-        ${fullMedia};
-
-        iframe {
-
-            @media(min-width: 768px) {
-                width: calc(100% - 4rem)!important;
-                left: 2rem!important;
-            }
-
-            @media(min-width: 1200px) {
-                width: 100% !important;
-                left: 0!important;
-            }
-        }
-    }
-
     .gatsby-iframe-wrapper {
         ${fullMedia};
-        position: relative;
-        padding: 0 0 75%;
-        @media (min-width: 768px) {
-            padding: 0 2rem 100%;
-        }
-        @media (min-width: 1200px) {
-            padding: 0 0 100%;
+        padding: 0 0 75% 0;
+
+        @media(min-width: 768px) {
+            padding: 0 2rem 100% 2rem;
         }
 
         iframe {
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
 
             @media(min-width: 768px) {
                 width: calc(100% - 4rem);
+                left: 2rem;
+            }
+
+            @media(min-width: 1200px) {
+                width: 100%;
+                left: 0;
             }
         }
     }

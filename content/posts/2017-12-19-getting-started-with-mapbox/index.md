@@ -26,16 +26,20 @@ One thing I’ve learned is that most online maps consist out of tiles getting l
 Now here’s something I never gave much thought to: Maps need to be hosted somewhere, and hosting isn’t free! Google Maps offers a very generous personal limit, but their maps data isn’t accessible outside of the Google ecosystem. There are a few options to get you set-up without any initial costs though:
 
 **Mapbox**
+
 The company behind Mapbox GL JS has a [map service](https://www.mapbox.com/pricing/) with some gorgeous maps (the [satellite map](https://www.mapbox.com/mapbox-gl-js/example/satellite-map/) is amazing). You also get access to [Mapbox Studio](https://www.mapbox.com/mapbox-studio/) allowing you to create custom maps and add all kinds of custom data and data-layers. 
 The Mapbox service is free up to 50.000 map views a month, which isn’t all that much seeing a map view consists out of loading four tiles and probably comes down to about a 1000 visits. That’s not even unique visits so half of those will be you playing with your own creations because everything is just so damn smooth. After those 1000 visits things get pricey real quickly. In any case, you don’t have to fill in any payment information to get started, so it’s a great service to get you going. 
 
 **Mapzen**
+
 [Mapzen](https://mapzen.com/)  offers similar services and limits as Mapbox and they also have some beautiful maps available. I haven’t tried Mapzen yet but I assume loading maps will work similarly as with other services.  
 
 **Tilehosting.com**
+
 [Openmaptiles.org](https://openmaptiles.org/) used to have a limitless free map hosting for open-source projects but recently started offering their services on [tilehosting.com](https://tilehosting.com). Open-source / freely available websites can use their free service  allowing about 2000 visits a month and has some nice default maps available. They call it a ‘soft limit’ which hopefully means they aren’t too strict. Commercial plans start from $40,- and offer some extra services and premium maps. 
 
 **Using a tileserver**
+
 You can host maptiles yourself using a tileserver. [Openmaptiles.org](https://openmaptiles.org/) has an open source tileserver available and there are more options out there. This [Awesome vector tiles](https://github.com/mapbox/awesome-vector-tiles) repo seems to have some good resources on the topic. Self hosted maps is one rabbit hole I haven’t gone down yet but in the end might be the only viable option. If I ever get that far I’ll make sure to write an article about it. 
 
 ## Setting up a map
@@ -68,10 +72,10 @@ In case you use Tilehosting.com, you need to request the data first. With some a
 // Initialise map with the returned data
 const initMap = (mapData) => {
     const map = new mapboxgl.Map({
-            container: 'map',
-            style: mapData,
-            zoom: 8,
-            center: [-9.1952226, 38.7436214],
+        container: 'map',
+        style: mapData,
+        zoom: 8,
+        center: [-9.1952226, 38.7436214],
     });
 }
 // Fetch and return data from the url provided by Tilehosting.com
@@ -88,11 +92,11 @@ Within the `initMap` function we’ll loop through the data to create a marker f
 
 ```javascript
 geojson.features.forEach((marker) => {
-        const markerEl = document.createElement('div');
-        markerEl.innerHTML = '📌';        
-        new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-                .setLngLat(marker.geometry.coordinates)
-                .addTo(map);
+    const markerEl = document.createElement('div');
+    markerEl.innerHTML = '📌';        
+    new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
 });
 ```
 To break it down: 
@@ -105,11 +109,11 @@ If we want the map to pan and zoom, Mapbox GL JS has a `flyTo` function we can u
 
 ```javascript
 markerEl.addEventListener('click', () => {
-            map.flyTo({
-                center: marker.geometry.coordinates,
-                zoom: 11,
-            });      
-    }); 
+    map.flyTo({
+        center: marker.geometry.coordinates,
+        zoom: 11,
+    });      
+}); 
 ```
 
 The default `flyTo` animation is nice, but you can also set your own zoom, speed and curve.
@@ -131,12 +135,12 @@ bounds.extend(marker.geometry.coordinates);
 
 ```javascript
 map.on('load', (e) => {        
-        map.fitBounds(bounds, {
-                padding: { top: 50, bottom: 50, left: 50, right: 50 },
-            easing(t) {
-                    return t * (2 - t);
-            },
-        });        
+    map.fitBounds(bounds, {
+        padding: { top: 50, bottom: 50, left: 50, right: 50 },
+        easing(t) {
+            return t * (2 - t);
+        },
+    });        
 });
 ```
 
@@ -144,6 +148,9 @@ The `fitBounds` function takes several options ([view the full list here](https:
 
 ### Result
 For the result I cleaned up the code a bit by fitting the markers code and the fitbounds code into separate functions. Feel free to fork this on Codepen!
+
+<iframe width="900" height='900' scrolling='no' title='Mapbox GL JS - Tilehosting.com' src='//codepen.io/aderaaij/embed/mpVXzB/?height=476&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/aderaaij/pen/mpVXzB/'>Mapbox GL JS - Tilehosting.com</a> by Arden (<a href='https://codepen.io/aderaaij'>@aderaaij</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Mapbox and React
 When creating a couple of test maps I also realised, an interactive map with different data layers can get complicated quickly. That’s why I continued my adventure with Mapbox GL JS in React. There are two Mapbox GL React libraries out there: [React Mapbox GL](https://github.com/alex3165/react-mapbox-gl) and [React Map GL](https://github.com/uber/react-map-gl) by Uber. I’ve tried out the one by Uber but eventually switched to React Mapbox GL because it was a bit more flexible. Mapbox also has some examples of using React with Mapbox GL JS available: https://github.com/mapbox/mapbox-react-examples. 
