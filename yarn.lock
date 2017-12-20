@@ -3806,6 +3806,15 @@ gatsby-remark-smartypants@^1.4.9:
     retext-smartypants "^2.0.0"
     unist-util-visit "^1.1.1"
 
+"gatsby-remark-wrap-iframe@file:local_modules/gatsby-remark-wrap-iframe":
+  version "0.01"
+  dependencies:
+    babel-runtime "^6.26.0"
+    bluebird "^3.5.0"
+    cheerio "^1.0.0-rc.2"
+    lodash "^4.17.4"
+    unist-util-visit "^1.1.1"
+
 gatsby-source-filesystem@^1.5.9:
   version "1.5.11"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.11.tgz#bc2f9bdcc71212df42d45ae0b8adc7e37540b599"

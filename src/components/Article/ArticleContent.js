@@ -14,10 +14,11 @@ const ArticleContentStyled = styled.div`
 
 const fullMedia = css`
     position: relative;
-    width: 100vw;
-    left: calc(-50vw + 50%);
-    margin: 2rem 0;
+    width: 100vw;    
+    margin: 2rem 0 2rem -1rem!important;
     @media(min-width: 768px) {
+        width: 100vw;
+        left: -${((100 / 12) * 2)}vw;
         padding: 0 2rem;
         margin: 4rem 0;
     }
@@ -91,6 +92,30 @@ const ArticleEntryContent = styled.div`
     }
     .gatsby-resp-iframe-wrapper {
         ${fullMedia};
+    }
+
+    .gatsby-iframe-wrapper {
+        ${fullMedia};
+        position: relative;
+        padding: 0 0 75%;
+        @media (min-width: 768px) {
+            padding: 0 2rem 100%;
+        }
+        @media (min-width: 1200px) {
+            padding: 0 0 100%;
+        }
+
+        iframe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            @media(min-width: 768px) {
+                width: calc(100% - 4rem);
+            }
+        }
     }
 
     .caption {

@@ -145,9 +145,6 @@ The `fitBounds` function takes several options ([view the full list here](https:
 ### Result
 For the result I cleaned up the code a bit by fitting the markers code and the fitbounds code into separate functions. Feel free to fork this on Codepen!
 
-<iframe width="900" height='900' scrolling='no' title='Mapbox GL JS - Tilehosting.com' src='//codepen.io/aderaaij/embed/mpVXzB/?height=476&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/aderaaij/pen/mpVXzB/'>Mapbox GL JS - Tilehosting.com</a> by Arden (<a href='https://codepen.io/aderaaij'>@aderaaij</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
 ## Mapbox and React
 When creating a couple of test maps I also realised, an interactive map with different data layers can get complicated quickly. That’s why I continued my adventure with Mapbox GL JS in React. There are two Mapbox GL React libraries out there: [React Mapbox GL](https://github.com/alex3165/react-mapbox-gl) and [React Map GL](https://github.com/uber/react-map-gl) by Uber. I’ve tried out the one by Uber but eventually switched to React Mapbox GL because it was a bit more flexible. Mapbox also has some examples of using React with Mapbox GL JS available: https://github.com/mapbox/mapbox-react-examples. 
 

@@ -38,7 +38,7 @@ module.exports = {
                     'gatsby-remark-prismjs',
                     'gatsby-remark-smartypants',
                     'gatsby-remark-copy-linked-files',
-                    'gatsby-remark-responsive-iframe',
+                    'gatsby-remark-wrap-iframe',
                     {
                         resolve: 'gatsby-remark-images',
                         options: {
