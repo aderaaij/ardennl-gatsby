@@ -7,7 +7,7 @@ tags:
     - es6
     - javascript
     - weekly
-published: false
+published: true
 ---
 
 The year has barely started and everything is already on fire🔥. Luckily there's more going on than the crippling vulnerabilities in our CPU's. In this post I've rounded up my favorite articles, tweets and thoughts about web development from the first week of 2018. Enjoy!
