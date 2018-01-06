@@ -1,7 +1,8 @@
 ---
-title: "A weekly Web roundup"
+title: "Weekly Web roundup - 01"
 date: "2018-01-02"
 category: "webdevelopment"
+cover: ./meltdown-spectre-logos.jpg
 tags:
     - es6
     - javascript
@@ -9,13 +10,15 @@ tags:
 published: false
 ---
 
+The year has barely started and everything is already on fire🔥. Luckily there's more going on than the crippling vulnerabilities in our CPU's. In this post I've rounded up my favorite articles, tweets and thoughts about web development from the first week of 2018. Enjoy!
+
 ## News
 
 ### Meltdown & Spectre
 
-Don't panic! [Meltdown and Spectre](https://meltdownattack.com/) aren't new JavaScript frameworks you need to learn. They are vulnerabilities that seem to affect almost any CPU built since '95. Okay, you may panic now.
+Don't panic! [Meltdown and Spectre](https://meltdownattack.com/) aren't new JavaScript frameworks you need to learn. They're vulnerabilities that seem to affect almost any CPU built since '95. You may panic now.
 
-The vulnerabilities that reserchers found could potentially be used to intercept passwords, logins and other credentials... without a trace! There's not much you can do at the moment but making sure your software is updated and keep an eye on the developments. In any case, these vulnerabilities will have implications for a long time to come. On a positive note, the logo's of Meltdown and Spectre are pretty cool.
+The vulnerabilities that researchers found could potentially be used to intercept passwords, logins and other credentials... without a trace! There's not much you can do at the moment but making sure your software is updated and keep an eye on the developments. In any case, Meltdown and Spectre will have implications for a long time to come. On a positive note, the logo's of Meltdown and Spectre are pretty cool.
 
 ## Articles
 
@@ -23,8 +26,9 @@ The vulnerabilities that reserchers found could potentially be used to intercept
 
 #### Tackling routines with Dave Geddes
 
-On Twitter, Coding guru [Kent C. Dodds](https://github.com/kentcdodds shared a nice article on routines and how to keep to them going. It's written by [Dave Geddes](https://twitter.com/geddski) who you might know from his [Flexbox Zombies](https://flexboxzombies.com/p/flexbox-zombies) and [Grid Critters](https://gridcritters.com/p/gridcritters) tutorial games. In any case, Dave has a few points that really resonate with me, like how hard it is to go in bed in time when the internet is still on your mind:
+On Twitter, Coding guru [Kent C. Dodds](https://github.com/kentcdodds) shared a nice article on routines and how to keep to them going. It's written by [Dave Geddes](https://twitter.com/geddski) who you might know from his [Flexbox Zombies](https://flexboxzombies.com/p/flexbox-zombies) and [Grid Critters](https://gridcritters.com/p/gridcritters) tutorial games. In any case, Dave has a few points that really resonate with me, like how hard it is to go in bed in time when the internet is still on your mind:
 > My new routine starts at 10:00PM every night (a successful morning routine starts the night before). When 10PM rolls around I feel very little desire to shut my brain/computer down and start getting ready for bed.
+
 Nowadays I try and read a (fiction!) book before I get to bed. This allows me to concentrate on something unrelated to my work and as a side-effect, makes me sleepy.
 
 Do you have any routines to make sure you start the next day fresh?
@@ -43,7 +47,7 @@ If you're really into cars you might know Drivetribe, a community driven site ab
 
 - NPM released their [2017 stats on JavaScript frameworks](https://www.npmjs.com/npm/state-of-javascript-frameworks-2017-part-1). The numbers might not surprise you
 - DriveTribe also released a [React intersection observer](https://github.com/drivetribe/react-intersection) plugin. It looks really good.
-- A year is like decades in webdevelopment. Still, I feel like this React [best practices guide to writing React components](our-best-practices-for-writing-react-component) from the engineers musefind has some great advice that holds up.
+- A year is like decades in webdevelopment. Still, I feel like this React [best practices guide to writing React components](our-best-practices-for-writing-react-component) from the engineers at musefind has some great advice that holds up.
 - On popular request there now is an [article about Code Splitting in the react guides](https://reactjs.org/docs/code-splitting.html).
 
 ### Accessibility
@@ -83,13 +87,17 @@ Speaking about paradigms; I wanted to write a simple article on ES6 classes as i
 
 ### Gatsby Starter
 
-It's no secret I'm a fan of Gatsby and the concept of static site generators based on React. More for myself than anyone else I made the [gatsby skeleton starter markdown](https://github.com/aderaaij/gatsby-starter-skeleton-markdown) to always have a SEO friendly PWA as starting point of my webapp.
+It's no secret I'm a fan of Gatsby and the concept of static site generators based on React. More for myself than anyone else I made the [gatsby skeleton starter markdown](https://github.com/aderaaij/gatsby-starter-skeleton-markdown) to always have a SEO friendly PWA as starting point of my web app.
 
-## Shower thoughs
+### Reading 'Getting things done'... again
+
+The last time I was reading *Getting Things Done*(GTD) I quit halfway through, which is not a good sign for a book that claims to help you getting things done. But I assure you that I did pick up a lot from it. The book just gave me a sort of anxiety after a while, like I needed to be constantly classifying, organizing and structuring every single step in my life. I don't think life is, or should be, that rigid. In any case, I'm giving it another go.
+
+## Shower thoughts
 
 ### Read more fiction
 
-Why is it that everytime a developer advices a book it's "12 ways to become a ninja warrior of effectiveness?". Fiction books are so much more fun and relaxing. They're like your favorite movies and television shows, only without the screen and anxiety. A book series I've been greatly enjoying is the 'Themis files' by Sylvain Neuvel. Something I love about modern authors is that I can [pester them on twitter](https://twitter.com/ardennl/status/855184395753402368) and they answer!
+Why is it that every time a developer advises a book it's "12 ways to become a ninja warrior of effectiveness?". Fiction books are so much more fun and relaxing. They're like your favorite movies and television shows, only without the screen and anxiety. A book series I've been greatly enjoying is the 'Themis files' by Sylvain Neuvel. Something I love about modern authors is that I can [pester them on twitter](https://twitter.com/ardennl/status/855184395753402368) and they answer!
 
 ### Everything is broken
 
@@ -100,12 +108,8 @@ If the web is 'broken', apps are even more so!
 
 ### The React team is really cool
 
-Although I actively dislike Facebook as a concept, I love React and their core team. I'm amazed by their involvment and even though it's such a huge library with countless of plugins and adaptions, you will probably still come across a React Core member replying to a github issue in a repository with 5 stars. 👏
+Although I actively dislike Facebook as a concept, I love React and their core team. I'm amazed by their involvement and even though it's such a huge library with countless of plugins and adaptions, you will probably still come across a React Core member replying to a Github issue in a repository with 5 stars. 👏
 
 ## Fin
 
-And on that note I'll end this newsletter! I hope you enjoyed my webweek. If this is appreciated I will try and publish something like this weekly / bi-weekly. Also, any tips on the format are most welcome.
-
- Don't hesitate to [follow me on twitter](https://twitter.com/ardennl).
-
-This article was originally published on [arden.nl](https://www.arden.nl)
+And on that note I'll end this newsletter! I hope you enjoyed my web week. If this article is appreciated, I will try and publish something weekly or bi-weekly. Also, any tips on the format are most welcome.
