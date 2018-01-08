@@ -35,9 +35,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage, createRedirect } = boundActionCreators;
+    const extRedirects = [
+        { from: '/ts', to: 'https://github.com/aderaaij/totallystatical' },
+    ];
     createRedirect({
         fromPath: '/ts',
-        toPath: 'https://github.com/aderaaij/totallystaticall',
+        toPath: 'https://github.com/aderaaij/totallystatical',
         isPermanent: true,
     });
     return new Promise((resolve, reject) => {
