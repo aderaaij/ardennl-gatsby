@@ -34,7 +34,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 };
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-    const { createPage } = boundActionCreators;
+    const { createPage, createRedirect } = boundActionCreators;
+    createRedirect({
+        fromPath: '/ts',
+        toPath: 'https://github.com/aderaaij/totallystaticall',
+        isPermanent: true,
+    });
     return new Promise((resolve, reject) => {
         graphql(`
             {
@@ -108,6 +113,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     });
 };
 
+
 exports.modifyWebpackConfig = ({ config, stage }) => {
     if (stage === 'build-html') {
         config.loader('null', {
@@ -122,3 +128,4 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
         config.plugin('Lodash', webpackLodashPlugin, null);
     }
 };
+
