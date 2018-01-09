@@ -37,12 +37,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage, createRedirect } = boundActionCreators;
     const extRedirects = [
         { from: '/ts', to: 'https://github.com/aderaaij/totallystatical' },
+        { from: '/aww', to: 'https://www.awwwards.com/sites/cfye-magazine' },
     ];
-    createRedirect({
-        fromPath: '/ts',
-        toPath: 'https://github.com/aderaaij/totallystatical',
-        isPermanent: true,
+    extRedirects.forEach(({ from, to }) => {
+        createRedirect({
+            fromPath: from,
+            toPath: to,
+            isPermanent: true,
+        });
     });
+
     return new Promise((resolve, reject) => {
         graphql(`
             {
