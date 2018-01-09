@@ -38,6 +38,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const extRedirects = [
         { from: '/ts', to: 'https://github.com/aderaaij/totallystatical' },
         { from: '/aww', to: 'https://www.awwwards.com/sites/cfye-magazine' },
+        { from: '/gss', to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown' },
     ];
     extRedirects.forEach(({ from, to }) => {
         createRedirect({
