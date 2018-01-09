@@ -40,6 +40,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         { from: '/aww', to: 'https://www.awwwards.com/sites/cfye-magazine' },
         { from: '/gss', to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown' },
         { from: '/sia', to: 'https://superinteractive.com/' },
+        { from: '/gh', to: 'https://github.com/aderaaij/' },
+        { from: '/li', to: 'https://www.linkedin.com/in/ardenderaaij/' },
     ];
     extRedirects.forEach(({ from, to }) => {
         createRedirect({
