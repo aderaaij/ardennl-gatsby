@@ -85,6 +85,10 @@ const ArticleEntryContent = styled.div`
         @media(min-width: 768px) {  
             font-size: 1.375em;
         }
+
+        li {
+            margin-bottom: 0.5em;
+        }
     }
     & .gatsby-highlight {
         ${fullMedia};
