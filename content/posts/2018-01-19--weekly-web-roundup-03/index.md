@@ -9,14 +9,14 @@ tags:
 published: true
 ---
 
-Is it me or did this week flew by in no-time? I didn't get to much things done this week but more on that later. Last weeks roundup was a bit of a mess, so I'm seeing if I can structure it a bit different. Any tips on a better format are most welcome!
+Is it me or did this week just flew by in no-time? I didn't get to much things done the last couple of days but more on that later. Last weeks roundup was a bit of a mess so this week I'm trying out a different structure. Any tips on a better format are most welcome!
 
 - [Week 2](https://dev.to/ardennl/weekly-web-roundup---02-1f39)
 - [Week 1](https://dev.to/ardennl/weekly-web-roundup---01-15d6)
 
 ## HTML and CSS
 
-1. [Wes Bos](https://twitter.com/wesbos) just released a new video course and it's [all about CSS grid](https://cssgrid.io/). Thanks to sponsoring from Mozilla the course is available _for free_ and I'm really excited about this deal, as it's a great way to 'move the web forward'. Wes Bos is a great teacher and there's 25 videos and about four hours of material in there! By the end of it, you also can be a grid sensei!
+1. [Wes Bos](https://twitter.com/wesbos) just released a new video course and it's [all about CSS grid](https://cssgrid.io/). Thanks to sponsoring from Mozilla the course is available _for free_! I'm really excited about this deal, as it's a great way to 'move the web forward'. Wes is a great teacher and there are 25 videos and about four hours of material in the course! By the end of it, you *also* can be a grid sensei!
 1. CSS grid and CSS columns seem to go together like *lamb and tunafish* (bonus points if you get the reference). In [this medium article](https://medium.com/@patrickbrosset/css-grid-css-multi-columns-7664f59bb60c), [Patrick Brosset](https://twitter.com/patrickbrosset) explains the relationship between the two layout features and how they combine.
 1. [Ohans Emmanuel](https://twitter.com/OhansEmmanuel) wrote an interesting [article about CSS naming conventions](https://medium.freecodecamp.org/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849) and how they can safe you time debugging. I'm especially a fan of the BEM - stick-man analogy.
 1. Meet the new `dialog` element! Keith J. Grant wrote an introduction to the native HTML 5.2 dialog element and some easy to miss features. He also created a great [`dialog` demo on codepen](https://codepen.io/keithjgrant/pen/eyMMVL) which you should check out!
@@ -26,7 +26,7 @@ Is it me or did this week flew by in no-time? I didn't get to much things done t
 
 ## JavaScript
 
-1. It's a [Bad month for the main thread](https://daverupert.com/2018/01/bad-month-for-the-main-thread/). The title of [David Rupert](https://daverupert.com) his article on the slowdown of CPU's and the impact on running JavaScript. *"It isn’t far fetched that a device would reduce power consumption when on battery, it makes the device last longer, makes users happier. This explains iOS’ less-than-stellar performance in Low Power mode. I know this mode well because my last phone probably spent 80% if its life in Low Power mode."*
+1. [Bad month for the main thread](https://daverupert.com/2018/01/bad-month-for-the-main-thread/). The title of [Dave Rupert](https://daverupert.com) his article on the slowdown of CPU's and the impact on running JavaScript. *"It isn’t far fetched that a device would reduce power consumption when on battery, it makes the device last longer, makes users happier. This explains iOS’ less-than-stellar performance in Low Power mode. I know this mode well because my last phone probably spent 80% if its life in Low Power mode.*" - Dave Rupert
 1. [Vladimir Metnew](https://github.com/Metnew) wrote a pretty opinionated [article on hackernoon.com](https://hackernoon.com/next-js-razzle-cra-why-you-should-use-them-for-a-next-project-a78d320de97f) about preferring library based frameworks and toolkits above so called starter kits. I like the point he makes on long-term support and cost of customizing with starters, but at the other hand, aren't starters often a kick-off point for tool-kits? Anyway, it's nothing to get riled up about, and there are some solid points in there.
 1. There have been many topics on React Router v4, and most of them have been about people not wanting to upgrade. [Tyler McGinnis](https://twitter.com/tylermcginnis) published an [article on dev.to explaining and introducing React Router v4](https://dev.to/tylermcginnis/react-router-v4-philosophy-and-introduction-4ial). If you're planning on creating a new React app with routes or upgrading your existing app to v4, this is a must-read.
 1. Nicolás Bevacqua, better known as [PonyFoo](https://ponyfoo.com/) published a [talk about modular design thinking](https://ponyfoo.com/articles/modular-design-thinking) in a very convenient and readable format. It's full of great advice and warns against code that is 'too clever' and overengineering. As I'm not a regular conference attendee, I hope more people will publish their talks and transcripts this way.
