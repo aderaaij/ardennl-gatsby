@@ -1,6 +1,6 @@
 ---
-title: "Weekly Web roundup - 01"
-date: "2018-01-02"
+title: "Weekly Web Roundup - 01"
+date: "2018-01-05"
 category: "webdevelopment"
 cover: ./meltdown-spectre-logos.jpg
 tags:
