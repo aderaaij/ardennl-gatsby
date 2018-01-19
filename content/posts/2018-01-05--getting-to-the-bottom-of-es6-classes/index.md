@@ -37,8 +37,6 @@ IronMan instanceof Hero // Returns true
 IronMan.constructor == Hero // Also returns true
 ```
 
-
-
 ## Resources
 
 - [Is JavasScript Object Orientated](https://stackoverflow.com/a/108773)

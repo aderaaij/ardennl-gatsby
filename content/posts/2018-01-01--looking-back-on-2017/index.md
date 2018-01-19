@@ -16,9 +16,9 @@ While the world appeared to be burning around us, my girlfriend Monika and I spe
 
 In 2016 we decided to save up for a long trip through Central America. We've always wanted to travel for a longer period and it seemed to be the right time. Both of us quit our jobs and the 9th of November (the day Trump got elected) we flew to Mexico City for a 6 months trip through Central America.
 
-On the 9th of november 2016, the day Trump got elected, we flew to Mexico City with the plan to travel south and fly out from Colombia six months later. A long travel is something we always wanted to do, and seeing as I already had been in Mexico and we both have been to Colombia, a trip between the two countries seemed like a fun thing to do. 
+On the 9th of november 2016, the day Trump got elected, we flew to Mexico City with the plan to travel south and fly out from Colombia six months later. A long travel is something we always wanted to do, and seeing as I already had been in Mexico and we both have been to Colombia, a trip between the two countries seemed like a fun thing to do.
 
- Traveling like this is something we always wanted to do, and with little responsibilities in our lives, now seemed the perfect time.
+Traveling like this is something we always wanted to do, and with little responsibilities in our lives, now seemed the perfect time.
 
 The whole trip was filled with amazing experiences and we ended up extending it by a month and a half, because we weren't ready to go back yet
 
@@ -33,9 +33,6 @@ A few years ago Monika and I threw out 80% of our stuff. Clothes, books, memorib
 Por supuesto! We spent a month of our travels learning Spanish at the *Case Xelaju* language school in Quetzaltenango(Xela), Guatemala. For four weeks we went to class every weekday from nine in the morning to two in the afternoon and there was homework as well. We progressed greatly in that month and when we continued traveling it was even more fun than before as we could actually have some proper conversations with people. Going to school for a month also re-learned me how to learn and I notice how benificial that is in everything I do.
 
 ## A new location
-
-
-
 
 In the weeks before our flight back to Amsterdam, we realised we weren't really looking forward to go back to Amsterdam. Don't get me wrong, Amsterdam is *the shit* to live in, but I've lived there my entire life and while we were in the flow of doing crazy things, a move to Lisbon didn't seem like a bad idea.
 

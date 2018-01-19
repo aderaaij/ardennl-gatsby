@@ -82,6 +82,7 @@ It's quite a trade-off, a long loading time for not a lot of information. Yet th
 ### [Abel Odor by buildinamsterdam](https://www.abelodor.com/)
 
 Argh, sound! But other than that this webshop is pretty damn cool. The site is WooCommerce based, which makes it even more impressive as WooCommerce is a mean beast to tame. The people at [buildinamsterdam](http://www.buildinamsterdam.com/) know how to give a webhop a dynamic and fresh feel like no other though.
+
 ### [Case Study: lynnandtonic.com 2017 refresh](https://medium.com/andyet/case-study-lynnandtonic-com-2017-refresh-134620dbd12a)
 
 If you haven't seen [Lynn Fisher's beautiful portfolio page with a gazillion breakpoints](https://lynnandtonic.com/) yet, make sure to have a look right now. In this medium post she explains what her motivation behind this intricate design was.
@@ -112,9 +113,6 @@ Testing isn't that scary as you'd might think. Kent created this awesome 101 whi
 ### Tools
 
 - [Cypress - Fast, easy and reliable testing for anything that runs in a browser](https://github.com/cypress-io/cypress)
-
-### Tools
-
 - [Uppy - Sleek, modular file uploader](https://uppy.io/)
 
 ### React
@@ -129,7 +127,7 @@ Testing isn't that scary as you'd might think. Kent created this awesome 101 whi
 
 #### [A Practical GraphQL Getting Started Guide with Node.js - by John Kariuki on scotch.io](https://scotch.io/tutorials/a-practical-graphql-getting-started-guide-with-nodejs)
 
-My introduction to GraphQL was with GatsbyJS and I’ve been a fan right from the start. You’re going to hear a lot about GraphQL this year, and this article by [John Kariuki](https://twitter.com/_kar_is) is a very nice and practical introduction to the goodness that GraphQL brings. 
+My introduction to GraphQL was with GatsbyJS and I’ve been a fan right from the start. You’re going to hear a lot about GraphQL this year, and this article by [John Kariuki](https://twitter.com/_kar_is) is a very nice and practical introduction to the goodness that GraphQL brings.
 
 #### [GraphQL, here is what you need to know - Syntax.fm podcast](https://syntax.fm/show/027/graphql-here-is-what-you-need-to-know)
 
@@ -168,8 +166,7 @@ So often I come across great resources and work I appreciate, but I kinda forget
 
 ### Are coding tests a good way to weed out candidates?
 
-I’m only asking because I’m about to do my first one. Besides pub-quizzes I haven’t done much tests lately. 
-
+I’m only asking because I’m about to do my first one. Besides pub-quizzes I haven’t done much tests lately.
 
 ## What have I been up to?
 

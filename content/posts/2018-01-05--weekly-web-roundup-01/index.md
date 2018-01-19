@@ -103,8 +103,7 @@ Why is it that every time a developer advises a book it's "12 ways to become a n
 
 If the web is 'broken', apps are even more so!
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Wanna feel old?<br><br>The HD remake of Monkey Island 2 on the iPad doesn‘t work anymore, it came out about 8 years ago and is no longer compatible. 🏴☠️</p>&mdash; Thomas &quot;Kick Nazis out, @jack&quot; Fuchs (@thomasfuchs) <a href="https://twitter.com/thomasfuchs/status/948003372795342849?ref_src=twsrc%5Etfw">January 2, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Wanna feel old?<br><br>The HD remake of Monkey Island 2 on the iPad doesn‘t work anymore, it came out about 8 years ago and is no longer compatible. 🏴☠️</p>&mdash; Thomas &quot;Kick Nazis out, @jack&quot; Fuchs (@thomasfuchs) <a href="https://twitter.com/thomasfuchs/status/948003372795342849?ref_src=twsrc%5Etfw">January 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### The React team is really cool
 
