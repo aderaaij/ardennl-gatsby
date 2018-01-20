@@ -11,8 +11,8 @@ published: true
 ---
 
 As a rule of thumb, year review articles are only okay to publish if you can still comfortably wish people a happy new year. The 20th of January should definitely not qualify, but my 2017 was pretty damn amazing and it would be a shame not to write down the gist of it, if even just for myself. So… Happy new year and enjoy this story of privilege.
-I say privilege because while the world seemed to be on fire, my girlfriend Monika and I spent 2017 floating on cloud nine in places far from what we used to call home.
-But the seeds for all that had already been planted in 2014 and 2015.
+
+I say privilege because while the world seemed to be on fire, my girlfriend Monika and I spent 2017 floating on cloud nine in places far from what we used to call home. The seeds for which had already been planted in 2014 and 2015.
 
 ## Motive
 
