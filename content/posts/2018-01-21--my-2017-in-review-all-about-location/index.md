@@ -107,5 +107,14 @@ But I also found that I miss working in a team and long for a bit more high-impa
 
 To sum it up: My girlfriend and I spend 2017 being decadent assholes making power-moves. We had great jobs in Amsterdam and no responsibilities whatsoever. Instead of using our savings as a down-payment on some equity like responsible people would do,  we decided to blow it all in the course of a year 🎉. It was glorious and I feel immensely grateful for all that we’ve experienced.
 
+<div class='caption'>
+
+![The sun setting in Lisbon](./rooftop-lisbon.jpg "Rooftop, Lisbon")
+<p class='caption__text'>
+    Another sunset, this time from the rooftop terrace on our appartment building...
+</p>
+</div>
+
 We’ve only been in Lisbon for six months but feel completely at home. There seems to be little chance we’ll move back north anytime soon although you never know what life might throw at you.
+
 In any case, If 2018 is only half as good as 2017 was, It’ll be pretty damn awesome.
