@@ -87,7 +87,12 @@ const ArticleEntryContent = styled.div`
         }
 
         li {
-            margin-bottom: 0.5em;
+            margin: 0.2em 0;
+
+            > p {
+                font-size: 1em;
+                margin: 0;
+            }
         }
     }
     & .gatsby-highlight {
