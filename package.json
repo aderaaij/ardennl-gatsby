@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Arden de Raaij <a.de.raaij@gmail.com>",
   "dependencies": {
-    "emotion": "^8.0.12",
-    "emotion-server": "^8.0.12",
+    "emotion": "^9.0.2",
+    "emotion-server": "^9.0.2",
     "gatsby": "^1.9.119",
     "gatsby-image": "^1.0.27",
     "gatsby-link": "^1.6.28",
@@ -30,14 +30,23 @@
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
     "material-colors": "^1.2.5",
-    "normalize.css": "^7.0.0",
+    "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-emotion": "^8.0.12",
+    "react-emotion": "^9.0.2",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
-    "react-reveal": "^0.7.3",
+    "react-reveal": "^1.2.1",
     "react-transition-group": "^2.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.8.2"
   },
   "keywords": [
     "gatsby"
@@ -49,8 +58,5 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": "^1.8.2"
   }
 }
