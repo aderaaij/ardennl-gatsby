@@ -4,7 +4,8 @@
         "browser": true,
         "es6": true
     },
-    "extends": "airbnb",
+    "extends": ["airbnb-base", "prettier"],
+    "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
         "ecmaFeatures": {

@@ -32,12 +32,15 @@ class BlogPost extends Component {
         return (
             <Article>
                 <SEO type="post" post={this.props.data.markdownRemark} />
-                {!published &&
-                <Helmet>
-                    <meta name="robots" content="noindex" />
-                </Helmet>
-                }
-                <ArticleHero frontmatter={frontmatter} fadeIn={this.state.fadeIn} />
+                {!published && (
+                    <Helmet>
+                        <meta name="robots" content="noindex" />
+                    </Helmet>
+                )}
+                <ArticleHero
+                    frontmatter={frontmatter}
+                    fadeIn={this.state.fadeIn}
+                />
                 <ArticleContent html={html} />
                 <ArticleFooter />
             </Article>
