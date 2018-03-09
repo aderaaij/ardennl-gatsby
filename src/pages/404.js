@@ -18,8 +18,8 @@ const NotFoundWrap = styled.div`
         font-size: 2em;
         margin: 0;
         color: ${colorScheme.support};
-        @media(min-width: 768px) {
-            font-size: 3em;            
+        @media (min-width: 768px) {
+            font-size: 3em;
         }
     }
 
@@ -60,21 +60,21 @@ NotFoundPage.propTypes = {
 export default NotFoundPage;
 
 export const query = graphql`
-query errorQuery {        
-    imageSharp(id:{regex: "/404/"}) {
-        sizes(
-            maxWidth: 1600,
-            traceSVG: {
-                optTolerance: 0.1,
-                turdSize: 0.1,
-                alphaMax: 0.01,
-                color: "#37474F",
-                threshold: 170,
-                blackOnWhite: false,
-          }
-        ) {
-          tracedSVG
+    query errorQuery {
+        imageSharp(id: { regex: "/404/" }) {
+            sizes(
+                maxWidth: 1600
+                traceSVG: {
+                    optTolerance: 0.1
+                    turdSize: 0.1
+                    alphaMax: 0.01
+                    color: "#37474F"
+                    threshold: 170
+                    blackOnWhite: false
+                }
+            ) {
+                tracedSVG
+            }
         }
-      }
-}
+    }
 `;

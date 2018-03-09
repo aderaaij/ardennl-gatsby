@@ -16,10 +16,10 @@ const HomeContent = styled.div`
     position: relative;
     height: 100%;
     min-height: calc(100vh - 60px);
-    padding: 0 1em; 
+    padding: 0 1em;
     display: flex;
     flex-direction: column;
-    justify-content: center;   
+    justify-content: center;
     color: ${colorScheme.text};
     ${ContentLimit};
 
@@ -32,23 +32,23 @@ const HomeContent = styled.div`
         font-size: 2em;
         font-weight: 900;
         margin: 0;
-        @media(min-width: 768px) {        
-            font-size: 4em;        
+        @media (min-width: 768px) {
+            font-size: 4em;
         }
-    }  
+    }
 
     h2 {
         font-size: 1.75em;
-        margin: 0;        
-        @media(min-width: 768px) {
+        margin: 0;
+        @media (min-width: 768px) {
             font-size: 3em;
-        }        
+        }
     }
 
     p {
         line-height: 1.55;
         font-size: 1.125em;
-        @media(min-width: 768px) {
+        @media (min-width: 768px) {
             font-size: 1.25em;
         }
     }
@@ -71,7 +71,7 @@ const HomeBackground = styled.img`
     object-fit: cover;
     z-index: 1;
     display: none;
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
         display: block;
     }
 `;
@@ -90,11 +90,11 @@ const HomeImg = css`
     }
 
     img:last-child {
-        opacity: 0!important;
+        opacity: 0 !important;
     }
 `;
 
-const Home = (props) => {
+const Home = props => {
     const { data } = props;
     const { edges } = data.allImageSharp;
     const background = edges.find(edge => edge.node.id.includes('bg'));
@@ -108,9 +108,64 @@ const Home = (props) => {
                     <h2>Front-end Web Developer</h2>
                     <div>
                         <p>
-                            Hi, I'm Arden. I'm a web developer based in Lisbon, Portugal. I create awesome websites/web-apps which are enjoyable and fun to use. You can find some of my code on <a href="https://github.com/aderaaij/" target="_blank" rel="noopener noreferrer">Github</a>, see my experiments on <a href="https://codepen.io/aderaaij/" target="_blank" rel="noopener noreferrer">Codepen</a>, and view my CV/experience on <a href="https://www.linkedin.com/in/ardenderaaij/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+                            Hi, I'm Arden. I'm a web developer based in Lisbon,
+                            Portugal. I create awesome websites/web-apps which
+                            are enjoyable and fun to use. You can find some of
+                            my code on{' '}
+                            <a
+                                href="https://github.com/aderaaij/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Github
+                            </a>, see my experiments on{' '}
+                            <a
+                                href="https://codepen.io/aderaaij/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Codepen
+                            </a>, and view my CV/experience on{' '}
+                            <a
+                                href="https://www.linkedin.com/in/ardenderaaij/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>.
                         </p>
-                        <p>I love photography and traveling, the combination of which you can find on my <a href="http://instagram.com/ardennl" target="_blank noreferrer" title="Arden de Raaij on Instagram" rel="noopener">Instagram</a>. You can follow me on <a href="http://twitter.com/ardennl" target="_blank noreferrer" rel="noopener">Twitter</a> for random shower thoughts.</p> <p>Feel free to <a href="mailto:a.de.raaij@gmail.com" target="_blank noreferrer" title="Send an e-mail to Arden de Raaij" rel="noopener">contact me</a> about all the things web related!</p>
+                        <p>
+                            I love photography and traveling, the combination of
+                            which you can find on my{' '}
+                            <a
+                                href="http://instagram.com/ardennl"
+                                target="_blank noreferrer"
+                                title="Arden de Raaij on Instagram"
+                                rel="noopener"
+                            >
+                                Instagram
+                            </a>. You can follow me on{' '}
+                            <a
+                                href="http://twitter.com/ardennl"
+                                target="_blank noreferrer"
+                                rel="noopener"
+                            >
+                                Twitter
+                            </a>{' '}
+                            for random shower thoughts.
+                        </p>{' '}
+                        <p>
+                            Feel free to{' '}
+                            <a
+                                href="mailto:a.de.raaij@gmail.com"
+                                target="_blank noreferrer"
+                                title="Send an e-mail to Arden de Raaij"
+                                rel="noopener"
+                            >
+                                contact me
+                            </a>{' '}
+                            about all the things web related!
+                        </p>
                     </div>
                 </div>
             </HomeContent>
@@ -126,19 +181,14 @@ Home.propTypes = {
 export default Home;
 
 export const query = graphql`
-    query IndexQuery {        
-        allImageSharp(filter: 
-            { id: { regex: "/assets/img/" } }
-        ) {
+    query IndexQuery {
+        allImageSharp(filter: { id: { regex: "/assets/img/" } }) {
             edges {
                 node {
                     id
                     sizes(
-                        maxWidth: 1600,
-                        traceSVG: {
-                            color: "#37474F",
-                            blackOnWhite: true,
-                        }
+                        maxWidth: 1600
+                        traceSVG: { color: "#37474F", blackOnWhite: true }
                     ) {
                         tracedSVG
                         src

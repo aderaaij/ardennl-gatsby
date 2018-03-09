@@ -30,10 +30,6 @@
             4
         ],
         "react/forbid-prop-types": 0,
-        "jsx-a11y/anchor-is-valid": [ "error", {
-            "components": [ "Link" ],
-            "specialLink": [ "to" ]
-        }],
         "no-unused-expressions": [
             "error",
             {

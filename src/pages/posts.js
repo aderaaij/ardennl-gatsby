@@ -8,7 +8,7 @@ import '../graphql/archive';
 
 // console.log(archiveQuery);
 
-const BlogList = (props) => {
+const BlogList = props => {
     const { edges } = props.data.allMarkdownRemark;
     return (
         <div>
@@ -30,7 +30,7 @@ export default BlogList;
 
 export const query = graphql`
     query PostsArchive {
-        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
             totalCount
             edges {
                 node {
