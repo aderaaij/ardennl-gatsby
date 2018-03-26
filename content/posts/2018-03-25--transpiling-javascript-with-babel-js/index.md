@@ -2,6 +2,7 @@
 title: "My recent front-end interview experiences"
 date: "2018-03-09"
 category: "webdevelopment"
+cover: ./cover.jpeg
 tags:
    - javascript
    - babel
