@@ -1,13 +1,13 @@
 ---
 title: "What I talk about when I talk about Transpiling JavaScript - Part 1 "
-date: "2018-03-25"
+date: "2018-03-09"
 category: "webdevelopment"
 cover: ./cover.jpeg
 tags:
    - javascript
    - babel
    - es6
-published: true
+published: false
 ---
 
 This long overdue blog post is all about transpiling JavaScript. As I've been procrastinating for weeks and _still_ haven't finished the entire article, I've decided to post it in two parts. The first part focusing on a bit of JavaScript history, ECMA stages and exploring Babel with the Repl. The second showing you how to include babel in your project, with or without making use of Webpack.
