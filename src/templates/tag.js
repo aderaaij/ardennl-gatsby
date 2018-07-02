@@ -7,25 +7,23 @@ import config from '../../data/site-config';
 import '../graphql/archive';
 
 const TagTemplate = props => {
-    const { edges } = props.data.allMarkdownRemark;
-    const { tag } = props.pathContext;
-    return (
-        <div>
-            <SEO />
-            <Helmet>
-                <title>{`Posts tagged with '${tag}' | ${
-                    config.siteName
-                }`}</title>
-                <link rel="canonical" href={`${config.siteUrl}/about/`} />
-            </Helmet>
-            <PostsList edges={edges} />
-        </div>
-    );
+  const { edges } = props.data.allMarkdownRemark;
+  const { tag } = props.pageContext;
+  return (
+    <div>
+      <SEO />
+      <Helmet>
+        <title>{`Posts tagged with '${tag}' | ${config.siteName}`}</title>
+        <link rel="canonical" href={`${config.siteUrl}/about/`} />
+      </Helmet>
+      <PostsList edges={edges} />
+    </div>
+  );
 };
 
 TagTemplate.propTypes = {
-    data: PropTypes.object.isRequired,
-    pathContext: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired
 };
 
 export default TagTemplate;

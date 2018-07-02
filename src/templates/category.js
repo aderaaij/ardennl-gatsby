@@ -7,25 +7,23 @@ import config from '../../data/site-config';
 import '../graphql/archive';
 
 const CategoryTemplate = props => {
-    const { edges } = props.data.allMarkdownRemark;
-    const { category } = props.pathContext;
-    return (
-        <div>
-            <SEO />
-            <Helmet>
-                <title>
-                    {`Posts in category '${category}' | ${config.siteName}`}
-                </title>
-                <link rel="canonical" href={`${config.siteUrl}/about/`} />
-            </Helmet>
-            <PostsList edges={edges} />
-        </div>
-    );
+  const { edges } = props.data.allMarkdownRemark;
+  const { category } = props.pageContext;
+  return (
+    <div>
+      <SEO />
+      <Helmet>
+        <title>{`Posts in category '${category}' | ${config.siteName}`}</title>
+        <link rel="canonical" href={`${config.siteUrl}/about/`} />
+      </Helmet>
+      <PostsList edges={edges} />
+    </div>
+  );
 };
 
 CategoryTemplate.propTypes = {
-    data: PropTypes.object.isRequired,
-    pathContext: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired
 };
 
 export default CategoryTemplate;

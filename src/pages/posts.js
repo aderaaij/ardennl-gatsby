@@ -5,25 +5,28 @@ import PostsList from '../components/PostsList/PostsList';
 import SEO from '../components/SEO/SEO';
 import config from '../../data/site-config';
 import '../graphql/archive';
+import TemplateWrapper from '../components/Layouts/Default';
 
 // console.log(archiveQuery);
 
 const BlogList = props => {
-    const { edges } = props.data.allMarkdownRemark;
-    return (
-        <div>
-            <SEO />
-            <Helmet>
-                <title>{`Blog | ${config.siteName}`}</title>
-                <link rel="canonical" href={`${config.siteUrl}/about/`} />
-            </Helmet>
-            <PostsList edges={edges} />
-        </div>
-    );
+  const { edges } = props.data.allMarkdownRemark;
+  return (
+    <TemplateWrapper>
+      <div>
+        <SEO />
+        <Helmet>
+          <title>{`Blog | ${config.siteName}`}</title>
+          <link rel="canonical" href={`${config.siteUrl}/about/`} />
+        </Helmet>
+        <PostsList edges={edges} />
+      </div>
+    </TemplateWrapper>
+  );
 };
 
 BlogList.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 };
 
 export default BlogList;

@@ -4,7 +4,7 @@
         "browser": true,
         "es6": true
     },
-    "extends": ["airbnb-base", "prettier"],
+    "extends": ["airbnb-base", "prettier", "plugin:react/recommended"],
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
@@ -23,11 +23,11 @@
         "react/jsx-filename-extension": 0,
         "react/jsx-indent": [
             "error",
-            4
+            2
         ],
         "react/jsx-indent-props": [
             "error",
-            4
+            2
         ],
         "react/forbid-prop-types": 0,
         "no-unused-expressions": [
@@ -49,7 +49,7 @@
         "no-console": 0,
         "indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",
