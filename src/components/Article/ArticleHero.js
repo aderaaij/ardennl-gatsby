@@ -131,9 +131,7 @@ Fade.propTypes = {
   in: PropTypes.bool.isRequired
 };
 
-// export default class ArticleHero extends Component {
-const ArticleHero = props => {
-  const { frontmatter, fadeIn } = props;
+const ArticleHero = ({ frontmatter, fadeIn }) => {
   const { title, category, tags, date, published } = frontmatter;
   return (
     <ArticleHeroStyled className={frontmatter.cover ? '' : articleHeroSmall}>
@@ -149,7 +147,6 @@ const ArticleHero = props => {
         <Fade in={fadeIn}>
           {!published && <Tag style={TagPos} tagText="unpublished" />}
           <CatLink to={`/categories/${category}`}>{category}</CatLink>
-
           <h1>{preventWidow(title)}</h1>
           {(tags || date) && <ExcerptMeta className={ExcerptMetaStyle} tags={tags} date={date} />}
         </Fade>

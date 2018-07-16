@@ -53,23 +53,23 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     graphql(`
-            {
-                allMarkdownRemark {
-                    edges {
-                        node {
-                            frontmatter {
-                                tags
-                                category
-                                published
-                            }
-                            fields {
-                                slug
-                            }
-                        }
-                    }
-                }
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                tags
+                category
+                published
+              }
+              fields {
+                slug
+              }
             }
-      `).then(result => {
+          }
+        }
+      }
+    `).then(result => {
       if (result.errors) {
         console.log(result.errors);
         reject(result.errors);

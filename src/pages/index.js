@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 import { injectGlobal } from 'emotion';
 import styled, { css } from 'react-emotion';
 import SEO from '../components/SEO/SEO';
@@ -198,7 +198,7 @@ export default Home;
 
 export const query = graphql`
   query IndexQuery {
-    allFile(filter: { name: { eq: "bg"}}) {
+    allFile(filter: { name: { eq: "bg" } }) {
       edges {
         node {
           id
@@ -206,7 +206,7 @@ export const query = graphql`
           sourceInstanceName
           childImageSharp {
             id
-            fluid(traceSVG: { blackOnWhite: false, color: "#37474F"}) {
+            fluid(traceSVG: { blackOnWhite: false, color: "#37474F" }) {
               base64
               tracedSVG
               aspectRatio

@@ -13,190 +13,173 @@ import { preventWidow } from '../../helpers/helpers';
  * Takes in an event (e) and a string (slug)
  */
 function goToPage(e, slug) {
-    if (e.target.tagName === 'A') {
-        e.preventDefault();
-    } else {
-        navigateTo(slug);
-    }
+  if (e.target.tagName === 'A') {
+    e.preventDefault();
+  } else {
+    navigateTo(slug);
+  }
 }
 
 const BlogArticle = styled.article`
-    position: relative;
-    z-index: 201;
-    padding: 2em 1em;
-    cursor: pointer;
-    border-bottom: 1px solid ${colorScheme.meta};
+  position: relative;
+  z-index: 201;
+  padding: 2em 1em;
+  cursor: pointer;
+  border-bottom: 1px solid ${colorScheme.meta};
 
-    @media (min-width: 768px) {
-        padding: 4em 0;
-        width: 100%;
-    }
+  @media (min-width: 768px) {
+    padding: 4em 0;
+    width: 100%;
+  }
 `;
 
 const BlogContent = styled.div`
-    width: 100%;
-    h2 {
-        font-size: 2em;
-        a {
-            color: ${colorScheme.support};
-            text-decoration: none;
-        }
-        @media (min-width: 768px) {
-            font-size: 3em;
-            margin: 0;
-        }
+  width: 100%;
+  h2 {
+    font-size: 2em;
+    a {
+      color: ${colorScheme.support};
+      text-decoration: none;
     }
+    @media (min-width: 768px) {
+      font-size: 3em;
+      margin: 0;
+    }
+  }
 
-    & p {
-        font-size: 1.125em;
-        max-width: 55ch;
-        line-height: 1.5;
-        color: ${colorScheme.text};
-        @media (min-width: 768px) {
-            font-size: 1.25em;
-        }
+  & p {
+    font-size: 1.125em;
+    max-width: 55ch;
+    line-height: 1.5;
+    color: ${colorScheme.text};
+    @media (min-width: 768px) {
+      font-size: 1.25em;
     }
+  }
 `;
 
 const CatLink = styled(Link)`
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 0 1em;    
-    text-transform: lowercase;
-    font-style: italic;
-    color: ${colorScheme.meta};
-    @media (min-width: 768px) {
-        font-size: 1.125em;
-    }
-    &:hover {
-        text-decoration: underline;
-    }
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 0 1em;
+  text-transform: lowercase;
+  font-style: italic;
+  color: ${colorScheme.meta};
+  @media (min-width: 768px) {
+    font-size: 1.125em;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const TagPos = css`
-    float: right;
-    background: ${colorScheme.support};
+  float: right;
+  background: ${colorScheme.support};
 `;
 
 const ExcerptMetaStyle = css`
+  color: ${colorScheme.meta};
+  a {
     color: ${colorScheme.meta};
-    a {
-        color: ${colorScheme.meta};
-    }
+  }
 `;
 
 const duration = 400;
 
 const BGImage = css`
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
-    pointer-events: none;
-    transition: ${duration}ms ease-out;
-    opacity: 0;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  pointer-events: none;
+  transition: ${duration}ms ease-out;
+  opacity: 0;
 
-    @media(min-width: 1024px) {
-        height: 100vh;
-    }
+  @media (min-width: 1024px) {
+    height: 100vh;
+  }
 `;
 
 const transitionStyles = {
-    entering: { opacity: 0 },
-    entered: { opacity: 1 },
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
 };
 
 const Fade = ({ in: isHovering, image }) => (
-    <Transition in={isHovering} timeout={10}>
-        {status => (
-            <img
-                className={BGImage}
-                alt=""
-                src={image}
-                style={{
-                    ...transitionStyles[status],
-                }}
-            />
-
-        )}
-    </Transition>
+  <Transition in={isHovering} timeout={10}>
+    {status => (
+      <img
+        className={BGImage}
+        alt=""
+        src={image}
+        style={{
+          ...transitionStyles[status]
+        }}
+      />
+    )}
+  </Transition>
 );
 
 Fade.propTypes = {
-    image: PropTypes.string.isRequired,
-    in: PropTypes.bool.isRequired,
+  image: PropTypes.string.isRequired,
+  in: PropTypes.bool.isRequired
 };
 
 export default class PostExcerpt extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isHovering: false,
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHovering: false
+    };
+  }
 
-    handleMouseEnter() {
-        this.setState({
-            isHovering: true,
-        });
-    }
+  handleMouseEnter() {
+    this.setState({
+      isHovering: true
+    });
+  }
 
-    handleMouseLeave() {
-        this.setState({
-            isHovering: false,
-        });
-    }
+  handleMouseLeave() {
+    this.setState({
+      isHovering: false
+    });
+  }
 
-    render() {
-        const { postInfo } = this.props;
-        const { isHovering } = this.state;
-        const {
-            tags, date, path, title, category, excerpt, published, cover,
-        } = postInfo;
-        return (
+  render() {
+    const { postInfo } = this.props;
+    const { isHovering } = this.state;
+    const { tags, date, path, title, category, excerpt, published, cover } = postInfo;
+    return (
+      <div>
+        {cover && <Fade in={!!isHovering} image={cover.childImageSharp.resolutions.tracedSVG} />}
+        <BlogArticle
+          onMouseEnter={() => this.handleMouseEnter()}
+          onMouseLeave={() => this.handleMouseLeave()}
+          onClick={e => goToPage(e, path)}
+        >
+          <BlogContent>
             <div>
-                {cover &&
-                <Fade
-                    in={!!isHovering}
-                    image={cover.childImageSharp.resolutions.tracedSVG}
-                />
-                }
-                <BlogArticle
-                    onMouseEnter={() => this.handleMouseEnter()}
-                    onMouseLeave={() => this.handleMouseLeave()}
-                    onClick={e => goToPage(e, path)}
-                >
-                    <BlogContent>
-                        <div>
-                            {!published &&
-                            <Tag
-                                style={TagPos}
-                                tagText="unpublished"
-                            />
-                            }
-                            <CatLink to={`/categories/${category}`}>{category}</CatLink>
-                            <h2>
-                                <Link to={path}>{preventWidow(title)}</Link>
-                            </h2>
-                            <p>{excerpt}</p>
-                            {(tags || date) &&
-                            <ExcerptMeta
-                                className={ExcerptMetaStyle}
-                                tags={tags}
-                                date={date}
-                            />
-                            }
-                        </div>
-                    </BlogContent>
-                </BlogArticle>
+              {!published && <Tag style={TagPos} tagText="unpublished" />}
+              <CatLink to={`/categories/${category}`}>{category}</CatLink>
+              <h2>
+                <Link to={path}>{preventWidow(title)}</Link>
+              </h2>
+              <p>{excerpt}</p>
+              {(tags || date) && (
+                <ExcerptMeta className={ExcerptMetaStyle} tags={tags} date={date} />
+              )}
             </div>
-        );
-    }
+          </BlogContent>
+        </BlogArticle>
+      </div>
+    );
+  }
 }
 
 PostExcerpt.propTypes = {
-    postInfo: PropTypes.object.isRequired,
+  postInfo: PropTypes.object.isRequired
 };

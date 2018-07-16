@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import styled from 'react-emotion';
 import SEO from '../components/SEO/SEO';
 import ArticleHero from '../components/Article/ArticleHero';
