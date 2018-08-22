@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
     { from: '/sia', to: 'https://superinteractive.com/' },
     { from: '/gh', to: 'https://github.com/aderaaij/' },
     { from: '/li', to: 'https://www.linkedin.com/in/ardenderaaij/' }
+    { from: '/aa', to: 'https://abroad.arden.nl' }
   ];
   extRedirects.forEach(({ from, to }) => {
     createRedirect({
