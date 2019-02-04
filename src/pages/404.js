@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
 

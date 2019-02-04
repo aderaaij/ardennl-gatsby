@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
 import { GridBase, ContentLimit } from '../../helpers/grid';
 

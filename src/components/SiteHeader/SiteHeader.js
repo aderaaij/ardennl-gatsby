@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import css from '@emotion/css';
 import Headroom from 'react-headroom';
 import { colorScheme, fontScheme } from '../../helpers/styleSettings';
 
@@ -110,11 +111,7 @@ const activeNavItem = css`
 `;
 
 const SiteHeader = () => (
-  <Headroom
-    pinStart={0}
-    wrapperStyle={{ position: 'fixed', zIndex: 501 }}
-    className={headroomStyles}
-  >
+  <Headroom pinStart={0} wrapperStyle={{ position: 'fixed', zIndex: 501 }} css={headroomStyles}>
     <Header>
       <Logo to="/" title="Home - Arden.nl">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360.1 91.3" width="200">
@@ -133,7 +130,7 @@ const SiteHeader = () => (
       <SiteNav>
         <ul>
           <li>
-            <Link className={navItem} activeClassName={activeNavItem} to="/posts/">
+            <Link css={navItem} to="/posts/">
               Blog
             </Link>
           </li>

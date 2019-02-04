@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import SEO from '../components/SEO/SEO';
 import ArticleHero from '../components/Article/ArticleHero';
 import ArticleContent from '../components/Article/ArticleContent';
