@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { injectGlobal } from 'emotion';
+import { Global, css } from '@emotion/core';
 import 'normalize.css';
+
 import config from '../../../data/site-config';
 import SiteHeader from '../SiteHeader/SiteHeader';
 import Piwik from '../Piwik/Piwik';
 import Typekit from '../Typekit/Typekit';
 import { colorScheme, fontScheme } from '../../helpers/styleSettings';
 
-injectGlobal`
+const globalCss = css`
   * {
     box-sizing: border-box;
   }
@@ -18,8 +19,13 @@ injectGlobal`
     font-family: ${fontScheme.text};
     background: ${colorScheme.dark};
   }
-  
-  h1,h2,h3,h4,h5,h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: ${fontScheme.headings};
     font-weight: 900;
     letter-spacing: -0.5px;
@@ -31,12 +37,13 @@ injectGlobal`
   }
 
   p {
-      line-height: 1.55;
+    line-height: 1.55;
   }
 `;
 
 const TemplateWrapper = ({ children }) => (
   <div>
+    <Global styles={globalCss} />
     <Helmet title={config.siteDescription} htmlAttributes={{ lang: 'EN' }} />
     <Piwik />
     <Typekit />

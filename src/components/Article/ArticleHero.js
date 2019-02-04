@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Transition from 'react-transition-group/Transition';
 import Img from 'gatsby-image';
 import Tag from '../TagLabel/TagLabel';
@@ -132,15 +133,16 @@ Fade.propTypes = {
 };
 
 const ArticleHero = ({ frontmatter, fadeIn }) => {
-  const { title, category, tags, date, published } = frontmatter;
+  const { title, category, tags, date, published, cover } = frontmatter;
+  console.log({ cover });
   return (
-    <ArticleHeroStyled className={frontmatter.cover ? '' : articleHeroSmall}>
-      {frontmatter.cover && (
+    <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
+      {cover && (
         <Img
           outerWrapperClassName={imgStyle}
           position="absolute"
-          className={imgStyle}
-          resolutions={frontmatter.cover.childImageSharp.resolutions}
+          css={imgStyle}
+          resolutions={cover.childImageSharp.resolutions}
         />
       )}
       <ArticleHeader>
@@ -148,7 +150,7 @@ const ArticleHero = ({ frontmatter, fadeIn }) => {
           {!published && <Tag style={TagPos} tagText="unpublished" />}
           <CatLink to={`/categories/${category}`}>{category}</CatLink>
           <h1>{preventWidow(title)}</h1>
-          {(tags || date) && <ExcerptMeta className={ExcerptMetaStyle} tags={tags} date={date} />}
+          {(tags || date) && <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />}
         </Fade>
       </ArticleHeader>
     </ArticleHeroStyled>

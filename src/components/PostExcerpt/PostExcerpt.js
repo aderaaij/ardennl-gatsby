@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import Link, { navigateTo } from 'gatsby-link';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
@@ -113,7 +114,8 @@ const Fade = ({ in: isHovering, image }) => (
   <Transition in={isHovering} timeout={10}>
     {status => (
       <img
-        className={BGImage}
+        // className={BGImage}
+        css={BGImage}
         alt=""
         src={image}
         style={{
@@ -169,9 +171,7 @@ export default class PostExcerpt extends Component {
                 <Link to={path}>{preventWidow(title)}</Link>
               </h2>
               <p>{excerpt}</p>
-              {(tags || date) && (
-                <ExcerptMeta className={ExcerptMetaStyle} tags={tags} date={date} />
-              )}
+              {(tags || date) && <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />}
             </div>
           </BlogContent>
         </BlogArticle>
