@@ -135,6 +135,6 @@ exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
 
 exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   if (stage === 'build-javascript') {
-    config.plugin('Lodash', webpackLodashPlugin, null);
+    getConfig.plugin('Lodash', webpackLodashPlugin, null);
   }
 };
