@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         createPage({
           path: node.fields.slug,
-          component: path.resolve('./src/templates/post.js'),
+          component: path.resolve('src/templates/post.js'),
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug: node.fields.slug
@@ -101,7 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
         tagList.forEach(tag => {
           createPage({
             path: `/tags/${_.kebabCase(tag)}/`,
-            component: path.resolve('./src/templates/tag.js'),
+            component: path.resolve('src/templates/tag.js'),
             context: {
               tag
             }
@@ -112,7 +112,7 @@ exports.createPages = ({ graphql, actions }) => {
         categoryList.forEach(category => {
           createPage({
             path: `/categories/${_.kebabCase(category)}/`,
-            component: path.resolve('./src/templates/category.js'),
+            component: path.resolve('src/templates/category.js'),
             context: {
               category
             }
