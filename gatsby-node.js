@@ -124,16 +124,16 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   if (stage === 'build-html') {
-    config.loader('null', {
+    getConfig.loader('null', {
       test: /intersection-observer/,
       loader: 'null-loader'
     });
   }
 };
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   if (stage === 'build-javascript') {
     config.plugin('Lodash', webpackLodashPlugin, null);
   }
