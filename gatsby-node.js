@@ -124,17 +124,29 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   if (stage === 'build-html') {
-    getConfig.loader('null', {
-      test: /intersection-observer/,
-      loader: 'null-loader'
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /intersection-observer/,
+            use: ['null-loader']
+          }
+        ]
+      }
     });
+
+    // getConfig.loader('null', {
+    //   test: /intersection-observer/,
+    //   loader: 'null-loader'
+    // });
   }
 };
 
-exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
-  if (stage === 'build-javascript') {
-    getConfig.plugin('Lodash', webpackLodashPlugin, null);
-  }
-};
+// exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+//   console.log(getConfig());
+//   if (stage === 'build-javascript') {
+//     getConfig.plugin('Lodash', webpackLodashPlugin, null);
+//   }
+// };
