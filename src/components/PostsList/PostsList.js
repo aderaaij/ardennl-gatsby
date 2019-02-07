@@ -1,18 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
-import { GridBase, ContentLimit } from '../../helpers/grid';
-
-const BlogSection = styled.section`
-  min-height: 100%;
-  padding: 25vh 0;
-  ${GridBase};
-`;
-
-const BlogWrap = styled.div`
-  ${ContentLimit};
-`;
 
 class PostsList extends React.Component {
   getPostList() {
@@ -41,21 +29,17 @@ class PostsList extends React.Component {
     const postList = this.getPostList();
     return postList.map(post => {
       if (process.env.NODE_ENV === 'production' && post.published) {
-        return <PostExcerpt key={post.title} postInfo={post} />;
+        return <PostExcerpt context={this.props.context} key={post.title} postInfo={post} />;
       }
       if (process.env.NODE_ENV === 'development') {
-        return <PostExcerpt key={post.title} postInfo={post} />;
+        return <PostExcerpt context={this.props.context} key={post.title} postInfo={post} />;
       }
       return false;
     });
   }
 
   render() {
-    return (
-      <BlogSection>
-        <BlogWrap>{this.renderPostExcerpt()}</BlogWrap>
-      </BlogSection>
-    );
+    return <>{this.renderPostExcerpt()}</>;
   }
 }
 

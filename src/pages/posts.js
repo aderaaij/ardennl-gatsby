@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import PostsList from '../components/PostsList/PostsList';
+import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import SEO from '../components/SEO/SEO';
 import config from '../../data/site-config';
 import '../graphql/archive';
@@ -18,7 +19,10 @@ const BlogList = props => {
           <title>{`Blog | ${config.siteName}`}</title>
           <link rel="canonical" href={`${config.siteUrl}/about/`} />
         </Helmet>
-        <PostsList edges={edges} />
+
+        <PostsListWrap>
+          <PostsList edges={edges} />
+        </PostsListWrap>
       </div>
     </TemplateWrapper>
   );

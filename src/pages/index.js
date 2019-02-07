@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 import SEO from '../components/SEO/SEO';
 import TemplateWrapper from '../components/Layouts/Default';
 import { colorScheme, fontScheme } from '../helpers/styleSettings';
-import { GridBase, ContentLimit } from '../helpers/grid';
+import { GridBase, HomeContentLimit } from '../helpers/grid';
+import PostList from '../components/PostsList/PostsList';
 
 const globalCss = css`
   * {
@@ -49,12 +50,12 @@ const HomeContent = styled.div`
   position: relative;
   height: 100%;
   min-height: calc(100vh - 60px);
-  padding: 0 1em;
+  /* padding: 0 1em; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   color: ${colorScheme.text};
-  ${ContentLimit};
+  ${HomeContentLimit};
 
   > div {
     max-width: 70ch;
@@ -66,7 +67,7 @@ const HomeContent = styled.div`
     font-weight: 900;
     margin: 0;
     @media (min-width: 768px) {
-      font-size: 4em;
+      font-size: 2.75em;
     }
   }
 
@@ -74,7 +75,7 @@ const HomeContent = styled.div`
     font-size: 1.75em;
     margin: 0;
     @media (min-width: 768px) {
-      font-size: 3em;
+      font-size: 2.25em;
     }
   }
 
@@ -96,12 +97,13 @@ const HomeContent = styled.div`
 `;
 
 const HomeBackground = styled.img`
-  width: 100%;
+  width: 50%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   object-fit: cover;
+  object-position: right;
   z-index: 1;
   display: none;
   @media (min-width: 768px) {
@@ -128,21 +130,26 @@ const HomeImg = css`
 `;
 
 const Home = props => {
-  const { data } = props;
-  const { edges } = data.allFile;
-  const bg = edges.find(edge => edge.node.name.includes('bg'));
+  console.log(props);
+  const { allFile, allMarkdownRemark } = props.data;
+  // const { edges } = data.allFile;
+  const bg = allFile.edges.find(edge => edge.node.name.includes('bg'));
   return (
     <TemplateWrapper>
       <>
         <Global style={globalCss} />
         <HomeWrap>
           <HomeBackground src={bg.node.childImageSharp.fluid.tracedSVG} />
-          {/* <Img className={HomeImg} outerWrapperClassName={HomeImg} src={background.node.tracedSVG} /> */}
+          {/* <Img
+            className={HomeImg}
+            outerWrapperClassName={HomeImg}
+            src={background.node.tracedSVG}
+          /> */}
           <HomeContent>
             <div>
               <h1>Arden de Raaij</h1>
               <h2>Front-end Web Developer</h2>
-              <div>
+              {/* <div>
                 <p>
                   Hi, I'm Arden. I'm a web developer based in Lisbon, Portugal. I create awesome
                   websites/web-apps which are enjoyable and fun to use. You can find some of my code
@@ -192,8 +199,9 @@ const Home = props => {
                   </a>{' '}
                   about all the things web related!
                 </p>
-              </div>
+              </div> */}
             </div>
+            <PostList context="home" edges={allMarkdownRemark.edges} />
           </HomeContent>
           <SEO />
         </HomeWrap>
@@ -207,9 +215,8 @@ Home.propTypes = {
 };
 
 export default Home;
-
 export const query = graphql`
-  query IndexQuery {
+  query IndexQuery($category: String) {
     allFile(filter: { name: { eq: "bg" } }) {
       edges {
         node {
@@ -231,6 +238,18 @@ export const query = graphql`
               originalName
             }
           }
+        }
+      }
+    }
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { eq: $category } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          ...defaultArchiveQuery
         }
       }
     }

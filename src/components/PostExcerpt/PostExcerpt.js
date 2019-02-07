@@ -43,7 +43,7 @@ const BlogContent = styled.div`
       text-decoration: none;
     }
     @media (min-width: 768px) {
-      font-size: 3em;
+      font-size: ${props => (props.context === 'home' ? '2em' : '3em')};
       margin: 0;
     }
   }
@@ -163,14 +163,14 @@ export default class PostExcerpt extends Component {
           onMouseLeave={() => this.handleMouseLeave()}
           onClick={e => goToPage(e, path)}
         >
-          <BlogContent>
+          <BlogContent context={this.props.context}>
             <div>
               {!published && <Tag style={TagPos} tagText="unpublished" />}
               <CatLink to={`/categories/${category}`}>{category}</CatLink>
               <h2>
                 <Link to={path}>{preventWidow(title)}</Link>
               </h2>
-              <p>{excerpt}</p>
+              {this.props.context !== 'home' && <p>{excerpt}</p>}
               {(tags || date) && <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />}
             </div>
           </BlogContent>
