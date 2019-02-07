@@ -134,7 +134,6 @@ Fade.propTypes = {
 
 const ArticleHero = ({ frontmatter, fadeIn }) => {
   const { title, category, tags, date, published, cover } = frontmatter;
-  console.log({ cover });
   return (
     <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
       {cover && (

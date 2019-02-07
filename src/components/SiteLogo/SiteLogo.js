@@ -10,7 +10,6 @@ const StyledLogo = styled.svg`
 `;
 
 const SiteLogo = props => {
-  console.log(props);
   return (
     <StyledLogo
       className={props.className}
