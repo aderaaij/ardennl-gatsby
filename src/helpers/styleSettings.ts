@@ -1,3 +1,4 @@
+import '../../../index';
 import mc from 'material-colors';
 
 export const colorScheme = {

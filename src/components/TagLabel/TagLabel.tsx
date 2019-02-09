@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import '../../../index';
 import mc from 'material-colors';
 
 const Tag = styled.div`
