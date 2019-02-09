@@ -75,7 +75,7 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "graphql-types": "gql-gen --config codegen.yml",
     "lint:ts": "tslint -t stylish -p .",
-    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.ts' 'test/**/*.ts'",
+    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.tsx' 'test/**/*.ts'",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
