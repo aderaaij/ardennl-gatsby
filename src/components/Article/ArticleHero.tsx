@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Transition from 'react-transition-group/Transition';
 import Img from 'gatsby-image';
+
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { GridBase, ContentLimit } from '../../helpers/grid';
@@ -26,7 +26,11 @@ const ArticleHeroStyled = styled.figure`
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0,
+      rgba(0, 0, 0, 0.9) 100%
+    );
   }
   @media (min-width: 768px) {
     margin: 0 auto 4em;
@@ -116,21 +120,31 @@ const FadeWrapper = styled.div`
   opacity: 0;
 `;
 
-const transitionStyles = {
+interface TransitionProps {
+  opacity: number;
+  transform: string;
+}
+
+interface TransitionI {
+  entering: TransitionProps;
+  entered: TransitionProps;
+  [key: string]: TransitionProps;
+}
+
+const transitionStyles: TransitionI = {
   entering: { opacity: 0, transform: 'translateY(50%)' },
   entered: { opacity: 1, transform: 'translateY(0%)' }
 };
 
 const Fade = ({ children, in: inProp }) => (
   <Transition in={inProp} timeout={duration}>
-    {state => <FadeWrapper style={{ ...transitionStyles[state] }}>{children}</FadeWrapper>}
+    {state => (
+      <FadeWrapper style={{ ...transitionStyles[state] }}>
+        {children}
+      </FadeWrapper>
+    )}
   </Transition>
 );
-
-Fade.propTypes = {
-  children: PropTypes.array.isRequired,
-  in: PropTypes.bool.isRequired
-};
 
 const ArticleHero = ({ frontmatter, fadeIn }) => {
   const { title, category, tags, date, published, cover } = frontmatter;
@@ -149,7 +163,9 @@ const ArticleHero = ({ frontmatter, fadeIn }) => {
           {!published && <Tag style={TagPos} tagText="unpublished" />}
           <CatLink to={`/categories/${category}`}>{category}</CatLink>
           <h1>{preventWidow(title)}</h1>
-          {(tags || date) && <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />}
+          {(tags || date) && (
+            <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
+          )}
         </Fade>
       </ArticleHeader>
     </ArticleHeroStyled>
@@ -157,8 +173,3 @@ const ArticleHero = ({ frontmatter, fadeIn }) => {
 };
 
 export default ArticleHero;
-
-ArticleHero.propTypes = {
-  frontmatter: PropTypes.object.isRequired,
-  fadeIn: PropTypes.bool.isRequired
-};

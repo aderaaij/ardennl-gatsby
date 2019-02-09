@@ -1,25 +1,98 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { FaLinkedin, FaTwitter, FaEnvelope, FaDev } from 'react-icons/fa';
+
 import { globalCss } from '../helpers/global';
-import SEO from '../components/SEO/SEO';
-import TemplateWrapper from '../components/Layouts/Default';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, HomeContentLimit } from '../helpers/grid';
+
+import SEO from '../components/SEO/SEO';
+import TemplateWrapper from '../components/Layouts/Default';
 import PostList from '../components/PostsList/PostsList';
 
-const Home = props => {
+export interface BgFileNode {
+  node: {
+    childImageSharp: {
+      fluid: {
+        aspectRatio: number;
+        base64: string;
+        originalImg: string;
+        originalName: string;
+        src: string;
+        srcSet: string;
+        srcSetWebp: string;
+        srcWebp: string;
+        tracedSVG: string;
+      };
+      id: string;
+    };
+    id: string;
+    name: string;
+    sourceInstanceName: string;
+  };
+}
+
+export interface ChildImageSharpDef {
+  resolutions: {
+    tracedSVG: string;
+  };
+}
+
+export interface MarkdownRemarkNodeType {
+  node: {
+    excerpt: string;
+    fields: {
+      slug: string;
+    };
+    frontmatter: {
+      category: string;
+      published: boolean;
+      tags: [string];
+      cover: {
+        childImageSharp: {
+          resolutions: {
+            tracedSVG: string;
+          };
+        };
+        id: string;
+        relativePath: string;
+      };
+      date: string;
+      title: string;
+    };
+    timeToRead: number;
+  };
+}
+
+export interface AllFile {
+  edges: [BgFileNode];
+}
+
+export interface AllMarkdownRemark {
+  edges: [MarkdownRemarkNodeType];
+  totalCount: number;
+}
+
+export interface HomeProps {
+  data: {
+    allFile: AllFile;
+    allMarkdownRemark: AllMarkdownRemark;
+  };
+}
+
+const Home = (props: HomeProps) => {
   const { allFile, allMarkdownRemark } = props.data;
   const bg = allFile.edges.find(edge => edge.node.name.includes('bg'));
   return (
     <TemplateWrapper>
       <>
-        <Global style={globalCss} />
+        <Global styles={globalCss} />
         <HomeWrap>
-          <HomeBackground src={bg.node.childImageSharp.fluid.tracedSVG} />
+          {bg && (
+            <HomeBackground src={bg.node.childImageSharp.fluid.tracedSVG} />
+          )}
           {/* <Img
             className={HomeImg}
             outerWrapperClassName={HomeImg}
@@ -59,10 +132,6 @@ const Home = props => {
       </>
     </TemplateWrapper>
   );
-};
-
-Home.propTypes = {
-  data: PropTypes.object.isRequired,
 };
 
 export default Home;

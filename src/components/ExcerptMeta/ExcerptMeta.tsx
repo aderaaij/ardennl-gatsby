@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import TagList from '../TagList/TagList';
 import { colorScheme } from '../../helpers/styleSettings';
@@ -43,7 +42,14 @@ const ExcerptMetaWrap = styled.ul`
   }
 `;
 
-const ExcerptMeta = ({ className, date, tags }) => (
+interface ExcerptMetaProps {
+  className?: string;
+  css: any;
+  date: string;
+  tags: [string];
+}
+
+const ExcerptMeta = ({ className, date, tags }: ExcerptMetaProps) => (
   <ExcerptMetaWrap className={className}>
     {date && (
       <li>
@@ -57,11 +63,5 @@ const ExcerptMeta = ({ className, date, tags }) => (
     )}
   </ExcerptMetaWrap>
 );
-
-ExcerptMeta.propTypes = {
-  date: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired,
-  className: PropTypes.string.isRequired
-};
 
 export default ExcerptMeta;

@@ -18,6 +18,7 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-plugin-sitemap": "^2.0.5",
+    "gatsby-plugin-typescript": "^2.0.7",
     "gatsby-remark-copy-linked-files": "^2.0.9",
     "gatsby-remark-images": "^3.0.3",
     "gatsby-remark-prismjs": "^3.2.4",
@@ -40,17 +41,22 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.3.0",
     "react-reveal": "^1.2.2",
-    "react-transition-group": "^2.5.3"
+    "react-transition-group": "^2.5.3",
+    "typescript": "^3.3.3"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^5.0.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "@emotion/types": "^0.7.0",
+    "@types/classnames": "^2.2.7",
+    "@types/node": "^10.12.24",
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "@types/react-helmet": "^5.0.8",
+    "@types/react-transition-group": "^2.0.15",
+    "prettier": "^1.16.4",
+    "tslint": "^5.12.1",
+    "tslint-config-blvd": "^1.2.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1"
   },
   "keywords": [
     "gatsby"
@@ -61,6 +67,8 @@
     "build": "gatsby build && gatsby serve",
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --project ."
   }
 }

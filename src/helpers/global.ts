@@ -29,5 +29,8 @@ export const globalCss = css`
 
   p {
     line-height: 1.55;
+    .language-text {
+      font-size: 1.25em;
+    }
   }
 `;

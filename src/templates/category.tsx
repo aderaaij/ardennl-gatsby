@@ -1,40 +1,38 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import PostsList from '../components/PostsList/PostsList';
 import SEO from '../components/SEO/SEO';
+import PostsList from '../components/PostsList/PostsList';
+import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import config from '../../data/site-config';
 import '../graphql/archive';
 
-const TagTemplate = ({ data, pageContext }) => {
+const CategoryTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark;
-  const { tag } = pageContext;
+  const { category } = pageContext;
   return (
     <div>
       <SEO />
       <Helmet>
-        <title>{`Posts tagged with '${tag}' | ${config.siteName}`}</title>
+        <title>{`Posts in category '${category}' | ${config.siteName}`}</title>
         <link rel="canonical" href={`${config.siteUrl}/about/`} />
       </Helmet>
-      <PostsList edges={edges} />
+
+      <PostsListWrap>
+        <PostsList edges={edges} />
+      </PostsListWrap>
     </div>
   );
 };
 
-TagTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
-};
-
-export default TagTemplate;
+export default CategoryTemplate;
 
 export const query = graphql`
-  query TagArchive($tag: String) {
+  query CategoryArchive($category: String) {
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { category: { eq: $category } } }
     ) {
       totalCount
       edges {

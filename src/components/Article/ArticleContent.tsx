@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { GridBase, ContentLimit } from '../../helpers/grid';
@@ -209,9 +208,5 @@ const ArticleContent = ({ html }) => (
     </ArticleEntryContent>
   </ArticleContentStyled>
 );
-
-ArticleContent.propTypes = {
-  html: PropTypes.string.isRequired
-};
 
 export default ArticleContent;

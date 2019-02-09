@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
-import Link, { navigateTo } from 'gatsby-link';
+import Link from 'gatsby-link';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
-import { preventWidow } from '../../helpers/helpers';
+import { preventWidow, goToPage } from '../../helpers/helpers';
 
-/**
- * Funtion to prevent default behaviour when click an A tag.
- * Takes in an event (e) and a string (slug)
- */
-function goToPage(e, slug) {
-  if (e.target.tagName === 'A') {
-    e.preventDefault();
-  } else {
-    navigateTo(slug);
-  }
+interface PostInterface {
+  published: boolean;
+  path: string;
+  tags: [string];
+  category: string;
+  cover: {
+    childImageSharp: {
+      resolutions: any;
+    };
+    id: string;
+    relativePath: string;
+  } | null;
+  title: string;
+  date: string;
+  excerpt: string;
+  timeToRead: number;
+}
+
+interface PostExcerptProps {
+  context?: string;
+  postInfo: PostInterface;
+}
+
+interface StyleProps {
+  context?: string;
 }
 
 const BlogArticle = styled.article`
@@ -29,7 +44,8 @@ const BlogArticle = styled.article`
   border-bottom: 1px solid ${colorScheme.meta};
 
   @media (min-width: 768px) {
-    padding: ${props => (props.context === 'home' ? '2em 0' : '4em 0')};
+    padding: ${(props: StyleProps) =>
+      props.context === 'home' ? '2em 0' : '4em 0'};
     width: 100%;
   }
 `;
@@ -43,7 +59,8 @@ const BlogContent = styled.div`
       text-decoration: none;
     }
     @media (min-width: 768px) {
-      font-size: ${props => (props.context === 'home' ? '2em' : '3em')};
+      font-size: ${(props: StyleProps) =>
+        props.context === 'home' ? '2em' : '3em'};
       margin: 0;
     }
   }
@@ -105,16 +122,25 @@ const BGImage = css`
   }
 `;
 
-const transitionStyles = {
+interface AnimationI {
+  opacity: number;
+}
+
+interface TransitionsI {
+  entering: AnimationI;
+  entered: AnimationI;
+  [key: string]: AnimationI;
+}
+
+const transitionStyles: TransitionsI = {
   entering: { opacity: 0 },
   entered: { opacity: 1 }
 };
 
-const Fade = ({ in: isHovering, image }) => (
+const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
   <Transition in={isHovering} timeout={10}>
     {status => (
       <img
-        // className={BGImage}
         css={BGImage}
         alt=""
         src={image}
@@ -126,13 +152,12 @@ const Fade = ({ in: isHovering, image }) => (
   </Transition>
 );
 
-Fade.propTypes = {
-  image: PropTypes.string.isRequired,
-  in: PropTypes.bool.isRequired
-};
+interface StateInt {
+  isHovering: boolean;
+}
 
-export default class PostExcerpt extends Component {
-  constructor(props) {
+export default class PostExcerpt extends Component<PostExcerptProps, StateInt> {
+  constructor(props: PostExcerptProps) {
     super(props);
     this.state = {
       isHovering: false
@@ -154,11 +179,25 @@ export default class PostExcerpt extends Component {
   render() {
     const { postInfo } = this.props;
     const { isHovering } = this.state;
-    const { tags, date, path, title, category, excerpt, published, cover } = postInfo;
+    const {
+      tags,
+      date,
+      path,
+      title,
+      category,
+      excerpt,
+      published,
+      cover
+    } = postInfo;
 
     return (
       <div>
-        {cover && <Fade in={!!isHovering} image={cover.childImageSharp.resolutions.tracedSVG} />}
+        {cover && (
+          <Fade
+            in={!!isHovering}
+            image={cover.childImageSharp.resolutions.tracedSVG}
+          />
+        )}
         <BlogArticle
           context={this.props.context}
           onMouseEnter={() => this.handleMouseEnter()}
@@ -173,7 +212,9 @@ export default class PostExcerpt extends Component {
                 <Link to={path}>{preventWidow(title)}</Link>
               </h2>
               {this.props.context !== 'home' && <p>{excerpt}</p>}
-              {(tags || date) && <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />}
+              {(tags || date) && (
+                <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
+              )}
             </div>
           </BlogContent>
         </BlogArticle>
@@ -181,7 +222,3 @@ export default class PostExcerpt extends Component {
     );
   }
 }
-
-PostExcerpt.propTypes = {
-  postInfo: PropTypes.object.isRequired
-};

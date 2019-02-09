@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 const TagListWrap = styled.div`
@@ -52,9 +51,5 @@ const TagList = ({ tags }) => (
     </ul>
   </TagListWrap>
 );
-
-TagList.propTypes = {
-  tags: PropTypes.array.isRequired
-};
 
 export default TagList;

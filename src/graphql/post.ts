@@ -17,7 +17,10 @@ export const defaultPostQuery = graphql`
       cover {
         id
         childImageSharp {
-          resolutions(width: 1200, traceSVG: { color: "#37474F", blackOnWhite: false }) {
+          resolutions(
+            width: 1200
+            traceSVG: { color: "#37474F", blackOnWhite: false }
+          ) {
             tracedSVG
             aspectRatio
             src

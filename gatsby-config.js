@@ -74,6 +74,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-typescript'
   ]
 };

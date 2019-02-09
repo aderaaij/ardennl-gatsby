@@ -12,6 +12,6 @@ export const colorScheme = {
 };
 
 export const fontScheme = {
-  text: '\'ff-tisa-web-pro\', georgia, serif',
-  headings: '\'proxima-nova\', sans-serif'
+  text: "'ff-tisa-web-pro', georgia, serif",
+  headings: "'proxima-nova', sans-serif"
 };

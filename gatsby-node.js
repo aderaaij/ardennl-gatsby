@@ -38,7 +38,10 @@ exports.createPages = ({ graphql, actions }) => {
   const extRedirects = [
     { from: '/ts', to: 'https://github.com/aderaaij/totallystatical' },
     { from: '/aww', to: 'https://www.awwwards.com/sites/cfye-magazine' },
-    { from: '/gss', to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown' },
+    {
+      from: '/gss',
+      to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown'
+    },
     { from: '/sia', to: 'https://superinteractive.com/' },
     { from: '/gh', to: 'https://github.com/aderaaij/' },
     { from: '/li', to: 'https://www.linkedin.com/in/ardenderaaij/' },
@@ -90,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         createPage({
           path: node.fields.slug,
-          component: path.resolve('src/templates/post.js'),
+          component: path.resolve('src/templates/post.tsx'),
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug: node.fields.slug
@@ -101,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
         tagList.forEach(tag => {
           createPage({
             path: `/tags/${_.kebabCase(tag)}/`,
-            component: path.resolve('src/templates/tag.js'),
+            component: path.resolve('src/templates/tag.tsx'),
             context: {
               tag
             }
@@ -112,7 +115,7 @@ exports.createPages = ({ graphql, actions }) => {
         categoryList.forEach(category => {
           createPage({
             path: `/categories/${_.kebabCase(category)}/`,
-            component: path.resolve('src/templates/category.js'),
+            component: path.resolve('src/templates/category.tsx'),
             context: {
               category
             }

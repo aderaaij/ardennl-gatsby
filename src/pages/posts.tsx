@@ -1,15 +1,27 @@
-import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
+
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import SEO from '../components/SEO/SEO';
-import config from '../../data/site-config';
 import '../graphql/archive';
 import TemplateWrapper from '../components/Layouts/Default';
+import { MarkdownRemarkNodeType } from './index';
 
-const BlogList = props => {
+interface ConfigI {
+  siteName: string;
+  siteUrl: string;
+}
+const config: ConfigI = require('../../data/site-config');
+
+interface BlogListProps {
+  data: {
+    allMarkdownRemark: {
+      edges: [MarkdownRemarkNodeType];
+    };
+  };
+}
+const BlogList = (props: BlogListProps) => {
   const { edges } = props.data.allMarkdownRemark;
   return (
     <TemplateWrapper>
@@ -19,17 +31,12 @@ const BlogList = props => {
           <title>{`Blog | ${config.siteName}`}</title>
           <link rel="canonical" href={`${config.siteUrl}/about/`} />
         </Helmet>
-
         <PostsListWrap>
           <PostsList edges={edges} />
         </PostsListWrap>
       </div>
     </TemplateWrapper>
   );
-};
-
-BlogList.propTypes = {
-  data: PropTypes.object.isRequired
 };
 
 export default BlogList;

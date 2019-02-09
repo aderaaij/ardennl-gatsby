@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
@@ -48,10 +47,6 @@ class BlogPost extends Component {
     );
   }
 }
-
-BlogPost.propTypes = {
-  data: PropTypes.object.isRequired
-};
 
 export default BlogPost;
 
