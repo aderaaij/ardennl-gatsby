@@ -2,19 +2,29 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+
 import SEO from '../components/SEO/SEO';
 import ArticleHero from '../components/Article/ArticleHero';
 import ArticleContent from '../components/Article/ArticleContent';
 import ArticleFooter from '../components/Article/ArticleFooter';
-import TemplateWrapper from '../components/Layouts/Default';
+import Default from '../components/Layouts/Default';
+
+import { MarkdownRemarkNode } from '../types';
 import '../graphql/post';
 import './b16-tomorrow-dark.css';
 
 const Article = styled.article`
   padding-bottom: 4em;
 `;
-class BlogPost extends Component {
-  constructor(props) {
+
+interface BlogPostProps {
+  data: { markdownRemark: MarkdownRemarkNode };
+}
+interface State {
+  fadeIn: boolean;
+}
+class BlogPost extends Component<BlogPostProps, State> {
+  constructor(props: BlogPostProps) {
     super(props);
     this.state = {
       fadeIn: false
@@ -31,9 +41,9 @@ class BlogPost extends Component {
     const { frontmatter, html } = this.props.data.markdownRemark;
     const { published } = frontmatter;
     return (
-      <TemplateWrapper>
+      <Default>
         <Article>
-          <SEO type="post" post={this.props.data.markdownRemark} />
+          <SEO post={this.props.data.markdownRemark} />
           {!published && (
             <Helmet>
               <meta name="robots" content="noindex" />
@@ -43,7 +53,7 @@ class BlogPost extends Component {
           <ArticleContent html={html} />
           <ArticleFooter />
         </Article>
-      </TemplateWrapper>
+      </Default>
     );
   }
 }

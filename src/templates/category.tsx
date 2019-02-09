@@ -1,17 +1,28 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+
+import { AllMarkdownRemark } from '../types';
 import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
-import config from '../../data/site-config';
+import Default from '../components/Layouts/Default';
+const config = require('../../data/site-config');
 import '../graphql/archive';
 
-const CategoryTemplate = ({ data, pageContext }) => {
+interface CategoryTemplateProps {
+  data: {
+    allMarkdownRemark: AllMarkdownRemark;
+  };
+  pageContext: {
+    category: string;
+  };
+}
+const CategoryTemplate = ({ data, pageContext }: CategoryTemplateProps) => {
   const { edges } = data.allMarkdownRemark;
   const { category } = pageContext;
   return (
-    <div>
+    <Default>
       <SEO />
       <Helmet>
         <title>{`Posts in category '${category}' | ${config.siteName}`}</title>
@@ -21,7 +32,7 @@ const CategoryTemplate = ({ data, pageContext }) => {
       <PostsListWrap>
         <PostsList edges={edges} />
       </PostsListWrap>
-    </div>
+    </Default>
   );
 };
 

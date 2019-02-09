@@ -201,7 +201,7 @@ const ArticleEntryContent = styled.div`
   }
 `;
 
-const ArticleContent = ({ html }) => (
+const ArticleContent = ({ html }: { html: string }) => (
   <ArticleContentStyled>
     <ArticleEntryContent>
       <div dangerouslySetInnerHTML={{ __html: html }} />

@@ -8,19 +8,13 @@ import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
 import { preventWidow, goToPage } from '../../helpers/helpers';
-
+import { Cover } from '../../types';
 interface PostInterface {
   published: boolean;
   path: string;
   tags: [string];
   category: string;
-  cover: {
-    childImageSharp: {
-      resolutions: any;
-    };
-    id: string;
-    relativePath: string;
-  } | null;
+  cover?: Cover | null;
   title: string;
   date: string;
   excerpt: string;

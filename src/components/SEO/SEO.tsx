@@ -1,25 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+
 import { colorScheme } from '../../helpers/styleSettings';
-import config from '../../../data/site-config';
+import { MarkdownRemarkNode } from '../../types';
+const config = require('../../../data/site-config');
 
 interface SeoProps {
-  post?: {
-    excerpt: string;
-    frontmatter: {
-      title: string;
-      cover: {
-        childImageSharp: {
-          resolutions: {
-            src: string;
-          };
-        };
-      };
-    };
-    fields: {
-      slug: string;
-    };
-  };
+  post?: MarkdownRemarkNode;
 }
 const SEO = ({ post }: SeoProps) => {
   const { siteLinks } = config;
@@ -34,7 +21,10 @@ const SEO = ({ post }: SeoProps) => {
     pageTitle = post.frontmatter.title;
     currentTitle = `${pageTitle} | ${config.siteName}`;
     currentDescription = post.excerpt;
-    if (post.frontmatter.cover) {
+    if (
+      post.frontmatter.cover &&
+      post.frontmatter.cover.childImageSharp.resolutions
+    ) {
       currentImage = `${config.siteUrl}${
         post.frontmatter.cover.childImageSharp.resolutions.src
       }`;

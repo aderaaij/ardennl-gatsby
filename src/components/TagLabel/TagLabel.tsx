@@ -14,6 +14,8 @@ const Tag = styled.div`
   font-weight: 700;
 `;
 
-const TagLabel = props => <Tag css={props.style}>{props.tagText}</Tag>;
+const TagLabel = (props: { style: any; tagText: string }) => (
+  <Tag css={props.style}>{props.tagText}</Tag>
+);
 
 export default TagLabel;

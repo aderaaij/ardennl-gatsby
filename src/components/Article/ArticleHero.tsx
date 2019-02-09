@@ -10,6 +10,7 @@ import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { GridBase, ContentLimit } from '../../helpers/grid';
 import { preventWidow } from '../../helpers/helpers';
 import { colorScheme } from '../../helpers/styleSettings';
+import { Frontmatter } from '../../types';
 
 const ArticleHeroStyled = styled.figure`
   width: 100%;
@@ -136,7 +137,7 @@ const transitionStyles: TransitionI = {
   entered: { opacity: 1, transform: 'translateY(0%)' }
 };
 
-const Fade = ({ children, in: inProp }) => (
+const Fade = ({ children, in: inProp }: { children: any; in: boolean }) => (
   <Transition in={inProp} timeout={duration}>
     {state => (
       <FadeWrapper style={{ ...transitionStyles[state] }}>
@@ -146,11 +147,16 @@ const Fade = ({ children, in: inProp }) => (
   </Transition>
 );
 
-const ArticleHero = ({ frontmatter, fadeIn }) => {
+interface ArticleHeroProps {
+  frontmatter: Frontmatter;
+  fadeIn: any;
+}
+
+const ArticleHero = ({ frontmatter, fadeIn }: ArticleHeroProps) => {
   const { title, category, tags, date, published, cover } = frontmatter;
   return (
     <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
-      {cover && (
+      {cover && cover.childImageSharp.resolutions && (
         <Img
           outerWrapperClassName={imgStyle}
           position="absolute"

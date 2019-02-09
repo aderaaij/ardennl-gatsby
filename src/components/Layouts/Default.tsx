@@ -1,54 +1,23 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Global, css } from '@emotion/core';
+import { Global } from '@emotion/core';
 import 'normalize.css';
 
-import config from '../../../data/site-config';
+const config = require('../../../data/site-config');
 import SiteHeader from '../SiteHeader/SiteHeader';
 import Piwik from '../Piwik/Piwik';
 import Typekit from '../Typekit/Typekit';
-import { colorScheme, fontScheme } from '../../helpers/styleSettings';
+import { globalCss } from '../../helpers/global';
 
-const globalCss = css`
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: ${fontScheme.text};
-    background: ${colorScheme.dark};
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: ${fontScheme.headings};
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: ${colorScheme.text};
-  }
-
-  a {
-    color: ${colorScheme.support};
-  }
-
-  p {
-    line-height: 1.55;
-  }
-`;
-
-const TemplateWrapper = ({ children }) => (
-  <div>
+const TemplateWrapper = ({ children }: any) => (
+  <>
     <Global styles={globalCss} />
     <Helmet title={config.siteDescription} htmlAttributes={{ lang: 'EN' }} />
     <Piwik />
     <Typekit />
     <SiteHeader />
     {children}
-  </div>
+  </>
 );
 
 export default TemplateWrapper;

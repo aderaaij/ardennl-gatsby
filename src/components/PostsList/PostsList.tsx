@@ -1,15 +1,15 @@
 import * as React from 'react';
 import PostExcerpt from '../PostExcerpt/PostExcerpt';
-import { MarkdownRemarkNodeType } from '../../pages/index';
+import { MarkdownRemark } from '../../types';
 
 interface PostListProps {
-  edges: [MarkdownRemarkNodeType];
+  edges: [MarkdownRemark];
   context?: string;
 }
 
 const PostsList = (props: PostListProps) => {
   const getPostList = () =>
-    props.edges.map((postEdge: MarkdownRemarkNodeType) => ({
+    props.edges.map((postEdge: MarkdownRemark) => ({
       published: postEdge.node.frontmatter.published,
       path: postEdge.node.fields.slug,
       tags: postEdge.node.frontmatter.tags,

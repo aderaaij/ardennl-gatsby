@@ -35,7 +35,11 @@ const headroomStyles = css`
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.5) 100%);
+      background: linear-gradient(
+        to top,
+        transparent 0,
+        rgba(0, 0, 0, 0.5) 100%
+      );
       z-index: -1;
       transition: all 0.3s ease;
       opacity: 0;
@@ -111,10 +115,18 @@ const activeNavItem = css`
 `;
 
 const SiteHeader = () => (
-  <Headroom pinStart={0} wrapperStyle={{ position: 'fixed', zIndex: 501 }} css={headroomStyles}>
+  <Headroom
+    pinStart={0}
+    wrapperStyle={{ position: 'fixed', zIndex: 501 }}
+    css={headroomStyles}
+  >
     <Header>
       <Logo to="/" title="Home - Arden.nl">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360.1 91.3" width="200">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 360.1 91.3"
+          width="200"
+        >
           <path
             id="i0"
             className="st0"

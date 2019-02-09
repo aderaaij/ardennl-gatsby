@@ -12,7 +12,7 @@ const BlogWrap = styled.div`
   ${ContentLimit};
 `;
 
-const PostsListsWrap = props => (
+const PostsListsWrap = (props: { children: any }) => (
   <BlogSection>
     <BlogWrap>{props.children}</BlogWrap>
   </BlogSection>
