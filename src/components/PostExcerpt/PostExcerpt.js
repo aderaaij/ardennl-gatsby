@@ -29,7 +29,7 @@ const BlogArticle = styled.article`
   border-bottom: 1px solid ${colorScheme.meta};
 
   @media (min-width: 768px) {
-    padding: 4em 0;
+    padding: ${props => (props.context === 'home' ? '2em 0' : '4em 0')};
     width: 100%;
   }
 `;
@@ -155,10 +155,12 @@ export default class PostExcerpt extends Component {
     const { postInfo } = this.props;
     const { isHovering } = this.state;
     const { tags, date, path, title, category, excerpt, published, cover } = postInfo;
+
     return (
       <div>
         {cover && <Fade in={!!isHovering} image={cover.childImageSharp.resolutions.tracedSVG} />}
         <BlogArticle
+          context={this.props.context}
           onMouseEnter={() => this.handleMouseEnter()}
           onMouseLeave={() => this.handleMouseLeave()}
           onClick={e => goToPage(e, path)}

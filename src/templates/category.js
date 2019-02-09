@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
-import PostsListWrap from '../components/PostListWrap/PostListWrap';
+import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import config from '../../data/site-config';
 import '../graphql/archive';
 

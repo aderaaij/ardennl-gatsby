@@ -4,6 +4,11 @@
         "browser": true,
         "es6": true
     },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
     "extends": ["airbnb-base", "prettier", "plugin:react/recommended"],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -16,6 +21,7 @@
     "plugins": [
         "react"
     ],
+
     "globals": {
         "graphql": true
     },

@@ -3,46 +3,87 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { FaLinkedin, FaTwitter, FaEnvelope, FaDev } from 'react-icons/fa';
+import { globalCss } from '../helpers/global';
 import SEO from '../components/SEO/SEO';
 import TemplateWrapper from '../components/Layouts/Default';
-import { colorScheme, fontScheme } from '../helpers/styleSettings';
+import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, HomeContentLimit } from '../helpers/grid';
 import PostList from '../components/PostsList/PostsList';
 
-const globalCss = css`
-  * {
-    box-sizing: border-box;
-  }
+const Home = props => {
+  const { allFile, allMarkdownRemark } = props.data;
+  const bg = allFile.edges.find(edge => edge.node.name.includes('bg'));
+  return (
+    <TemplateWrapper>
+      <>
+        <Global style={globalCss} />
+        <HomeWrap>
+          <HomeBackground src={bg.node.childImageSharp.fluid.tracedSVG} />
+          {/* <Img
+            className={HomeImg}
+            outerWrapperClassName={HomeImg}
+            src={background.node.tracedSVG}
+          /> */}
+          <HomeContent>
+            <HomeHeader>
+              <h1>Arden de Raaij</h1>
+              <h2>Front-end Web Developer</h2>
+              <SocialList>
+                <li>
+                  <a href="mailto:mail@arden.nl">
+                    <FaEnvelope />
+                  </a>
+                </li>
+                <li>
+                  <a href="http://twitter.com/ardennl">
+                    <FaTwitter />
+                  </a>
 
-  body {
-    font-family: ${fontScheme.text};
-    background: ${colorScheme.dark};
-  }
+                  {/* <span>Front-end developer @ Mercedes-Benz.io</span> */}
+                </li>
+                <li>
+                  <a href="http://dev.to/ardennl">
+                    <FaDev />
+                  </a>
+                </li>
+                <li>
+                  <FaLinkedin />
+                </li>
+              </SocialList>
+            </HomeHeader>
+            <PostList context="home" edges={allMarkdownRemark.edges} />
+          </HomeContent>
+          <SEO />
+        </HomeWrap>
+      </>
+    </TemplateWrapper>
+  );
+};
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: ${fontScheme.headings};
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: ${colorScheme.text};
-  }
+Home.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
-  a {
-    color: ${colorScheme.support};
-  }
-
-  p {
-    line-height: 1.55;
-  }
-`;
+export default Home;
 
 const HomeWrap = styled.div`
   ${GridBase};
   padding-top: 60px;
+`;
+
+const SocialList = styled.ul`
+  list-style: none;
+  margin: 1.5em 0 0;
+  padding: 0 0.5em;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HomeHeader = styled.div`
+  margin-bottom: 4em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid ${colorScheme.meta};
 `;
 
 const HomeContent = styled.div`
@@ -50,6 +91,7 @@ const HomeContent = styled.div`
   position: relative;
   height: 100%;
   min-height: calc(100vh - 60px);
+  padding-bottom: 4em;
   /* padding: 0 1em; */
   display: flex;
   flex-direction: column;
@@ -67,7 +109,7 @@ const HomeContent = styled.div`
     font-weight: 900;
     margin: 0;
     @media (min-width: 768px) {
-      font-size: 2.75em;
+      font-size: 3em;
     }
   }
 
@@ -128,93 +170,6 @@ const HomeImg = css`
     opacity: 0 !important;
   }
 `;
-
-const Home = props => {
-  console.log(props);
-  const { allFile, allMarkdownRemark } = props.data;
-  // const { edges } = data.allFile;
-  const bg = allFile.edges.find(edge => edge.node.name.includes('bg'));
-  return (
-    <TemplateWrapper>
-      <>
-        <Global style={globalCss} />
-        <HomeWrap>
-          <HomeBackground src={bg.node.childImageSharp.fluid.tracedSVG} />
-          {/* <Img
-            className={HomeImg}
-            outerWrapperClassName={HomeImg}
-            src={background.node.tracedSVG}
-          /> */}
-          <HomeContent>
-            <div>
-              <h1>Arden de Raaij</h1>
-              <h2>Front-end Web Developer</h2>
-              {/* <div>
-                <p>
-                  Hi, I'm Arden. I'm a web developer based in Lisbon, Portugal. I create awesome
-                  websites/web-apps which are enjoyable and fun to use. You can find some of my code
-                  on{' '}
-                  <a href="https://github.com/aderaaij/" target="_blank" rel="noopener noreferrer">
-                    Github
-                  </a>
-                  , see my experiments on{' '}
-                  <a href="https://codepen.io/aderaaij/" target="_blank" rel="noopener noreferrer">
-                    Codepen
-                  </a>
-                  , and view my CV/experience on{' '}
-                  <a
-                    href="https://www.linkedin.com/in/ardenderaaij/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                  .
-                </p>
-                <p>
-                  I love photography and traveling, the combination of which you can find on my{' '}
-                  <a
-                    href="http://instagram.com/ardennl"
-                    target="_blank noreferrer"
-                    title="Arden de Raaij on Instagram"
-                    rel="noopener"
-                  >
-                    Instagram
-                  </a>
-                  . You can follow me on{' '}
-                  <a href="http://twitter.com/ardennl" target="_blank noreferrer" rel="noopener">
-                    Twitter
-                  </a>{' '}
-                  for random shower thoughts.
-                </p>{' '}
-                <p>
-                  Feel free to{' '}
-                  <a
-                    href="mailto:a.de.raaij@gmail.com"
-                    target="_blank noreferrer"
-                    title="Send an e-mail to Arden de Raaij"
-                    rel="noopener"
-                  >
-                    contact me
-                  </a>{' '}
-                  about all the things web related!
-                </p>
-              </div> */}
-            </div>
-            <PostList context="home" edges={allMarkdownRemark.edges} />
-          </HomeContent>
-          <SEO />
-        </HomeWrap>
-      </>
-    </TemplateWrapper>
-  );
-};
-
-Home.propTypes = {
-  data: PropTypes.object.isRequired
-};
-
-export default Home;
 export const query = graphql`
   query IndexQuery($category: String) {
     allFile(filter: { name: { eq: "bg" } }) {
