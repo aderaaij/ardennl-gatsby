@@ -1,7 +1,19 @@
+export interface FixedObject {
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+  base64?: string;
+  tracedSVG?: string;
+  srcWebp?: string;
+  srcSetWebp?: string;
+}
+
 export interface ChildImageSharp {
   resolutions?: {
     tracedSVG: string;
     src?: string;
+    fixedObject?: FixedObject;
   };
   fluid?: {
     aspectRatio: number;
@@ -13,6 +25,7 @@ export interface ChildImageSharp {
     srcSetWebp: string;
     srcWebp: string;
     tracedSVG: string;
+    sizes: string;
   };
   id?: string;
 }

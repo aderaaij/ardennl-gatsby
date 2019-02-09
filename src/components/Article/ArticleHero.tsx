@@ -156,13 +156,8 @@ const ArticleHero = ({ frontmatter, fadeIn }: ArticleHeroProps) => {
   const { title, category, tags, date, published, cover } = frontmatter;
   return (
     <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
-      {cover && cover.childImageSharp.resolutions && (
-        <Img
-          outerWrapperClassName={imgStyle}
-          position="absolute"
-          css={imgStyle}
-          resolutions={cover.childImageSharp.resolutions}
-        />
+      {cover && cover.childImageSharp.fluid && (
+        <Img css={imgStyle} fluid={cover.childImageSharp.fluid} />
       )}
       <ArticleHeader>
         <Fade in={fadeIn}>

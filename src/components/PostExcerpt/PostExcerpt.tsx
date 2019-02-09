@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Transition from 'react-transition-group/Transition';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
@@ -9,6 +9,7 @@ import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
 import { preventWidow, goToPage } from '../../helpers/helpers';
 import { Cover } from '../../types';
+
 interface PostInterface {
   published: boolean;
   path: string;
@@ -146,73 +147,56 @@ const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
   </Transition>
 );
 
-interface StateInt {
-  isHovering: boolean;
-}
+const PostExcerpt: React.SFC<PostExcerptProps> = props => {
+  const [isHovering, setHovering] = useState(false);
+  const { postInfo } = props;
+  const {
+    tags,
+    date,
+    path,
+    title,
+    category,
+    excerpt,
+    published,
+    cover
+  } = postInfo;
 
-export default class PostExcerpt extends Component<PostExcerptProps, StateInt> {
-  constructor(props: PostExcerptProps) {
-    super(props);
-    this.state = {
-      isHovering: false
+  useEffect(() => {
+    return function cleanup() {
+      setHovering(false);
     };
-  }
+  }, []);
 
-  handleMouseEnter() {
-    this.setState({
-      isHovering: true
-    });
-  }
+  return (
+    <div>
+      {cover && cover.childImageSharp.resolutions && (
+        <Fade
+          in={!!isHovering}
+          image={cover.childImageSharp.resolutions.tracedSVG}
+        />
+      )}
+      <BlogArticle
+        context={props.context}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+        onClick={e => goToPage(e, path)}
+      >
+        <BlogContent context={props.context}>
+          <div>
+            {!published && <Tag style={TagPos} tagText="unpublished" />}
+            <CatLink to={`/categories/${category}`}>{category}</CatLink>
+            <h2>
+              <Link to={path}>{preventWidow(title)}</Link>
+            </h2>
+            {props.context !== 'home' && <p>{excerpt}</p>}
+            {(tags || date) && (
+              <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
+            )}
+          </div>
+        </BlogContent>
+      </BlogArticle>
+    </div>
+  );
+};
 
-  handleMouseLeave() {
-    this.setState({
-      isHovering: false
-    });
-  }
-
-  render() {
-    const { postInfo } = this.props;
-    const { isHovering } = this.state;
-    const {
-      tags,
-      date,
-      path,
-      title,
-      category,
-      excerpt,
-      published,
-      cover
-    } = postInfo;
-
-    return (
-      <div>
-        {cover && (
-          <Fade
-            in={!!isHovering}
-            image={cover.childImageSharp.resolutions.tracedSVG}
-          />
-        )}
-        <BlogArticle
-          context={this.props.context}
-          onMouseEnter={() => this.handleMouseEnter()}
-          onMouseLeave={() => this.handleMouseLeave()}
-          onClick={e => goToPage(e, path)}
-        >
-          <BlogContent context={this.props.context}>
-            <div>
-              {!published && <Tag style={TagPos} tagText="unpublished" />}
-              <CatLink to={`/categories/${category}`}>{category}</CatLink>
-              <h2>
-                <Link to={path}>{preventWidow(title)}</Link>
-              </h2>
-              {this.props.context !== 'home' && <p>{excerpt}</p>}
-              {(tags || date) && (
-                <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
-              )}
-            </div>
-          </BlogContent>
-        </BlogArticle>
-      </div>
-    );
-  }
-}
+export default PostExcerpt;

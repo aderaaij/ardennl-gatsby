@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
@@ -20,43 +20,31 @@ const Article = styled.article`
 interface BlogPostProps {
   data: { markdownRemark: MarkdownRemarkNode };
 }
-interface State {
-  fadeIn: boolean;
-}
-class BlogPost extends Component<BlogPostProps, State> {
-  constructor(props: BlogPostProps) {
-    super(props);
-    this.state = {
-      fadeIn: false
-    };
-  }
 
-  componentDidMount() {
-    this.setState({
-      fadeIn: true
-    });
-  }
+const BlogPost: React.SFC<BlogPostProps> = props => {
+  const [fadeIn, setFadeIn] = useState(false);
+  const { frontmatter, html } = props.data.markdownRemark;
+  const { published } = frontmatter;
 
-  render() {
-    const { frontmatter, html } = this.props.data.markdownRemark;
-    const { published } = frontmatter;
-    return (
-      <Default>
-        <Article>
-          <SEO post={this.props.data.markdownRemark} />
-          {!published && (
-            <Helmet>
-              <meta name="robots" content="noindex" />
-            </Helmet>
-          )}
-          <ArticleHero frontmatter={frontmatter} fadeIn={this.state.fadeIn} />
-          <ArticleContent html={html} />
-          <ArticleFooter />
-        </Article>
-      </Default>
-    );
-  }
-}
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
+  return (
+    <Default>
+      <Article>
+        <SEO post={props.data.markdownRemark} />
+        {!published && (
+          <Helmet>
+            <meta name="robots" content="noindex" />
+          </Helmet>
+        )}
+        <ArticleHero frontmatter={frontmatter} fadeIn={fadeIn} />
+        <ArticleContent html={html} />
+        <ArticleFooter />
+      </Article>
+    </Default>
+  );
+};
 
 export default BlogPost;
 

@@ -39,7 +39,7 @@ const TagListWrap = styled.div`
   }
 `;
 
-const TagList = ({ tags }) => (
+const TagList = ({ tags }: { tags: [string] }) => (
   <TagListWrap>
     <span>Tagged:</span>
     <ul>

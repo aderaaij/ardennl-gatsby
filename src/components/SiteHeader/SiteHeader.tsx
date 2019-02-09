@@ -110,10 +110,6 @@ const navItem = css`
   }
 `;
 
-const activeNavItem = css`
-  color: ${colorScheme.support};
-`;
-
 const SiteHeader = () => (
   <Headroom
     pinStart={0}
