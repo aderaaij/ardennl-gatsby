@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import mc from 'material-colors';
-
-const Tag = styled.div`
+interface StyledTag {
+  css: any;
+}
+const Tag = styled.div<StyledTag>`
   display: inline-block;
   background: ${mc.cyan[700]};
   border-radius: 4px;
