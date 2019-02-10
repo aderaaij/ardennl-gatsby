@@ -18,10 +18,6 @@ And maybe it's more than indecisiveness and lack of focus. I guess, to know wher
 
 Because I'm hoping you'll read this I'll try and write down my thoughts in a coherent way, which in the best scenario will lead to discussion and me learning something about myself, and in the worst case scenario is nothing more than another wasted hour and a string of bytes added to 'the cloud'. You see, there's nothing to lose by sharing my story with you!
 
-### test
-
-## Test
-
 ## My coming of digital age - (2007 - 2012)
 
 Things used to be simple. My first 'grown-up' steps in web-development were made while I was still studying. A good friend and I thought of a project that was best presented on the web ([CFYE](http://cfye.com) - still online but slowly dying because of lack of attention, more on that later). With a clear goal in mind I went researching different techniques to showcase our project. I tried out different CMS systems like Gallery2 (cringe), Joomla and WordPress. I learned to hack around in PHP, I learned to work with third-party API's and became pretty well versed in CSS, HTML and at the time, jQuery. Around the same time people started asking me for web-development work, which was a great way to make some money that allowed me to eat and work some more on our fabulous side-project. Needless to say I've never finished that study...
