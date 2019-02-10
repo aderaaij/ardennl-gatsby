@@ -1,10 +1,10 @@
 ---
-title: "How the hell did I even get here?"
+title: 'How the hell did I even get here?'
 cover: ./cover.jpg
-date: "2017-08-29"
-category: "webdevelopment"
+date: '2017-08-29'
+category: 'webdevelopment'
 tags:
-    - career
+  - career
 published: true
 ---
 
@@ -17,6 +17,10 @@ To put things in perspective, I'm not suffering from hunger (just yet), but rega
 And maybe it's more than indecisiveness and lack of focus. I guess, to know where I'm going, first I'll have to write down how I even got here in the first place.
 
 Because I'm hoping you'll read this I'll try and write down my thoughts in a coherent way, which in the best scenario will lead to discussion and me learning something about myself, and in the worst case scenario is nothing more than another wasted hour and a string of bytes added to 'the cloud'. You see, there's nothing to lose by sharing my story with you!
+
+### test
+
+## Test
 
 ## My coming of digital age - (2007 - 2012)
 
@@ -32,9 +36,9 @@ So that was the point I started taking myself seriously as a developer and start
 
 ## The wonder years (2013/14 - 2016)
 
-This focus paid of *re-heally* quick. Within a year the new iteration of [cfye.com](http://cfye.com), which I totally full-stacked (design, front-end and back-end - you can still hear my pride) won a SOTD Awwward, and agencies started noticing me. I started freelancing for the talented people at [SuperInteractive Amsterdam](http://superinteractive.com)❤️ and before I knew it I got offered a contract and ended up working with them for over two years.
+This focus paid of _re-heally_ quick. Within a year the new iteration of [cfye.com](http://cfye.com), which I totally full-stacked (design, front-end and back-end - you can still hear my pride) won a SOTD Awwward, and agencies started noticing me. I started freelancing for the talented people at [SuperInteractive Amsterdam](http://superinteractive.com)❤️ and before I knew it I got offered a contract and ended up working with them for over two years.
 
-Working for an agency had never been part of my plan, in so far I had a plan at all, but I greatly enjoyed my time at SuperInteractive. Instead of working with freelancers I was part of a team all of a sudden, and instead of having to f*ck around with WordPress there were back-enders!
+Working for an agency had never been part of my plan, in so far I had a plan at all, but I greatly enjoyed my time at SuperInteractive. Instead of working with freelancers I was part of a team all of a sudden, and instead of having to f\*ck around with WordPress there were back-enders!
 
 During my time at SuperInteractive I made fast progress and not just on the technical front. Learning the ins and outs of agencies, developing workflows, communicating effectively, working in-house at other agencies and managing rookies were all things I added to my skillset.
 
@@ -44,7 +48,7 @@ Yet it kinda felt that part of me was dying there; the part that liked coding in
 
 ### 2016 - 2017
 
-That sounds cooler than it actually was, or maybe less cool. I don't know, you decide: I didn't just quit because I didn't know what to do with my professional life, I also quit because I *did* know what I wanted to do with my life in general; Explore the world and live in new places! My girlfriend also quit her job and we spent the next 7.5 months in Central-America without a care in the world and after returning to Europe we relocated to sunny Lisbon, Portugal.
+That sounds cooler than it actually was, or maybe less cool. I don't know, you decide: I didn't just quit because I didn't know what to do with my professional life, I also quit because I _did_ know what I wanted to do with my life in general; Explore the world and live in new places! My girlfriend also quit her job and we spent the next 7.5 months in Central-America without a care in the world and after returning to Europe we relocated to sunny Lisbon, Portugal.
 
 ### And Now…
 
