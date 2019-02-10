@@ -22,3 +22,15 @@ export const ContentLimit = css`
     }
   }
 `;
+
+export const HomeContentLimit = css`
+  @supports (display: grid) {
+    @media (min-width: 768px) {
+      grid-column: 8 / 12;
+    }
+
+    @media (min-width: 1280px) {
+      grid-column: 8 / 12;
+    }
+  }
+`;

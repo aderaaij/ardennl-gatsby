@@ -1,30 +1,39 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import PostsList from '../components/PostsList/PostsList';
+
+import { AllMarkdownRemark } from '../types';
 import SEO from '../components/SEO/SEO';
-import config from '../../data/site-config';
+import PostsList from '../components/PostsList/PostsList';
+import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
+import Default from '../components/Layouts/Default';
+const config = require('../../data/site-config');
 import '../graphql/archive';
 
-const TagTemplate = ({ data, pageContext }) => {
+interface TagTemplateProps {
+  data: {
+    allMarkdownRemark: AllMarkdownRemark;
+  };
+  pageContext: {
+    tag: string;
+  };
+}
+
+const TagTemplate = ({ data, pageContext }: TagTemplateProps) => {
   const { edges } = data.allMarkdownRemark;
   const { tag } = pageContext;
   return (
-    <div>
+    <Default>
       <SEO />
       <Helmet>
         <title>{`Posts tagged with '${tag}' | ${config.siteName}`}</title>
         <link rel="canonical" href={`${config.siteUrl}/about/`} />
       </Helmet>
-      <PostsList edges={edges} />
-    </div>
+      <PostsListWrap>
+        <PostsList edges={edges} />
+      </PostsListWrap>
+    </Default>
   );
-};
-
-TagTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
 };
 
 export default TagTemplate;

@@ -1,10 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import { colorScheme } from '../../helpers/styleSettings';
-import config from '../../../data/site-config';
 
-const SEO = ({ post }) => {
+import { colorScheme } from '../../helpers/styleSettings';
+import { MarkdownRemarkNode } from '../../types';
+const config = require('../../../data/site-config');
+
+interface SeoProps {
+  post?: MarkdownRemarkNode;
+}
+const SEO = ({ post }: SeoProps) => {
   const { siteLinks } = config;
 
   let currentTitle;
@@ -17,8 +21,13 @@ const SEO = ({ post }) => {
     pageTitle = post.frontmatter.title;
     currentTitle = `${pageTitle} | ${config.siteName}`;
     currentDescription = post.excerpt;
-    if (post.frontmatter.cover) {
-      currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.resolutions.src}`;
+    if (
+      post.frontmatter.cover &&
+      post.frontmatter.cover.childImageSharp.resolutions
+    ) {
+      currentImage = `${config.siteUrl}${
+        post.frontmatter.cover.childImageSharp.resolutions.src
+      }`;
     } else {
       currentImage = config.siteUrl + config.siteLogo;
     }
@@ -78,15 +87,17 @@ const SEO = ({ post }) => {
         href={`${config.siteUrl}/favicons/safari-pinned-tab.svg`}
         color="#5bbad5"
       />
-      <link rel="shortcut icon" href={`${config.siteUrl}/favicons/favicon.ico`} />
-      <meta name="msapplication-config" content={`${config.siteUrl}/favicons/browserconfig.xml`} />
+      <link
+        rel="shortcut icon"
+        href={`${config.siteUrl}/favicons/favicon.ico`}
+      />
+      <meta
+        name="msapplication-config"
+        content={`${config.siteUrl}/favicons/browserconfig.xml`}
+      />
       <meta name="theme-color" content={colorScheme.support} />
     </Helmet>
   );
-};
-
-SEO.propTypes = {
-  post: PropTypes.object
 };
 
 export default SEO;

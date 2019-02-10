@@ -1,7 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+
+import Default from '../components/Layouts/Default';
+
+import { AllFile } from '../types';
 import { colorScheme } from '../helpers/styleSettings';
 import { GridBase, ContentLimit } from '../helpers/grid';
 
@@ -44,22 +47,29 @@ const NotFoundContent = styled.div`
   ${ContentLimit};
 `;
 
-const NotFoundPage = ({ data }) => {
+interface NotFoundPageProps {
+  data: {
+    allFile: AllFile;
+  };
+}
+const NotFoundPage = ({ data }: NotFoundPageProps) => {
   const { edges } = data.allFile;
-  const bg = edges.find(edge => edge.node.name.includes('arden'));
-  return (
-    <NotFoundWrap>
-      <NotFoundimage src={bg.node.childImageSharp.fluid.tracedSVG} />
-      <NotFoundContent>
-        <h1>404 - NOT FOUND</h1>
-        <p>This page does not exist. Maybe it never has.</p>
-      </NotFoundContent>
-    </NotFoundWrap>
+  const bg = edges.find(edge =>
+    edge.node.name ? edge.node.name.includes('arden') : false
   );
-};
-
-NotFoundPage.propTypes = {
-  data: PropTypes.object.isRequired
+  return (
+    <Default>
+      <NotFoundWrap>
+        {bg && bg.node.childImageSharp && bg.node.childImageSharp.fluid && (
+          <NotFoundimage src={bg.node.childImageSharp.fluid.tracedSVG} />
+        )}
+        <NotFoundContent>
+          <h1>404 - NOT FOUND</h1>
+          <p>This page does not exist. Maybe it never has.</p>
+        </NotFoundContent>
+      </NotFoundWrap>
+    </Default>
+  );
 };
 
 export default NotFoundPage;

@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import Link from 'gatsby-link';
 import mc from 'material-colors';
-
-const Tag = styled.div`
+interface StyledTag {
+  css: any;
+}
+const Tag = styled.div<StyledTag>`
   display: inline-block;
   background: ${mc.cyan[700]};
   border-radius: 4px;
@@ -18,6 +16,8 @@ const Tag = styled.div`
   font-weight: 700;
 `;
 
-const TagLabel = props => <Tag css={props.style}>{props.tagText}</Tag>;
+const TagLabel = (props: { style: any; tagText: string }) => (
+  <Tag css={props.style}>{props.tagText}</Tag>
+);
 
 export default TagLabel;

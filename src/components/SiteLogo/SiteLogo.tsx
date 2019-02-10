@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import styled from '@emotion/styled';
-import css from '@emotion/core';
-import mc from 'material-colors';
 
 const StyledLogo = styled.svg`
   fill: #fff;
 `;
 
-const SiteLogo = props => {
+const SiteLogo = (props: { className: string }) => {
   return (
     <StyledLogo
       className={props.className}

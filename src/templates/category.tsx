@@ -1,30 +1,39 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
+
+import { AllMarkdownRemark } from '../types';
 import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
-import config from '../../data/site-config';
+import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
+import Default from '../components/Layouts/Default';
+const config = require('../../data/site-config');
 import '../graphql/archive';
 
-const CategoryTemplate = ({ data, pageContext }) => {
+interface CategoryTemplateProps {
+  data: {
+    allMarkdownRemark: AllMarkdownRemark;
+  };
+  pageContext: {
+    category: string;
+  };
+}
+const CategoryTemplate = ({ data, pageContext }: CategoryTemplateProps) => {
   const { edges } = data.allMarkdownRemark;
   const { category } = pageContext;
   return (
-    <div>
+    <Default>
       <SEO />
       <Helmet>
         <title>{`Posts in category '${category}' | ${config.siteName}`}</title>
         <link rel="canonical" href={`${config.siteUrl}/about/`} />
       </Helmet>
-      <PostsList edges={edges} />
-    </div>
-  );
-};
 
-CategoryTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
+      <PostsListWrap>
+        <PostsList edges={edges} />
+      </PostsListWrap>
+    </Default>
+  );
 };
 
 export default CategoryTemplate;
