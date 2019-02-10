@@ -89,8 +89,11 @@ const SocialList = styled.ul`
 
 const HomeHeader = styled.div`
   margin-bottom: 4em;
-  padding-bottom: 2em;
+  padding: 2em 1em;
   border-bottom: 1px solid ${colorScheme.meta};
+  @media (min-width: 768px) {
+    padding: 0 0 2em 0;
+  }
 `;
 
 const HomeContent = styled.div`
