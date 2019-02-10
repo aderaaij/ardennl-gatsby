@@ -57,7 +57,8 @@
     "tslint": "^5.12.1",
     "tslint-config-blvd": "^1.2.1",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1"
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0"
   },
   "keywords": [
     "gatsby"
@@ -68,10 +69,9 @@
     "build": "gatsby build && gatsby serve",
     "develop": "gatsby develop --host localhost --port 8000",
     "lint:ts": "tslint -t stylish -p .",
-    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.tsx' 'test/**/*.ts'",
+    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.tsx' 'src/**/*.ts' 'test/**/*.ts'",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "type-check": "tsc --noEmit"
   }
 }

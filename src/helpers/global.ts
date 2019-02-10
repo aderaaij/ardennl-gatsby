@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { fontScheme, colorScheme } from './styleSettings';
+import { colorScheme, fontScheme } from './styleSettings';
 
 export const globalCss = css`
   * {
