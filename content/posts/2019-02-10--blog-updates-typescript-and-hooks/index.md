@@ -20,11 +20,17 @@ TypeScript seems to become the new normal, and I'm fine with that. I'm blissfull
 
 ### Configuration
 
-To update my Gatsby blog with TypeScript, I began by replacing my `eslint` config files, packages and scripts with `tslint` config files, packages and scripts. Nosing around the Gatsby starters using TypeScript I found the packages and config files that I need and cobbled this setup together.
+To update my Gatsby blog with TypeScript, I began by replacing my `eslint` config files, packages and scripts with `tslint` config files, packages and scripts. Nosing around the Gatsby starters using TypeScript I found the packages and config files that I need and cobbled this setup together. After I had everything configured I found out that [TypeScript is going full-in on ESlint](https://eslint.org/blog/2019/01/future-typescript-eslint) and that I just had to change my setup. Ah well, this keeps me off the streets.
 
-After changing all my components to `.tsx` extensions and normal JS files to `.ts` extensions it was time to go error-hunting!
+After changing all my components to `.tsx` extensions and normal JS files to `.ts` extensions it was time to get rid of those red squiggly lines in VSCode!
 
 ### Creating type definitions
+
+One of the first things I noticed were all the `impicit any` errors on the props I was passing. As you might know, Gatsby works with GraphQL and neatly passes your GraphQL queries as props in your components (If this sounds like magic, it's because it is. Seriously, go check out Gatsby).
+
+Since the GraphQL schema language is typed, automating the creation of typescript definitions from a GQL schema seemed like a logical step to me. Luckily, people smarter than me had already taken this step. With the package `grao`
+
+Since GraphQL is typed itself, automating the creation of TypeScript definitions from a GraphQL schema seemed like a logical step that someone smarter than me a
 
 ### Creating type modules for packages without types
 
@@ -46,7 +52,7 @@ declare const material_colors: {
     ...
 ```
 
-Now to be fair, I'm not entirely sure what this means, but I do know we should have declare a module definition somewhere. So changing this file to the following:
+Now to be fair, I'm not entirely sure what this means, but I do know we should have declared a module definition somewhere. So changing this file to the following:
 
 ```typescript
 declare module 'material-colors' {
@@ -97,3 +103,33 @@ interface Transition {
 This way the error is resolved and we keep all the type-checking goodness!
 
 ## React Hooks
+
+React 16.8.\* gave us hooks, and updating this blog finally gave me a reason to explore them a bit. The gist of hooks is that we can use state and such without making use of class components. Class components will not be deprecated (anytime soon, anyway) so don't go rewriting all your class components, but for all your new components, hooks should be sufficient.
+
+The statefull components I used for this blog only contained some simple UI toggle states which made applying hooks fairly straigt forward:
+
+```tsx
+import React, { useState, useEffect } from 'react';
+const PostExcerpt: React.SFC<PostExcerptProps> = props => {
+  // usesState returns the current state and a function to update this state with
+  // useState takes in one argument: The initial stae
+  const [isHovering, setHovering] = useState(false);
+  // Clean up state
+  useEffect(() => {
+    // The function which you return from useEffect will be used as 'clean-up'
+    // You can use this function to unbind Eventlisteners for example
+    return () => {
+      setHovering(false);
+    };
+  }, []);
+
+  return (
+    <BlogArticle
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    />
+  );
+};
+```
+
+So that was pretty straight forward! No `this` and binding issues, just a neat way to contain and alter state in a functional component.
