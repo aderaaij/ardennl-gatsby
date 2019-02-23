@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 import { colorScheme } from '../../helpers/styleSettings';
 import { MarkdownRemarkNode } from '../../types';
-import config from '../../../data/site-config';
+import config from '../../../config/site-config';
 
 interface SeoProps {
   post?: MarkdownRemarkNode;

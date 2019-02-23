@@ -10,7 +10,7 @@ import SEO from '../components/SEO/SEO';
 import Default from '../components/Layouts/Default';
 
 import { AllMarkdownRemark } from '../types';
-import config from '../../data/site-config';
+import config from '../../config/site-config';
 
 interface BlogListProps {
   data: {

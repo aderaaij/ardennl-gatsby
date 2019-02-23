@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { Global } from '@emotion/core';
 import 'normalize.css';
 
-import config from '../../../data/site-config';
+import config from '../../../config/site-config';
 import SiteHeader from '../SiteHeader/SiteHeader';
 import Piwik from '../Piwik/Piwik';
 import Typekit from '../Typekit/Typekit';
