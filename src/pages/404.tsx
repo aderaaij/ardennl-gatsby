@@ -1,12 +1,11 @@
-import React from 'react';
-import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import React from 'react';
 
 import Default from '../components/Layouts/Default';
-
-import { AllFile } from '../types';
+import { ContentLimit, GridBase } from '../helpers/grid';
 import { colorScheme } from '../helpers/styleSettings';
-import { GridBase, ContentLimit } from '../helpers/grid';
+import { AllFile } from '../types';
 
 const NotFoundWrap = styled.div`
   width: 100%;

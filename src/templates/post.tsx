@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
-
-import SEO from '../components/SEO/SEO';
-import ArticleHero from '../components/Article/ArticleHero';
-import ArticleContent from '../components/Article/ArticleContent';
-import ArticleFooter from '../components/Article/ArticleFooter';
-import Default from '../components/Layouts/Default';
-
-import { MarkdownRemarkNode } from '../types';
 import '../graphql/post';
 import './b16-tomorrow-dark.css';
+
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import React, { useEffect, useState } from 'react';
+import Helmet from 'react-helmet';
+
+import ArticleContent from '../components/Article/ArticleContent';
+import ArticleFooter from '../components/Article/ArticleFooter';
+import ArticleHero from '../components/Article/ArticleHero';
+import Default from '../components/Layouts/Default';
+import SEO from '../components/SEO/SEO';
+import { MarkdownRemarkNode } from '../types';
 
 const Article = styled.article`
   padding-bottom: 4em;

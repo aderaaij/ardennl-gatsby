@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { FaLinkedin, FaTwitter, FaEnvelope, FaDev } from 'react-icons/fa';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import * as React from 'react';
+import { FaDev, FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-import { colorScheme } from '../helpers/styleSettings';
-import { GridBase, HomeContentLimit } from '../helpers/grid';
-import { AllMarkdownRemark, AllFile } from '../types';
-
-import SEO from '../components/SEO/SEO';
 import Default from '../components/Layouts/Default';
 import PostList from '../components/PostsList/PostsList';
+import SEO from '../components/SEO/SEO';
+import { GridBase, HomeContentLimit } from '../helpers/grid';
+import { colorScheme } from '../helpers/styleSettings';
+import { AllFile, AllMarkdownRemark } from '../types';
 
 export interface HomeProps {
   data: {

@@ -1,14 +1,15 @@
+import '../graphql/archive';
+
+import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
 
-import { AllMarkdownRemark } from '../types';
-import SEO from '../components/SEO/SEO';
+import config from '../../config/site-config';
+import Default from '../components/Layouts/Default';
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
-import Default from '../components/Layouts/Default';
-import config from '../../config/site-config';
-import '../graphql/archive';
+import SEO from '../components/SEO/SEO';
+import { AllMarkdownRemark } from '../types';
 
 interface TagTemplateProps {
   data: {

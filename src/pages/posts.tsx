@@ -1,16 +1,15 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-
 import '../graphql/archive';
 
+import { graphql } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+
+import config from '../../config/site-config';
+import Default from '../components/Layouts/Default';
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import SEO from '../components/SEO/SEO';
-import Default from '../components/Layouts/Default';
-
 import { AllMarkdownRemark } from '../types';
-import config from '../../config/site-config';
 
 interface BlogListProps {
   data: {

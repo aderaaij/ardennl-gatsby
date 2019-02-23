@@ -1,14 +1,13 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import * as React from 'react';
 
-import { colorScheme } from '../helpers/styleSettings';
-import { GridBase, HomeContentLimit, ContentLimit } from '../helpers/grid';
-import { AllMarkdownRemark, AllFile } from '../types';
-
-import SEO from '../components/SEO/SEO';
 import Default from '../components/Layouts/Default';
+import SEO from '../components/SEO/SEO';
+import { ContentLimit, GridBase } from '../helpers/grid';
+import { colorScheme } from '../helpers/styleSettings';
+import { AllFile, AllMarkdownRemark } from '../types';
 
 export interface HomeProps {
   data: {
