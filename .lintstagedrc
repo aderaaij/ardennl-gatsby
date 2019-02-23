@@ -1,4 +1,5 @@
 {
+  "*.{ts,tsx}": ["tsc --noEmit --jsx react", "git add"],
   "*.{js,ts,tsx}": ["eslint --ignore-path .gitignore .", "git add"],
   "*.scss": ["prettier --write", "stylelint --fix", "git add"],
   "{*.{json,md}}": ["prettier --write", "git add"]
