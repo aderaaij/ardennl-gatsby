@@ -73,6 +73,6 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "type-check": "tsc --noEmit --jsx react"
+    "type-check": "tsc --noEmit tsconfig.json --jsx react"
   }
 }
