@@ -35,9 +35,9 @@ const Home = (props: HomeProps) => {
             <h2>Front-end Web Developer</h2>
             <div>
               <p>
-                Hi, I'm Arden. I'm a web developer based in Lisbon, Portugal. I
-                create awesome websites/web-apps which are enjoyable and fun to
-                use. You can find some of my code on{' '}
+                Hi, I&#39;m Arden. I&#39;m a web developer based in Lisbon,
+                Portugal. I create awesome websites/web-apps which are enjoyable
+                and fun to use. You can find some of my code on{' '}
                 <a
                   href="https://github.com/aderaaij/"
                   target="_blank"

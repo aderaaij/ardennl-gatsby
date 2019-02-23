@@ -38,7 +38,7 @@ const ArticleFooter = () => (
     <FooterContent>
       <div>
         <p>
-          Did you enjoy this article or would you like to tell me that I'm
+          Did you enjoy this article or would you like to tell me that I&#39;m
           wrong?{' '}
           <a
             href="https://twitter.com/ardennl"
