@@ -9,6 +9,8 @@ export const globalCss = css`
   body {
     font-family: ${fontScheme.text};
     background: ${colorScheme.dark};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
