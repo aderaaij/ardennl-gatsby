@@ -55,7 +55,7 @@
     "@types/react-dom": "^16.8.0",
     "@types/react-helmet": "^5.0.8",
     "@types/react-transition-group": "^2.0.15",
-    "@typescript-eslint/eslint-plugin": "^1.4.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.1",
     "@typescript-eslint/parser": "^1.4.0",
     "eslint": "^5.14.1",
     "eslint-plugin-react": "^7.12.4",
@@ -71,6 +71,7 @@
   "scripts": {
     "build": "gatsby build && gatsby serve",
     "develop": "gatsby develop --host localhost --port 8000",
+    "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit  --jsx react"
