@@ -1,6 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
-const webpackLodashPlugin = require('lodash-webpack-plugin');
+// const webpackLodashPlugin = require('lodash-webpack-plugin');
 
 const postNodes = [];
 
@@ -127,7 +127,7 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
