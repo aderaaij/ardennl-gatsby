@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import styled from '@emotion/styled';
 import mc from 'material-colors';
+
 interface StyledTag {
   css: any;
 }

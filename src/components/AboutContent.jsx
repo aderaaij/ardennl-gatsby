@@ -4,9 +4,9 @@ const AboutContent = () => {
   return (
     <div>
       <p>
-        Hi, I'm Arden. I'm a web developer based in Lisbon, Portugal. I create
-        awesome websites/web-apps which are enjoyable and fun to use. You can
-        find some of my code on{' '}
+        Hi, I&apos;m Arden. I&apos;m a web developer based in Lisbon, Portugal.
+        I create awesome websites/web-apps which are enjoyable and fun to use.
+        You can find some of my code on{' '}
         <a
           href="https://github.com/aderaaij/"
           target="_blank"

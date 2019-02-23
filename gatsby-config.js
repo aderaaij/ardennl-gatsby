@@ -54,10 +54,12 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: config.siteName,
+        /* eslint-disable @typescript-eslint/camelcase */
         short_name: config.siteName,
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
+        /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',
         icons: [
           {

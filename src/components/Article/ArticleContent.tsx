@@ -208,5 +208,4 @@ const ArticleContent = ({ html }: { html: string | undefined }) => (
     </ArticleEntryContent>
   </ArticleContentStyled>
 );
-
 export default ArticleContent;

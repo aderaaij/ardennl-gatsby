@@ -7,7 +7,7 @@ import SEO from '../components/SEO/SEO';
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import Default from '../components/Layouts/Default';
-const config = require('../../data/site-config');
+import config from '../../data/site-config';
 import '../graphql/archive';
 
 interface TagTemplateProps {

@@ -1,6 +1,6 @@
 ---
 title: 'Diving into TypeScript'
-date: '2019-09-02'
+date: '2019-02-09'
 category: 'webdevelopment'
 cover: ./stella-ribeiro-631365-unsplash.jpg
 tags:

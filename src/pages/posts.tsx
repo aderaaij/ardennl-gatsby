@@ -10,12 +10,7 @@ import SEO from '../components/SEO/SEO';
 import Default from '../components/Layouts/Default';
 
 import { AllMarkdownRemark } from '../types';
-
-interface ConfigI {
-  siteName: string;
-  siteUrl: string;
-}
-const config: ConfigI = require('../../data/site-config');
+import config from '../../data/site-config';
 
 interface BlogListProps {
   data: {
