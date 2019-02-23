@@ -316,7 +316,6 @@ declare const materialColors: {
     a700: string;
   };
 };
-
 declare module 'material-colors' {
   export default materialColors;
 }
