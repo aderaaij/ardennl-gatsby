@@ -1,5 +1,5 @@
 {
-  "*.{js,jsx,ts,tsx}": ["yarn run type-check","eslint --ignore-path .gitignore . --fix", "git add"],
+  "*.{js,jsx,ts,tsx}": ["eslint --ignore-path .gitignore . --fix", "git add"],
   "*.scss": ["prettier --write", "stylelint --fix", "git add"],
   "{*.{json,md}}": ["prettier --write", "git add"]
 }

@@ -1,6 +1,4 @@
 import mc from 'material-colors';
-const test = mc.fraaai;
-console.log(test);
 export const colorScheme = {
   dark: mc.blueGrey[900],
   darkLight: mc.blueGrey[800],
