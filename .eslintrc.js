@@ -4,7 +4,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint', // This makes sure that Prettier will be run as ESLint plugin
     'plugin:prettier/recommended'
   ],
   settings: {
@@ -26,7 +26,7 @@ module.exports = {
     sourceType: 'module' // Allows for the use of imports
   },
   rules: {
-    'react/prop-types': 'off',
+    'react/prop-types': 'off', //
     '@typescript-eslint/explicit-function-return-type': 'off'
   },
   overrides: [
