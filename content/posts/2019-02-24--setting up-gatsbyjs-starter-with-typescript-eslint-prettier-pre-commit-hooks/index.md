@@ -300,7 +300,7 @@ You can find the progress until so far in the following branch: https://github.c
 
 If you want to see everything up and running without all the errors, you can always have a look at the [GitHub repo of Arden.nl](https://github.com/aderaaij/ardennl-gatsby)
 
-[If you want to leave any comments on this post, you can find me on [Twitter](https://arden.nl) or add your commont to the [re-post of this article on Dev.to](https://dev.to/ardennl/setting-up-a-gatsbyjs-starter-with-typescript-eslint-prettier-and-pre-commit-hooks-2ebg).](If you want to leave any comments on this post, you can find me on [Twitter](https://arden.nl) or add your comment to the [re-post of this article on Dev.to](https://dev.to/ardennl/setting-up-a-gatsbyjs-starter-with-typescript-eslint-prettier-and-pre-commit-hooks-2ebg).)
+If you have any questions or remarks about this post, you can find me on [Twitter](https://arden.nl) or add your comment to the [re-post of this article on Dev.to](https://dev.to/ardennl/setting-up-a-gatsbyjs-starter-with-typescript-eslint-prettier-and-pre-commit-hooks-2ebg)
 
 ## Resources
 
