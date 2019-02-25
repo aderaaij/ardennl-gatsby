@@ -207,7 +207,7 @@ To make life easier on ourselves we'll add two lint scripts to our `package.json
 "scripts": {
   ...
   "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
-  "lint:fix": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx --fix"
+  "lint:fix": "yarn lint --fix"
 }
 ```
 
@@ -300,4 +300,16 @@ You can find the progress until so far in the following branch: https://github.c
 
 If you want to see everything up and running without all the errors, you can always have a look at the [GitHub repo of Arden.nl](https://github.com/aderaaij/ardennl-gatsby)
 
-If you want to leave any comments on this post, you can find me on [Twitter](https://arden.nl) or you will find a re-post of this article on [Dev.to](https://dev.to) soon enough.
+[If you want to leave any comments on this post, you can find me on [Twitter](https://arden.nl) or add your commont to the [re-post of this article on Dev.to](https://dev.to/ardennl/setting-up-a-gatsbyjs-starter-with-typescript-eslint-prettier-and-pre-commit-hooks-2ebg).](If you want to leave any comments on this post, you can find me on [Twitter](https://arden.nl) or add your comment to the [re-post of this article on Dev.to](https://dev.to/ardennl/setting-up-a-gatsbyjs-starter-with-typescript-eslint-prettier-and-pre-commit-hooks-2ebg).)
+
+## Resources
+
+- [StackOverflow answer on the question "What is TypeScript and why would I use it in place of JavaScript? [closed]
+  " from Lodewijk Bogaards](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript/35048303#35048303)
+- [TypeScript Handbook on the tsconfig.json file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+- [TypeScript Handbook on Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+- [Gatsby starter blog TypeScript branch on GitHub](https://github.com/aderaaij/gatsby-starter-blog/tree/typescript)
+- [Gatsby TypeScript plugin overview](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/)
+- [_TypeScript With Babel: A Beautiful Marriage_ by Matt Turnbull](https://iamturns.com/typescript-babel/)
+- [_Using ESLint and Prettier in a TypeScript Project_ by Robert Cooper](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)
+- [_TSLint in 2019_ by Palantir](https://medium.com/palantir/tslint-in-2019-1a144c2317a9)
