@@ -73,7 +73,7 @@ Next up we'll need to add a [tsconfig.json](https://www.typescriptlang.org/docs/
   As we're using Node.js and import our NPM packages the CommonJS way, we want to make sure this option is set to `commonjs`
 - `"target": "esnext"`
   To be honest, I'm not sure if this does anything when we don't use TypeScript as a compiler. When we use TypeScript as a compiler we can specify the ECMA script target here. I'm still leaving it here because that's what people smarter than myself seem to do as well. In our case, we'll just target `esnext`. \*`"jsx": "preserve"`
-  TypeScript has a few different options for compiling JSX. Again, we're not compiling with TypeScript but when we're using JSX it will expect this option to be present. The `preserve` option would normally make sure JSX code wouldn't be compiled.
+  TypeScript has a few different options for compiling JSX. Again, we're not compiling with TypeScript but when we're using JSX it will expect this option to be present. The `preserve` option would normally make sure the JSX code wouldn't be compiled.
 - `"lib": ["dom", "esnext"]`
   The `lib` option will tell TypeScript which libraries to support. This doesn't include any polyfills or anything, but will just tell TypeScript which methods are allowed when compiling and type checking. If we'd omit `dom` from the options and would include `document.querySelector`, TypeScript would show you an error.
 - `"strict": true`
