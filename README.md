@@ -7,6 +7,7 @@ Repository of [arden.nl](https://www.arden.nl) created with [Gatsby](https://git
 ## Installation
 
 Clone / download repository, install with `yarn install`. Start developing with `yarn develop` and create a production build with `gatsby build`. Use `gatsby serve` to start a server with your production build.
+
 You can also use `yarn build` to build a production site and start the server sequentally.
 
 ## Features
@@ -26,4 +27,4 @@ You can also use `yarn build` to build a production site and start the server se
 
 ## Hosting
 
-This site is hosted on [Netlify](https://www.netlify.com/) and updates are triggered by pushing the master branch to github. In this configuration changes should be done in seperate branches.
+This site is hosted on [Netlify](https://www.netlify.com/) and updates are triggered by pushing the master branch to GitHub. 
