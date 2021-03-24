@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b60aa9fe-5024-4337-b922-23501c29ed32/deploy-status)](https://app.netlify.com/sites/keen-engelbart-3b8c1f/deploys)
+
 # Arden.nl
 
 Repository of [arden.nl](https://www.arden.nl) created with [Gatsby](https://github.com/gatsbyjs/gatsby) and styled with [emotion-js](https://github.com/emotion-js/emotion).
