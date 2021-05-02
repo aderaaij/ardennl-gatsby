@@ -12,7 +12,7 @@ You can also use `yarn build` to build a production site and start the server se
 
 ## Features
 
-- Gatsby v2
+- Gatsby v3
 - emotion-js for styling with `gatsby-plugin-emotion`
 - TypeScript support
 - Prettier
@@ -27,4 +27,4 @@ You can also use `yarn build` to build a production site and start the server se
 
 ## Hosting
 
-This site is hosted on [Netlify](https://www.netlify.com/) and updates are triggered by pushing the master branch to GitHub. 
+This site is hosted on [Netlify](https://www.netlify.com/) and updates are triggered by pushing the master branch to GitHub.
