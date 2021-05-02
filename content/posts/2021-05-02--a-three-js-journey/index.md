@@ -82,15 +82,14 @@ But I'd say especially if you don't do a lot of creative development in your day
 
 ## In conclusion
 
-This course is a steal, people! It's a refined product of years of knowledge and experience, given by an excellent teacher. Of course, there are free resources to learn about Blender, ThreeJS and WebGL but I'd wager it would cost months and months, if not years to get to the same level this course brings you in one, addictive shot. I have nothing but great things to say about this course and it gets the full 5 mics from me!
-
-## Links
-
-- [Threejs-journey.xyz](https://threejs-journey.xyz/)
-- [three.js](https://threejs.org/)
-- [bruno-simon.com](https://bruno-simon.com/)
+This course is a steal, people! It's a refined product of years of knowledge and experience, given by an excellent teacher. Of course, there are free resources to learn about Blender, ThreeJS and WebGL but I'd wager it would cost months and months, if not years to get to the same level this course brings you in one, addictive shot. I have nothing but great things to say about this course. The scene below is one of the final results I created from the course and I still can't believe I made this!
 
 <iframe height="570" style="width: 100%;" scrolling="no" title="Portal scene - threejs-journey.xyz" src="https://codepen.io/aderaaij/embed/BapYONL?height=570&theme-id=dark&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/aderaaij/pen/BapYONL'>Portal scene - threejs-journey.xyz</a> by Arden
   (<a href='https://codepen.io/aderaaij'>@aderaaij</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+## Links
+
+- [Threejs-journey.xyz](https://threejs-journey.xyz/)
+- [three.js](https://threejs.org/)
+- [bruno-simon.com](https://bruno-simon.com/)
