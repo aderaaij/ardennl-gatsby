@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Tag from 'src/components/TagLabel';
-import PostExcerptBackground from 'src/components/PostExcerptBackground/';
+import FadeIn from 'src/components/FadeIn';
 import ExcerptMeta from 'src/components/ExcerptMeta';
 import { preventWidow } from 'src/helpers/helpers';
 import {
@@ -33,14 +33,14 @@ const ArticleHero: React.FC<Props> = ({ frontmatter, fadeIn }) => {
         />
       )}
       <ArticleHeader>
-        <PostExcerptBackground in={fadeIn}>
+        <FadeIn in={fadeIn}>
           {!published && <Tag style={TagPos} tagText="unpublished" />}
           <CatLink to={`/categories/${category}`}>{category}</CatLink>
           <h1>{title && preventWidow(title)}</h1>
           {(tags || date) && (
             <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
           )}
-        </PostExcerptBackground>
+        </FadeIn>
       </ArticleHeader>
     </ArticleHeroStyled>
   );

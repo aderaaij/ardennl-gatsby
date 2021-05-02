@@ -6,7 +6,6 @@ interface Props {
 }
 
 const ArticleContent: React.FC<Props> = ({ html }) => {
-  console.log({ html });
   return (
     <ArticleContentStyled>
       <ArticleEntryContent>

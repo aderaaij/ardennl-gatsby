@@ -1,13 +1,7 @@
 import Transition from 'react-transition-group/Transition';
 import { FadeWrapper, duration, transitionStyles } from './styles';
 
-const PostExcerptBackground = ({
-  children,
-  in: inProp,
-}: {
-  children: any;
-  in: boolean;
-}) => (
+const FadeIn = ({ children, in: inProp }: { children: any; in: boolean }) => (
   <Transition in={inProp} timeout={duration}>
     {(state) => (
       <FadeWrapper style={{ ...transitionStyles[state] }}>
@@ -16,4 +10,4 @@ const PostExcerptBackground = ({
     )}
   </Transition>
 );
-export default PostExcerptBackground;
+export default FadeIn;

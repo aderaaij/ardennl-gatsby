@@ -52,7 +52,6 @@ interface Props {
   };
 }
 const NotFoundPage: React.FC<Props> = ({ data }) => {
-  console.log({ data });
   const { edges } = data.allFile;
   const bg = edges.find((edge) =>
     edge.node.name ? edge.node.name.includes('arden') : false
