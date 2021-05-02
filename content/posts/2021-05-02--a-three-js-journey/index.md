@@ -19,7 +19,7 @@ As the name implies, ThreeJS-journey is a course about [ThreeJS](https://threejs
 
 <div class='caption'>
 
-![A screenshot of Bruno's 3d website](./bruno-simon.png 'Caye Caulker')
+![A screenshot of Bruno's 3d website](./bruno-simon.png)
 
 <p class='caption__text'>
   Bruno's excellent portfolio website, using Three.js
@@ -31,7 +31,7 @@ At the end of the course, you will possess an entirely new vocabulary and might 
 
 ### Who's Bruno Simon?
 
-Bruno Simon is a French creative developer with expertise in WebGL. He has been making awesome online experiences for years and also teaches web development and WebGL in various schools, so he both talks the talk and walks the walk. Thrown in for free is his dog, who makes some great audio appearance throughout the course 🐶.
+[Bruno Simon](https://twitter.com/bruno_simon) is a French creative developer with expertise in WebGL. He has been making awesome online experiences for years and also teaches web development and WebGL in various schools, so he both talks the talk and walks the walk. Thrown in for free is his dog, who makes some great audio appearance throughout the course 🐶.
 
 ### Requirements
 
@@ -49,7 +49,7 @@ Every lesson has starter files with an initial set-up and files with the result 
 
 <div class='caption'>
 
-![Screenshot of the lesson material showing the instructor, code editor and result](./course.png 'Caye Caulker')
+![Screenshot of the lesson material showing the instructor, code editor and result](./course.png)
 
 <p class='caption__text'>
   Screenshot of the lesson material
@@ -82,7 +82,13 @@ But I'd say especially if you don't do a lot of creative development in your day
 
 ## In conclusion
 
-This course is a steal, people! It's a refined product of years of knowledge and experience, given by an excellent teacher. Of course, there are free resources to learn about Blender, ThreeJS and WebGL but I'd wager it would cost months and months, if not years to get to the same level this course brings you in one, addictive shot. I have nothing but great things to say about this course. 5 mics!
+This course is a steal, people! It's a refined product of years of knowledge and experience, given by an excellent teacher. Of course, there are free resources to learn about Blender, ThreeJS and WebGL but I'd wager it would cost months and months, if not years to get to the same level this course brings you in one, addictive shot. I have nothing but great things to say about this course and it gets the full 5 mics from me!
+
+## Links
+
+- [Threejs-journey.xyz](https://threejs-journey.xyz/)
+- [three.js](https://threejs.org/)
+- [bruno-simon.com](https://bruno-simon.com/)
 
 <iframe height="570" style="width: 100%;" scrolling="no" title="Portal scene - threejs-journey.xyz" src="https://codepen.io/aderaaij/embed/BapYONL?height=570&theme-id=dark&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/aderaaij/pen/BapYONL'>Portal scene - threejs-journey.xyz</a> by Arden
