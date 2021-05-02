@@ -21,7 +21,7 @@ interface BlogPostProps {
   data: { markdownRemark: MarkdownRemarkNode };
 }
 
-const BlogPost: React.SFC<BlogPostProps> = props => {
+const BlogPost: React.FC<BlogPostProps> = (props) => {
   const [fadeIn, setFadeIn] = useState(false);
   const { frontmatter, html } = props.data.markdownRemark;
   const { published } = frontmatter;

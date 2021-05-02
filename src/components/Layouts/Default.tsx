@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import 'normalize.css';
 
 import config from '../../../config/site-config';

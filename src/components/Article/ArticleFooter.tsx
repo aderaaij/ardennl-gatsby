@@ -36,7 +36,7 @@ const FooterContent = styled.div`
 const ArticleFooter = () => (
   <FooterStyled>
     <FooterContent>
-      <div>
+      <>
         <p>
           Did you enjoy this article or would you like to tell me that I&#39;m
           wrong?{' '}
@@ -49,7 +49,7 @@ const ArticleFooter = () => (
           </a>{' '}
           or send me an <a href="mailto:a.de.raaij@gmail.com">e-mail</a>!
         </p>
-      </div>
+      </>
     </FooterContent>
   </FooterStyled>
 );

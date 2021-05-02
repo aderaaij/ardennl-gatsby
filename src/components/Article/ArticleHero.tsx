@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import Transition from 'react-transition-group/Transition';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
@@ -139,7 +139,7 @@ const transitionStyles: TransitionI = {
 
 const Fade = ({ children, in: inProp }: { children: any; in: boolean }) => (
   <Transition in={inProp} timeout={duration}>
-    {state => (
+    {(state) => (
       <FadeWrapper style={{ ...transitionStyles[state] }}>
         {children}
       </FadeWrapper>
@@ -157,7 +157,11 @@ const ArticleHero = ({ frontmatter, fadeIn }: ArticleHeroProps) => {
   return (
     <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
       {cover && cover.childImageSharp.fluid && (
-        <Img css={imgStyle} fluid={cover.childImageSharp.fluid} />
+        <GatsbyImage
+          css={imgStyle}
+          alt=""
+          image={cover.childImageSharp.gatsbyImageData}
+        />
       )}
       <ArticleHeader>
         <Fade in={fadeIn}>

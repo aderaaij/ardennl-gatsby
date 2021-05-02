@@ -17,6 +17,10 @@ export const defaultPostQuery = graphql`
       cover {
         id
         childImageSharp {
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: { color: "#37474F", blackOnWhite: false }
+          )
           fluid(
             maxWidth: 1200
             traceSVG: { color: "#37474F", blackOnWhite: false }

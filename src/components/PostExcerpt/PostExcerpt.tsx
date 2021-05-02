@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Transition from 'react-transition-group/Transition';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import Tag from '../TagLabel/TagLabel';
 import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
@@ -134,7 +134,7 @@ const transitionStyles: TransitionsI = {
 
 const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
   <Transition in={isHovering} timeout={10}>
-    {status => (
+    {(status) => (
       <img
         css={BGImage}
         alt=""
@@ -147,7 +147,7 @@ const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
   </Transition>
 );
 
-const PostExcerpt: React.SFC<PostExcerptProps> = props => {
+const PostExcerpt: React.SFC<PostExcerptProps> = (props) => {
   const [isHovering, setHovering] = useState(false);
   const { postInfo } = props;
   const {
@@ -160,7 +160,6 @@ const PostExcerpt: React.SFC<PostExcerptProps> = props => {
     published,
     cover
   } = postInfo;
-
   useEffect(() => {
     return function cleanup() {
       setHovering(false);
@@ -168,21 +167,21 @@ const PostExcerpt: React.SFC<PostExcerptProps> = props => {
   }, []);
 
   return (
-    <div>
-      {cover && cover.childImageSharp.resolutions && (
+    <>
+      {cover && cover.childImageSharp.gatsbyImageData && (
         <Fade
           in={!!isHovering}
-          image={cover.childImageSharp.resolutions.tracedSVG}
+          image={cover.childImageSharp.gatsbyImageData.placeholder.fallback}
         />
       )}
       <BlogArticle
         context={props.context}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
-        onClick={e => goToPage(e, path)}
+        onClick={(e) => goToPage(e, path)}
       >
         <BlogContent context={props.context}>
-          <div>
+          <>
             {!published && <Tag style={TagPos} tagText="unpublished" />}
             <CatLink to={`/categories/${category}`}>{category}</CatLink>
             <h2>
@@ -192,10 +191,10 @@ const PostExcerpt: React.SFC<PostExcerptProps> = props => {
             {(tags || date) && (
               <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
             )}
-          </div>
+          </>
         </BlogContent>
       </BlogArticle>
-    </div>
+    </>
   );
 };
 

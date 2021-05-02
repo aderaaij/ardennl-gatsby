@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
-import css from '@emotion/css';
+import { css } from '@emotion/react';
 import Headroom from 'react-headroom';
 import { colorScheme, fontScheme } from '../../helpers/styleSettings';
 

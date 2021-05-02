@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutContent = () => {
   return (
-    <div>
+    <>
       <p>
         Hi, I&apos;m Arden. I&apos;m a web developer based in Lisbon, Portugal.
         I create awesome websites/web-apps which are enjoyable and fun to use.
@@ -65,7 +65,7 @@ const AboutContent = () => {
         </a>{' '}
         about all the things web related!
       </p>
-    </div>
+    </>
   );
 };
 

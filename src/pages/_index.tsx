@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import * as React from 'react';
@@ -20,7 +20,7 @@ export interface HomeProps {
 
 const Home = (props: HomeProps) => {
   const { allFile, allMarkdownRemark } = props.data;
-  const bg = allFile.edges.find(edge =>
+  const bg = allFile.edges.find((edge) =>
     edge.node.name ? edge.node.name.includes('bg') : false
   );
   return (

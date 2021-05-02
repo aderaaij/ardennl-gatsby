@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import * as React from 'react';
@@ -18,7 +18,7 @@ export interface HomeProps {
 
 const Home = (props: HomeProps) => {
   const { allFile, allMarkdownRemark } = props.data;
-  const bg = allFile.edges.find(edge =>
+  const bg = allFile.edges.find((edge) =>
     edge.node.name ? edge.node.name.includes('bg') : false
   );
   return (
@@ -29,10 +29,10 @@ const Home = (props: HomeProps) => {
         )}
         {/* <Img className={HomeImg} outerWrapperClassName={HomeImg} src={background.node.tracedSVG} /> */}
         <HomeContent>
-          <div>
+          <>
             <h1>Arden de Raaij</h1>
             <h2>Front-end Web Developer</h2>
-            <div>
+            <>
               <p>
                 Hi, I&#39;m Arden. I&#39;m a web developer based in Lisbon,
                 Portugal. I create awesome websites/web-apps which are enjoyable
@@ -95,8 +95,8 @@ const Home = (props: HomeProps) => {
                 </a>{' '}
                 about all the things web related!
               </p>
-            </div>
-          </div>
+            </>
+          </>
         </HomeContent>
         <SEO />
       </HomeWrap>
