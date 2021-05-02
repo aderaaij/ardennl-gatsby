@@ -1,26 +1,23 @@
-import '../graphql/archive';
-
 import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-
 import config from '../../config/site-config';
-import Default from '../components/Layouts/Default';
+import Default from '../components/Layouts';
 import PostsList from '../components/PostsList/PostsList';
 import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
 import SEO from '../components/SEO/SEO';
-import { AllMarkdownRemark } from '../types';
+import { MarkdownRemarkConnection } from '../types';
 
-interface TagTemplateProps {
+interface Props {
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMarkdownRemark: MarkdownRemarkConnection;
   };
   pageContext: {
     tag: string;
   };
 }
 
-const TagTemplate = ({ data, pageContext }: TagTemplateProps) => {
+const TagTemplate: React.FC<Props> = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark;
   const { tag } = pageContext;
   return (

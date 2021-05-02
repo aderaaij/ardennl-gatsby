@@ -16,6 +16,6 @@ const TypekitScript = () => (
   </script>
 );
 
-const Typekit = () => <Helmet>{TypekitScript()}</Helmet>;
+const Typekit: React.FC = () => <Helmet>{TypekitScript()}</Helmet>;
 
 export default Typekit;

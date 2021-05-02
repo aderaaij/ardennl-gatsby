@@ -1,8 +1,5 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import Link from 'gatsby-link';
-
-const TagListWrap = styled.div`
+export const TagListWrap = styled.div`
   display: flex;
 
   span {
@@ -38,18 +35,3 @@ const TagListWrap = styled.div`
     }
   }
 `;
-
-const TagList = ({ tags }: { tags: [string] }) => (
-  <TagListWrap>
-    <span>Tagged:</span>
-    <ul>
-      {tags.map(tag => (
-        <li key={tag}>
-          <Link to={`/tags/${tag}`}>{tag}</Link>
-        </li>
-      ))}
-    </ul>
-  </TagListWrap>
-);
-
-export default TagList;

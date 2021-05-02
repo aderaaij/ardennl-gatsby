@@ -1,56 +1,39 @@
 import * as React from 'react';
-import PostExcerpt from '../PostExcerpt/PostExcerpt';
-import { MarkdownRemark } from '../../types';
-
-interface PostListProps {
-  edges: [MarkdownRemark];
+import PostExcerpt from '../PostExcerpt/';
+import { MarkdownRemarkConnection } from '../../types';
+interface Props {
+  edges: MarkdownRemarkConnection['edges'];
   context?: string;
 }
 
-const PostsList = (props: PostListProps) => {
-  const getPostList = () =>
-    props.edges.map((postEdge: MarkdownRemark) => ({
-      published: postEdge.node.frontmatter.published,
-      path: postEdge.node.fields.slug,
-      tags: postEdge.node.frontmatter.tags,
-      category: postEdge.node.frontmatter.category,
-      cover: postEdge.node.frontmatter.cover,
-      title: postEdge.node.frontmatter.title,
-      date: postEdge.node.frontmatter.date,
-      excerpt: postEdge.node.excerpt,
-      timeToRead: postEdge.node.timeToRead
-    }));
-
-  /**
-   * When in production mode, don't render unpublished posts in the postlist
-   */
-  const renderPostExcerpt = () => {
-    const postList = getPostList();
-
-    return postList.map(post => {
-      if (process.env.NODE_ENV === 'production' && post.published) {
-        return (
-          <PostExcerpt
-            context={props.context}
-            key={post.title}
-            postInfo={post}
-          />
-        );
-      }
-      if (process.env.NODE_ENV === 'development') {
-        return (
-          <PostExcerpt
-            context={props.context}
-            key={post.title}
-            postInfo={post}
-          />
-        );
-      }
-      return false;
-    });
-  };
-
-  return <>{renderPostExcerpt()}</>;
+const PostsList: React.FC<Props> = ({ edges, context }) => {
+  return (
+    <>
+      {edges.map((edge) => {
+        if (
+          process.env.NODE_ENV === 'production' &&
+          edge.node.frontmatter?.published
+        ) {
+          return (
+            <PostExcerpt
+              context={context}
+              key={edge.node.frontmatter.title}
+              node={edge.node}
+            />
+          );
+        }
+        if (process.env.NODE_ENV === 'development') {
+          return (
+            <PostExcerpt
+              context={context}
+              key={edge.node.frontmatter?.title}
+              node={edge.node}
+            />
+          );
+        }
+      })}
+    </>
+  );
 };
 
 export default PostsList;

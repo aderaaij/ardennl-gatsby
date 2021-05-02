@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import TagList from '../TagList/TagList';
-import { colorScheme } from '../../helpers/styleSettings';
+import TagList from 'src/components/TagList';
+import { colorScheme } from 'src/helpers/styleSettings';
+import { MarkdownRemarkFrontmatter } from 'src/types';
 
 const ExcerptMetaWrap = styled.ul`
   color: ${colorScheme.text};
@@ -42,14 +43,14 @@ const ExcerptMetaWrap = styled.ul`
   }
 `;
 
-interface ExcerptMetaProps {
+interface Props {
   className?: string;
   css: any;
-  date: string;
-  tags: [string];
+  date: MarkdownRemarkFrontmatter['date'];
+  tags: MarkdownRemarkFrontmatter['tags'];
 }
 
-const ExcerptMeta = ({ className, date, tags }: ExcerptMetaProps) => (
+const ExcerptMeta: React.FC<Props> = ({ className, date, tags }) => (
   <ExcerptMetaWrap className={className}>
     {date && (
       <li>

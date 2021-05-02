@@ -1,0 +1,13 @@
+schema: http://localhost:8000/__graphql
+documents:
+  - './src/graphql/**/*.ts'
+generates:
+  ./src/types.ts:
+    plugins:
+      - typescript
+    config:
+pluckConfig:
+  gqlMagicComment: GraphQL
+  globalGqlIdentifierName:
+    - gql
+    - graphql

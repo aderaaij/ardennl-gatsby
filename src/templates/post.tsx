@@ -1,4 +1,3 @@
-import '../graphql/post';
 import './b16-tomorrow-dark.css';
 
 import styled from '@emotion/styled';
@@ -6,25 +5,24 @@ import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
-import ArticleContent from '../components/Article/ArticleContent';
-import ArticleFooter from '../components/Article/ArticleFooter';
-import ArticleHero from '../components/Article/ArticleHero';
-import Default from '../components/Layouts/Default';
+import ArticleContent from '../components/ArticleContent/';
+import ArticleFooter from '../components/ArticleFooter/';
+import ArticleHero from '../components/ArticleHero/';
+import Default from '../components/Layouts';
 import SEO from '../components/SEO/SEO';
-import { MarkdownRemarkNode } from '../types';
+import { MarkdownRemark } from '../types';
 
 const Article = styled.article`
   padding-bottom: 4em;
 `;
 
-interface BlogPostProps {
-  data: { markdownRemark: MarkdownRemarkNode };
+interface Props {
+  data: { markdownRemark: MarkdownRemark };
 }
 
-const BlogPost: React.FC<BlogPostProps> = (props) => {
+const Post: React.FC<Props> = ({ data }) => {
   const [fadeIn, setFadeIn] = useState(false);
-  const { frontmatter, html } = props.data.markdownRemark;
-  const { published } = frontmatter;
+  const { frontmatter, html } = data.markdownRemark;
 
   useEffect(() => {
     setFadeIn(true);
@@ -32,8 +30,8 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
   return (
     <Default>
       <Article>
-        <SEO post={props.data.markdownRemark} />
-        {!published && (
+        <SEO post={data.markdownRemark} />
+        {!frontmatter?.published && (
           <Helmet>
             <meta name="robots" content="noindex" />
           </Helmet>
@@ -46,10 +44,10 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
   );
 };
 
-export default BlogPost;
+export default Post;
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
+  query PostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       ...postQuery
     }

@@ -1,16 +1,7 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { GridBase, ContentLimit } from '../../helpers/grid';
 import { colorScheme } from '../../helpers/styleSettings';
-
-const ArticleContentStyled = styled.div`
-  padding: 0 1em;
-  ${GridBase};
-  @media (min-width: 768px) {
-    padding: 0;
-  }
-`;
 
 const fullMedia = css`
   position: relative;
@@ -34,7 +25,15 @@ const fullMedia = css`
   }
 `;
 
-const ArticleEntryContent = styled.div`
+export const ArticleContentStyled = styled.div`
+  padding: 0 1em;
+  ${GridBase};
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+`;
+
+export const ArticleEntryContent = styled.div`
   color: ${colorScheme.text};
   ${ContentLimit};
   max-width: 65ch;
@@ -200,12 +199,3 @@ const ArticleEntryContent = styled.div`
     line-height: 1;
   }
 `;
-
-const ArticleContent = ({ html }: { html: string | undefined }) => (
-  <ArticleContentStyled>
-    <ArticleEntryContent>
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-    </ArticleEntryContent>
-  </ArticleContentStyled>
-);
-export default ArticleContent;

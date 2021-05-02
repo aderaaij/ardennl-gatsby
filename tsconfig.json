@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
@@ -8,7 +9,12 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
+  "include": ["src/**/*", "tests/**/*", "config/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
 }

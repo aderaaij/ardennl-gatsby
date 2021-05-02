@@ -5,26 +5,14 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 import Tag from '../TagLabel/TagLabel';
-import ExcerptMeta from '../ExcerptMeta/ExcerptMeta';
+import ExcerptMeta from '../ExcerptMeta';
 import { colorScheme } from '../../helpers/styleSettings';
 import { preventWidow, goToPage } from '../../helpers/helpers';
-import { Cover } from '../../types';
+import { MarkdownRemark } from '../../types';
 
-interface PostInterface {
-  published: boolean;
-  path: string;
-  tags: [string];
-  category: string;
-  cover?: Cover | null;
-  title: string;
-  date: string;
-  excerpt: string;
-  timeToRead: number;
-}
-
-interface PostExcerptProps {
+interface Props {
   context?: string;
-  postInfo: PostInterface;
+  node: MarkdownRemark;
 }
 
 interface StyleProps {
@@ -129,7 +117,7 @@ interface TransitionsI {
 
 const transitionStyles: TransitionsI = {
   entering: { opacity: 0 },
-  entered: { opacity: 1 }
+  entered: { opacity: 1 },
 };
 
 const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
@@ -140,26 +128,16 @@ const Fade = ({ in: isHovering, image }: { in: boolean; image: string }) => (
         alt=""
         src={image}
         style={{
-          ...transitionStyles[status]
+          ...transitionStyles[status],
         }}
       />
     )}
   </Transition>
 );
 
-const PostExcerpt: React.SFC<PostExcerptProps> = (props) => {
+const PostExcerpt: React.FC<Props> = ({ node }) => {
   const [isHovering, setHovering] = useState(false);
-  const { postInfo } = props;
-  const {
-    tags,
-    date,
-    path,
-    title,
-    category,
-    excerpt,
-    published,
-    cover
-  } = postInfo;
+  const { excerpt, fields, frontmatter, timeToRead } = node;
   useEffect(() => {
     return function cleanup() {
       setHovering(false);
@@ -168,30 +146,43 @@ const PostExcerpt: React.SFC<PostExcerptProps> = (props) => {
 
   return (
     <>
-      {cover && cover.childImageSharp.gatsbyImageData && (
+      {frontmatter?.cover && (
         <Fade
           in={!!isHovering}
-          image={cover.childImageSharp.gatsbyImageData.placeholder.fallback}
+          image={
+            frontmatter.cover.childImageSharp?.gatsbyImageData.placeholder
+              .fallback
+          }
         />
       )}
       <BlogArticle
-        context={props.context}
+        // context={frontmatter.published}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
-        onClick={(e) => goToPage(e, path)}
+        onClick={(e) => goToPage(e, fields?.slug)}
       >
-        <BlogContent context={props.context}>
-          <>
-            {!published && <Tag style={TagPos} tagText="unpublished" />}
-            <CatLink to={`/categories/${category}`}>{category}</CatLink>
-            <h2>
-              <Link to={path}>{preventWidow(title)}</Link>
-            </h2>
-            {props.context !== 'home' && <p>{excerpt}</p>}
-            {(tags || date) && (
-              <ExcerptMeta css={ExcerptMetaStyle} tags={tags} date={date} />
+        <BlogContent>
+          {!frontmatter?.published && (
+            <Tag style={TagPos} tagText="unpublished" />
+          )}
+          <CatLink to={`/categories/${frontmatter?.category}`}>
+            {frontmatter?.category}
+          </CatLink>
+          <h2>
+            {fields?.slug && (
+              <Link to={fields?.slug}>
+                {frontmatter?.title && preventWidow(frontmatter.title)}
+              </Link>
             )}
-          </>
+          </h2>
+          {/* {frontmatter?.context !== 'home' && <p>{excerpt}</p>} */}
+          {(frontmatter?.tags || frontmatter?.date) && (
+            <ExcerptMeta
+              css={ExcerptMetaStyle}
+              tags={frontmatter.tags}
+              date={frontmatter.date}
+            />
+          )}
         </BlogContent>
       </BlogArticle>
     </>
