@@ -15,7 +15,7 @@ Spoiler alert: You should be doing this course instead of reading this.
 
 ## Introduction
 
-As the name implies, ThreeJS-journey is a course about ThreeJS, which is a JavaScript 3d library allowing you to make very cool stuff in the browser. If you want to see what cool stuff you can make, look no further than the ThreeJS-journey homepage or Bruno Simon's excellent portfolio website.
+As the name implies, ThreeJS-journey is a course about [ThreeJS](https://threejs.org/), which is a JavaScript 3d library allowing you to make very cool stuff in the browser. If you want to see what cool stuff you can make, look no further than the [ThreeJS-journey](https://threejs.org/) homepage or [Bruno Simon's excellent portfolio website](https://bruno-simon.com/).
 
 <div class='caption'>
 
