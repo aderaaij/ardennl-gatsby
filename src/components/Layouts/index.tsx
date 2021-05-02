@@ -1,13 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import 'normalize.css';
 
 import config from '../../../config/site-config';
-import SiteHeader from '../SiteHeader/SiteHeader';
-import Piwik from '../Piwik/Piwik';
-import Typekit from '../Typekit/Typekit';
-import { globalCss } from '../../helpers/global';
+import SiteHeader from 'src/components/SiteHeader';
+import Piwik from 'src/components/Piwik';
+import Typekit from 'src/components/Typekit';
+import { globalCss } from 'src/helpers/global';
 
 const TemplateWrapper = ({ children }: any) => (
   <>

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { colorScheme, fontScheme } from './styleSettings';
 
 export const globalCss = css`

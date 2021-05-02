@@ -1,23 +1,21 @@
-import '../graphql/archive';
-
 import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-
 import config from '../../config/site-config';
-import Default from '../components/Layouts/Default';
-import PostsList from '../components/PostsList/PostsList';
-import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
-import SEO from '../components/SEO/SEO';
-import { AllMarkdownRemark } from '../types';
+import Default from 'src/components/Layouts';
+import PostsList from 'src/components/PostsList/';
+import PostsListWrap from 'src/components/PostsListWrap';
+import SEO from 'src/components/SEO';
+import { MarkdownRemarkConnection } from 'src/types';
 
-interface BlogListProps {
+interface Props {
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMarkdownRemark: MarkdownRemarkConnection;
   };
 }
-const BlogList = (props: BlogListProps) => {
-  const { edges } = props.data.allMarkdownRemark;
+
+const Posts: React.FC<Props> = ({ data }) => {
+  const { edges, totalCount } = data.allMarkdownRemark;
   return (
     <Default>
       <SEO />
@@ -32,7 +30,7 @@ const BlogList = (props: BlogListProps) => {
   );
 };
 
-export default BlogList;
+export default Posts;
 
 export const query = graphql`
   query PostsArchive {

@@ -5,11 +5,12 @@ export const preventWidow = (value: string) =>
  * Funtion to prevent default behaviour when click an A tag.
  * Takes in an event (e) and a string (slug)
  */
-import { navigateTo } from 'gatsby-link';
-export const goToPage = (e: any, slug: string) => {
+import { navigate } from 'gatsby-link';
+export const goToPage = (e: any, slug?: string | null) => {
+  if (!slug) return;
   if (e.target.tagName === 'A') {
     e.preventDefault();
   } else {
-    navigateTo(slug);
+    navigate(slug);
   }
 };

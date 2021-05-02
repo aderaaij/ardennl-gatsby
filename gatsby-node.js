@@ -4,6 +4,13 @@ const _ = require('lodash');
 
 const postNodes = [];
 
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  });
+};
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   let slug;
@@ -40,18 +47,18 @@ exports.createPages = ({ graphql, actions }) => {
     { from: '/aww', to: 'https://www.awwwards.com/sites/cfye-magazine' },
     {
       from: '/gss',
-      to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown'
+      to: 'https://github.com/aderaaij/gatsby-starter-skeleton-markdown',
     },
     { from: '/sia', to: 'https://superinteractive.com/' },
     { from: '/gh', to: 'https://github.com/aderaaij/' },
     { from: '/li', to: 'https://www.linkedin.com/in/ardenderaaij/' },
-    { from: '/aa', to: 'https://abroad.arden.nl' }
+    { from: '/aa', to: 'https://abroad.arden.nl' },
   ];
   extRedirects.forEach(({ from, to }) => {
     createRedirect({
       fromPath: from,
       toPath: to,
-      isPermanent: true
+      isPermanent: true,
     });
   });
 
@@ -73,7 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       if (result.errors) {
         const Console = console;
         Console.error(result.errors);
@@ -83,7 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
       const categorySet = new Set();
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if (node.frontmatter.tags) {
-          node.frontmatter.tags.forEach(tag => {
+          node.frontmatter.tags.forEach((tag) => {
             tagSet.add(tag);
           });
         }
@@ -97,29 +104,29 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve('src/templates/post.tsx'),
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug
-          }
+            slug: node.fields.slug,
+          },
         });
 
         const tagList = Array.from(tagSet);
-        tagList.forEach(tag => {
+        tagList.forEach((tag) => {
           createPage({
             path: `/tags/${_.kebabCase(tag)}/`,
             component: path.resolve('src/templates/tag.tsx'),
             context: {
-              tag
-            }
+              tag,
+            },
           });
         });
 
         const categoryList = Array.from(categorySet);
-        categoryList.forEach(category => {
+        categoryList.forEach((category) => {
           createPage({
             path: `/categories/${_.kebabCase(category)}/`,
             component: path.resolve('src/templates/category.tsx'),
             context: {
-              category
-            }
+              category,
+            },
           });
         });
       });
@@ -135,10 +142,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
         rules: [
           {
             test: /intersection-observer/,
-            use: ['null-loader']
-          }
-        ]
-      }
+            use: ['null-loader'],
+          },
+        ],
+      },
     });
 
     // getConfig.loader('null', {

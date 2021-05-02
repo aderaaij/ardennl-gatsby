@@ -1,24 +1,22 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-
-import { AllMarkdownRemark } from '../types';
-import SEO from '../components/SEO/SEO';
-import PostsList from '../components/PostsList/PostsList';
-import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
-import Default from '../components/Layouts/Default';
+import { MarkdownRemarkConnection } from 'src/types';
+import SEO from 'src/components/SEO';
+import PostsList from 'src/components/PostsList';
+import PostsListWrap from 'src/components/PostsListWrap';
+import Default from 'src/components/Layouts';
 import config from '../../config/site-config';
-import '../graphql/archive';
 
-interface CategoryTemplateProps {
+interface Props {
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMarkdownRemark: MarkdownRemarkConnection;
   };
   pageContext: {
     category: string;
   };
 }
-const CategoryTemplate = ({ data, pageContext }: CategoryTemplateProps) => {
+const CategoryTemplate: React.FC<Props> = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark;
   const { category } = pageContext;
   return (

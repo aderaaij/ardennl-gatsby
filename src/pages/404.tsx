@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Default from '../components/Layouts/Default';
-import { ContentLimit, GridBase } from '../helpers/grid';
-import { colorScheme } from '../helpers/styleSettings';
-import { AllFile } from '../types';
+import Default from 'src/components/Layouts';
+import { ContentLimit, GridBase } from 'src/helpers/grid';
+import { colorScheme } from 'src/helpers/styleSettings';
+import { FileConnection } from 'src/types';
 
 const NotFoundWrap = styled.div`
   width: 100%;
@@ -46,21 +46,21 @@ const NotFoundContent = styled.div`
   ${ContentLimit};
 `;
 
-interface NotFoundPageProps {
+interface Props {
   data: {
-    allFile: AllFile;
+    allFile: FileConnection;
   };
 }
-const NotFoundPage = ({ data }: NotFoundPageProps) => {
+const NotFoundPage: React.FC<Props> = ({ data }) => {
   const { edges } = data.allFile;
-  const bg = edges.find(edge =>
+  const bg = edges.find((edge) =>
     edge.node.name ? edge.node.name.includes('arden') : false
   );
   return (
     <Default>
       <NotFoundWrap>
         {bg && bg.node.childImageSharp && bg.node.childImageSharp.fluid && (
-          <NotFoundimage src={bg.node.childImageSharp.fluid.tracedSVG} />
+          <NotFoundimage src={bg.node.childImageSharp?.fluid.tracedSVG} />
         )}
         <NotFoundContent>
           <h1>404 - NOT FOUND</h1>

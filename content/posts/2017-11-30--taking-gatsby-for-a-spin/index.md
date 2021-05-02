@@ -1,20 +1,20 @@
 ---
-title: "Taking Gatsby for a spin"
+title: 'Taking Gatsby for a spin'
 cover: ./great-gatsby.jpg
-date: "2017-11-30"
-category: "webdevelopment"
+date: '2017-11-30'
+category: 'webdevelopment'
 tags:
-    - gatsbyjs
-    - javascript
-    - react
+  - gatsbyjs
+  - javascript
+  - react
 published: true
 ---
 
-A static site generator based on React, does that even make sense? [GatsbyJS](https://gatsbyjs.org/) tries to answer this question with a hypermodern, feature-packed, *jamstacked* development tool that you can try out right now! In this post I'll give you a quick introduction and an overview of my own thoughts on Gatsby.
+A static site generator based on React, does that even make sense? [GatsbyJS](https://gatsbyjs.org/) tries to answer this question with a hypermodern, feature-packed, _jamstacked_ development tool that you can try out right now! In this post I'll give you a quick introduction and an overview of my own thoughts on Gatsby.
 
 ## Introducing: Gatsby
 
-Ever since I started following the [Gatsby Twitter account](https://twitter.com/gatsbyjs), I've wanted in on the action. It's not that I really *need* a new tool to create static sites, it's just that every developer tweeting about Gatsby seems to think it's the most exciting thing on the web since they learned they could combine the `marquee` and `blink` tag. Call it FOMO. Also, the sites that these developers have been showcasing were all so fast and snappy, I had to see what the buzz was about.
+Ever since I started following the [Gatsby Twitter account](https://twitter.com/gatsbyjs), I've wanted in on the action. It's not that I really _need_ a new tool to create static sites, it's just that every developer tweeting about Gatsby seems to think it's the most exciting thing on the web since they learned they could combine the `marquee` and `blink` tag. Call it FOMO. Also, the sites that these developers have been showcasing were all so fast and snappy, I had to see what the buzz was about.
 
 Let’s jump in. Here are some of the important features of Gatsby:
 
@@ -28,7 +28,8 @@ Gatsby was my first introduction to [GraphQL](http://graphql.org/learn/) and I'm
 
 <div class='caption'>
 
-![Screenshot of GraphiQl](./grahiql_screenshot.png "GraphiQL")
+![Screenshot of GraphiQl](./grahiql_screenshot.png 'GraphiQL')
+
 <p class='caption__text'>
     GraphiQL in action. Here we're quering a specific markdown file and some of its data. 
 </p>
@@ -50,7 +51,7 @@ Even though Gatsby is pretty new, the developers using it seem really involved. 
 
 It's telling that [most of the websites that are made with Gatsby](https://github.com/gatsbyjs/gatsby#showcase) are developer portfolios and documentation websites. It shows that Gatsby is still a bit in its early-adopters phase. But seeing what kind of sites are already made with Gatsby, I'm sure the future is bright. I've had a blast creating my own site with Gatsby ([checkout the github repo here](https://github.com/aderaaij/ardennl-gatsby)) and in the end it didn't take more than a weekend to complete, including doing the [tutorial](/tutorial/) and experimenting with the [Gatsby starters](/docs/gatsby-starters/).
 
-Some other thoughts I had while working with Gatsby: 
+Some other thoughts I had while working with Gatsby:
 
 ### It's fast
 
@@ -62,29 +63,27 @@ Data from anywhere with static output. That's sort of the holy grail isn't it? R
 
 <div class='caption'>
 
-```es6
+```js
 export const query = graphql`
-    query BlogPostQuery($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            html
-            fields {
-                slug
+  query BlogPostQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        date(formatString: "DD MMMM, YYYY")
+        cover {
+          childImageSharp {
+            resolutions(width: 1200) {
+              src
             }
-            frontmatter {
-                title
-                date(formatString: "DD MMMM, YYYY")
-                cover {
-                    childImageSharp {
-                        resolutions(
-                            width: 1200,
-                        ) {
-                            src
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     }
+  }
 `;
 ```
 
@@ -95,7 +94,7 @@ export const query = graphql`
 
 ### Deployment and content management can be so good!
 
-After reading some articles on the Gatsby site, I decided to set up my Gatsby hosting on a free plan from [Netlify](https://www.netlify.com/) (which is ridiculously generous by the way, what's the catch?) and that has been a fun experience. Netlify already supports Gatsby out of the box, which means you can configure automatic deploys with `git` in a few clicks. Every time I push to master, the site gets rebuild and uploaded by Netlify. *Magic*. There's also the possibility to configure staging servers based on your branches, so you can always test out your changes before merging to master and deploying.
+After reading some articles on the Gatsby site, I decided to set up my Gatsby hosting on a free plan from [Netlify](https://www.netlify.com/) (which is ridiculously generous by the way, what's the catch?) and that has been a fun experience. Netlify already supports Gatsby out of the box, which means you can configure automatic deploys with `git` in a few clicks. Every time I push to master, the site gets rebuild and uploaded by Netlify. _Magic_. There's also the possibility to configure staging servers based on your branches, so you can always test out your changes before merging to master and deploying.
 
 But wait, there's more. If you use [Contentful](https://www.contentful.com/) as Content Management System and Netlify as your host, you can easily create a Webhook to trigger a rebuild on every content update! I haven't tried this myself yet, but [this posts](https://www.halfelectronic.com/post/setting-up-gatsby-js-contentful-and-netlify/) by [Fernando Poumián](https://twitter.com/fernandopoumian) is a great resource to get you going.
 
@@ -107,7 +106,7 @@ Did you see the SVG traced image before the image was loaded? If not, you're pro
 
 ### Keep an eye on the output
 
-I'll start by admitting that I haven't validated the HTML of my own site yet, but I'm sure it'll need some work. I feel like the combination of JSX and using loads of React Components can make the HTML output messy real quick . Combined with the use of Gatsby plugins that also manipulate your output, I'd say it's extra important to keep an eye out on the generated code. I understand that GatsbyJS is very much about the modern web, but that's why we've got *progressive enhancement*.
+I'll start by admitting that I haven't validated the HTML of my own site yet, but I'm sure it'll need some work. I feel like the combination of JSX and using loads of React Components can make the HTML output messy real quick . Combined with the use of Gatsby plugins that also manipulate your output, I'd say it's extra important to keep an eye out on the generated code. I understand that GatsbyJS is very much about the modern web, but that's why we've got _progressive enhancement_.
 
 ### When your favorite tool is a hammer…
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { colorScheme } from '../../helpers/styleSettings';
-import { MarkdownRemarkNode } from '../../types';
+import { colorScheme } from '/src/helpers/styleSettings';
+import { MarkdownRemark } from 'src/types';
 import config from '../../../config/site-config';
 
-interface SeoProps {
-  post?: MarkdownRemarkNode;
+interface Props {
+  post?: MarkdownRemark;
 }
-const SEO = ({ post }: SeoProps) => {
+const SEO: React.FC<Props> = ({ post }) => {
   const { siteLinks } = config;
 
   let currentTitle;
@@ -18,20 +18,18 @@ const SEO = ({ post }: SeoProps) => {
   let pageTitle;
 
   if (post) {
-    pageTitle = post.frontmatter.title;
+    pageTitle = post?.frontmatter?.title;
     currentTitle = `${pageTitle} | ${config.siteName}`;
     currentDescription = post.excerpt;
     if (
-      post.frontmatter.cover &&
-      post.frontmatter.cover.childImageSharp.resolutions
+      post?.frontmatter?.cover &&
+      post?.frontmatter?.cover?.childImageSharp?.resolutions
     ) {
-      currentImage = `${config.siteUrl}${
-        post.frontmatter.cover.childImageSharp.resolutions.src
-      }`;
+      currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.resolutions.src}`;
     } else {
       currentImage = config.siteUrl + config.siteLogo;
     }
-    currentUrl = `${config.siteUrl}${post.fields.slug}`;
+    currentUrl = `${config.siteUrl}${post?.fields?.slug}`;
   } else {
     currentDescription = config.siteDescription;
     currentTitle = config.siteTitle;
@@ -43,7 +41,9 @@ const SEO = ({ post }: SeoProps) => {
       <title>{currentTitle}</title>
 
       {/* standard meta stuff */}
-      <meta name="description" content={currentDescription} />
+      {currentDescription && (
+        <meta name="description" content={currentDescription} />
+      )}
       <meta name="image" content={currentImage} />
       <meta name="mobile-web-app-capable" content="yes" />
 
@@ -51,7 +51,9 @@ const SEO = ({ post }: SeoProps) => {
       <meta property="og:locale" content={config.siteLanguage} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={currentTitle} />
-      <meta property="og:description" content={currentDescription} />
+      {currentDescription && (
+        <meta property="og:description" content={currentDescription} />
+      )}
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={config.siteName} />
       <meta property="og:image" content={currentImage} />
@@ -59,7 +61,9 @@ const SEO = ({ post }: SeoProps) => {
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:description" content={currentDescription} />
+      {currentDescription && (
+        <meta name="twitter:description" content={currentDescription} />
+      )}
       <meta name="twitter:title" content={currentTitle} />
       <meta name="twitter:site" content={`@${siteLinks.Twitter.handle}`} />
       <meta name="twitter:image" content={currentImage} />

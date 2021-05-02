@@ -3,10 +3,11 @@ const config = require('./config/site-config.js');
 module.exports = {
   siteMetadata: {
     title: 'Arden de Raaij - Front-end Web Developer',
-    siteUrl: config.siteUrl
+    siteUrl: config.siteUrl,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-emotion',
@@ -15,22 +16,29 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/content/posts`
-      }
+        path: `${__dirname}/content/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: `${__dirname}/src/`,
+        pages: `${__dirname}/src/pages`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/src/pages`
-      }
+        path: `${__dirname}/src/pages`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/assets/img`
-      }
+        path: `${__dirname}/src/assets/img`,
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -44,11 +52,11 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1600,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -65,18 +73,18 @@ module.exports = {
           {
             src: '/favicons/android-chrome-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/favicons/android-chrome-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-typescript'
-  ]
+    'gatsby-plugin-typescript',
+  ],
 };
