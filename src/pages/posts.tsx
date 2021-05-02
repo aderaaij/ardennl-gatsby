@@ -3,9 +3,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import config from '../../config/site-config';
 import Default from 'src/components/Layouts';
-import PostsList from 'src/components/PostsList/PostsList';
-import PostsListWrap from 'src/components/PostsListWrap/PostsListWrap';
-import SEO from 'src/components/SEO/SEO';
+import PostsList from 'src/components/PostsList/';
+import PostsListWrap from 'src/components/PostsListWrap';
+import SEO from 'src/components/SEO';
 import { MarkdownRemarkConnection } from 'src/types';
 
 interface Props {

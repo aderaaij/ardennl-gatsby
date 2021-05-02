@@ -1,6 +1,7 @@
 import * as React from 'react';
-import PostExcerpt from '../PostExcerpt/';
-import { MarkdownRemarkConnection } from '../../types';
+import PostExcerpt from 'src/components/PostExcerpt/';
+import { MarkdownRemarkConnection } from 'src/types';
+
 interface Props {
   edges: MarkdownRemarkConnection['edges'];
   context?: string;

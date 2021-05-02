@@ -4,11 +4,11 @@ import Link from 'gatsby-link';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import Tag from '../TagLabel/TagLabel';
-import ExcerptMeta from '../ExcerptMeta';
-import { colorScheme } from '../../helpers/styleSettings';
-import { preventWidow, goToPage } from '../../helpers/helpers';
-import { MarkdownRemark } from '../../types';
+import Tag from 'src/components/TagLabel';
+import ExcerptMeta from 'src/components/ExcerptMeta';
+import { colorScheme } from 'src/helpers/styleSettings';
+import { preventWidow, goToPage } from 'src/helpers/helpers';
+import { MarkdownRemark } from 'src/types';
 
 interface Props {
   context?: string;

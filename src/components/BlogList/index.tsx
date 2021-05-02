@@ -1,9 +1,9 @@
 import Helmet from 'react-helmet';
 import Default from '../Layouts';
-import PostsList from '../PostsList/PostsList';
-import PostsListWrap from '../PostsListWrap/PostsListWrap';
-import SEO from '../SEO/SEO';
-import { MarkdownRemarkConnection } from '../../types';
+import PostsList from 'src/components/PostsList/';
+import PostsListWrap from 'src/components/PostsListWrap';
+import SEO from 'src/components/SEO';
+import { MarkdownRemarkConnection } from 'src/types';
 import config from '../../../config/site-config';
 
 interface Props {

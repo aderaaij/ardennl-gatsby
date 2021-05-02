@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GatsbyImage } from 'gatsby-plugin-image';
-import Tag from 'src/components/TagLabel/TagLabel';
+import Tag from 'src/components/TagLabel';
 import PostExcerptBackground from 'src/components/PostExcerptBackground/';
 import ExcerptMeta from 'src/components/ExcerptMeta';
 import { preventWidow } from 'src/helpers/helpers';

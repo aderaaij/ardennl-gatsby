@@ -1,5 +1,5 @@
 import { ArticleContentStyled, ArticleEntryContent } from './styles';
-import { MarkdownRemark } from '../../types';
+import { MarkdownRemark } from 'src/types';
 
 interface Props {
   html: MarkdownRemark['html'];

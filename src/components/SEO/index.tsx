@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { colorScheme } from '/src/helpers/styleSettings';
-import { MarkdownRemark } from '../../types';
+import { MarkdownRemark } from 'src/types';
 import config from '../../../config/site-config';
 
 interface Props {

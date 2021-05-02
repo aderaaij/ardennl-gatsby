@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { colorScheme } from '../../helpers/styleSettings';
-import { GridBase, ContentLimit } from '../../helpers/grid';
+import { colorScheme } from 'src/helpers/styleSettings';
+import { GridBase, ContentLimit } from 'src/helpers/grid';
 
 export const ArticleHeroStyled = styled.figure`
   width: 100%;

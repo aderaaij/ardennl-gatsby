@@ -4,8 +4,8 @@ import { Global } from '@emotion/react';
 import 'normalize.css';
 
 import config from '../../../config/site-config';
-import SiteHeader from 'src/components/SiteHeader/SiteHeader';
-import Piwik from 'src/components/Piwik/Piwik';
+import SiteHeader from 'src/components/SiteHeader';
+import Piwik from 'src/components/Piwik';
 import Typekit from 'src/components/Typekit';
 import { globalCss } from 'src/helpers/global';
 

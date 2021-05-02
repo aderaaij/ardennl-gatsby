@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { GridBase, ContentLimit } from '../../helpers/grid';
+import { GridBase, ContentLimit } from 'src/helpers/grid';
 
 const BlogSection = styled.section`
   min-height: 100%;

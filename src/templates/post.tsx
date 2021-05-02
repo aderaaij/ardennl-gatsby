@@ -5,12 +5,12 @@ import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
-import ArticleContent from '../components/ArticleContent/';
-import ArticleFooter from '../components/ArticleFooter/';
-import ArticleHero from '../components/ArticleHero/';
-import Default from '../components/Layouts';
-import SEO from '../components/SEO/SEO';
-import { MarkdownRemark } from '../types';
+import ArticleContent from 'src/components/ArticleContent/';
+import ArticleFooter from 'src/components/ArticleFooter/';
+import ArticleHero from 'src/components/ArticleHero/';
+import Default from 'src/components/Layouts';
+import SEO from 'src/components/SEO';
+import { MarkdownRemark } from 'src/types';
 
 const Article = styled.article`
   padding-bottom: 4em;

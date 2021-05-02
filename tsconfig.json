@@ -12,7 +12,7 @@
     "noUnusedLocals": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "src/*": ["src/*"]
     }
   },
   "include": ["src/**/*", "tests/**/*", "config/**/*"],

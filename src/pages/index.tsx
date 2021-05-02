@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import Default from 'src/components/Layouts';
-import SEO from 'src/components/SEO/SEO';
+import SEO from 'src/components/SEO';
 import { ContentLimit, GridBase } from 'src/helpers/grid';
 import { colorScheme } from 'src/helpers/styleSettings';
 import { FileConnection, MarkdownRemarkConnection, FileEdge } from 'src/types';

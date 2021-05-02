@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { GridBase, ContentLimit } from '../../helpers/grid';
-import { colorScheme } from '../../helpers/styleSettings';
+import { GridBase, ContentLimit } from 'src/helpers/grid';
+import { colorScheme } from 'src/helpers/styleSettings';
 
 export const FooterStyled = styled.div`
   padding: 0 1em;

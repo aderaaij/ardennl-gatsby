@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { GridBase, ContentLimit } from '../../helpers/grid';
-import { colorScheme } from '../../helpers/styleSettings';
+import { GridBase, ContentLimit } from 'src/helpers/grid';
+import { colorScheme } from 'src/helpers/styleSettings';
 
 const fullMedia = css`
   position: relative;

@@ -1,11 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import { MarkdownRemarkConnection } from '../types';
-import SEO from '../components/SEO/SEO';
-import PostsList from '../components/PostsList/PostsList';
-import PostsListWrap from '../components/PostsListWrap/PostsListWrap';
-import Default from '../components/Layouts';
+import { MarkdownRemarkConnection } from 'src/types';
+import SEO from 'src/components/SEO';
+import PostsList from 'src/components/PostsList';
+import PostsListWrap from 'src/components/PostsListWrap';
+import Default from 'src/components/Layouts';
 import config from '../../config/site-config';
 
 interface Props {
