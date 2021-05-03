@@ -25,7 +25,7 @@ const ArticleHero: React.FC<Props> = ({ frontmatter, fadeIn }) => {
   const { title, category, tags, date, published, cover } = frontmatter;
   return (
     <ArticleHeroStyled css={cover ? '' : articleHeroSmall}>
-      {cover?.childImageSharp?.fluid && (
+      {cover?.childImageSharp?.gatsbyImageData && (
         <GatsbyImage
           css={imgStyle}
           alt=""

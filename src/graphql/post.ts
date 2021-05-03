@@ -21,23 +21,6 @@ export const defaultPostQuery = graphql`
             placeholder: TRACED_SVG
             tracedSVGOptions: { color: "#37474F", blackOnWhite: false }
           )
-          fluid(
-            maxWidth: 1200
-            traceSVG: { color: "#37474F", blackOnWhite: false }
-          ) {
-            base64
-            tracedSVG
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-            originalImg
-            originalName
-            presentationWidth
-            presentationHeight
-          }
         }
       }
     }

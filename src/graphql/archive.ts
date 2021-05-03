@@ -21,12 +21,6 @@ export const archiveQuery = graphql`
             placeholder: TRACED_SVG
             tracedSVGOptions: { color: "#37474F", blackOnWhite: false }
           )
-          # resolutions(
-          #   width: 1200
-          #   traceSVG: { color: "#37474F", blackOnWhite: false }
-          # ) {
-          #   tracedSVG
-          # }
         }
       }
     }

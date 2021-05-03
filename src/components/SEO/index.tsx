@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-
-import { colorScheme } from '/src/helpers/styleSettings';
+import { colorScheme } from 'src/helpers/styleSettings';
 import { MarkdownRemark } from 'src/types';
 import config from '../../../config/site-config';
 
@@ -21,11 +20,8 @@ const SEO: React.FC<Props> = ({ post }) => {
     pageTitle = post?.frontmatter?.title;
     currentTitle = `${pageTitle} | ${config.siteName}`;
     currentDescription = post.excerpt;
-    if (
-      post?.frontmatter?.cover &&
-      post?.frontmatter?.cover?.childImageSharp?.resolutions
-    ) {
-      currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.resolutions.src}`;
+    if (post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData) {
+      currentImage = `${config.siteUrl}${post.frontmatter.cover.childImageSharp.gatsbyImageData.images.fallback.src}`;
     } else {
       currentImage = config.siteUrl + config.siteLogo;
     }

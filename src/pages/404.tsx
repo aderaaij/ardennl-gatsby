@@ -59,8 +59,10 @@ const NotFoundPage: React.FC<Props> = ({ data }) => {
   return (
     <Default>
       <NotFoundWrap>
-        {bg && bg.node.childImageSharp && bg.node.childImageSharp.fluid && (
-          <NotFoundimage src={bg.node.childImageSharp?.fluid.tracedSVG} />
+        {bg?.node?.childImageSharp?.gatsbyImageData && (
+          <NotFoundimage
+            src={bg.node.childImageSharp.gatsbyImageData.placeholder.fallback}
+          />
         )}
         <NotFoundContent>
           <h1>404 - NOT FOUND</h1>

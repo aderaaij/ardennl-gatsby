@@ -4,10 +4,9 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
-
-import ArticleContent from 'src/components/ArticleContent/';
-import ArticleFooter from 'src/components/ArticleFooter/';
-import ArticleHero from 'src/components/ArticleHero/';
+import ArticleContent from 'src/components/ArticleContent';
+import ArticleFooter from 'src/components/ArticleFooter';
+import ArticleHero from 'src/components/ArticleHero';
 import Default from 'src/components/Layouts';
 import SEO from 'src/components/SEO';
 import { MarkdownRemark } from 'src/types';
@@ -23,7 +22,6 @@ interface Props {
 const Post: React.FC<Props> = ({ data }) => {
   const [fadeIn, setFadeIn] = useState(false);
   const { frontmatter, html } = data.markdownRemark;
-
   useEffect(() => {
     setFadeIn(true);
   }, []);
@@ -36,7 +34,9 @@ const Post: React.FC<Props> = ({ data }) => {
             <meta name="robots" content="noindex" />
           </Helmet>
         )}
-        <ArticleHero frontmatter={frontmatter} fadeIn={fadeIn} />
+        {frontmatter && (
+          <ArticleHero frontmatter={frontmatter} fadeIn={fadeIn} />
+        )}
         <ArticleContent html={html} />
         <ArticleFooter />
       </Article>

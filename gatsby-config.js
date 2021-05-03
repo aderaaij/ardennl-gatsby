@@ -10,20 +10,18 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-emotion',
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        cssPropOptimization: true,
+      },
+    },
     'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
         path: `${__dirname}/content/posts`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: `${__dirname}/src/`,
-        pages: `${__dirname}/src/pages`,
       },
     },
     {
@@ -38,6 +36,13 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/assets/img`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: `${__dirname}/src/`,
+        pages: `${__dirname}/src/pages`,
       },
     },
     {
